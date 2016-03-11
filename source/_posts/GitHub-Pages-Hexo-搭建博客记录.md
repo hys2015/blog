@@ -82,6 +82,37 @@ lf是linux系统中使用的换行符，crlf是windows中使用的换行符。
 > 
 > `$ git config --global core.autocrlf false`
 
+## 个性化博客
+我使用的是[NexT-Muse][10]主题，这个主题提供的插件什么的都挺齐全。
+### 为博客添加[多说][11]的评论功能
+配置相当简单，在主题 themes/next/_config.yml 文件中找到如下内容
+```
+duoshuo_info:
+  ua_enable: true
+  admin_enable: true
+  user_id: 
+  #admin_nickname: ROOT
+
+```
+user_id 改为自己多说的id
+ua_enable 是开启获取用户平台功能，开启之后会显示用户所用的操作系统和浏览器版本
+admin_enable 是开启标记博主功能
+
+#### 获取user_id的方法
+找到自己的留言，在用户名上右键->检查（资源审查），然后如图
+![获取user_id](/blog/images/user_id.png "获取user_id")
+将拿到的user_id放到，上面那段代码的user_id: 后面，注意**冒号之后**一定要有**空格**
+然后评论后面就会有相应的标记了
+
+#### 多说后台添加自定义css
+一张图说明一切
+![添加自定义css](/blog/images/custom_css.png "添加自定义css")
+
+#### 添加统计功能
+使用[不蒜子][12]，功能介绍详细，使用方便
+
+--END--
+
   [1]: http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000 "廖雪峰的Git教程"
   [2]: https://pages.github.com/ "GitHub Pages 官方网站"
   [3]: https://hexo.io/zh-cn/%20hexo-%E5%BF%AB%E9%80%9F%E3%80%81%E7%AE%80%E6%B4%81%E4%B8%94%E9%AB%98%E6%95%88%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6
@@ -91,3 +122,7 @@ lf是linux系统中使用的换行符，crlf是windows中使用的换行符。
   [7]: http://zhihu.com/question/21193762/answer/79109280?utm_campaign=webshare&amp;utm_source=weibo&amp;utm_medium=zhihu "CrazyMilk的回答"
   [8]: https://help.github.com/articles/generating-an-ssh-key/ "Generating an SSH key"
   [9]: https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#adding-your-ssh-key-to-the-ssh-agent "Add your SSH key to your ssh-agent"
+  [10]: http://theme-next.iissnan.com/ "NexT文档"
+  [11]: http://duoshuo.com/ "多说"
+  [12]: http://ibruce.info/2015/04/04/busuanzi/ "不蒜子简易计数"
+  

@@ -1,3 +1,19 @@
 .links-of-author a:before {
   background: #FFA500;
 }
+.sidebar-nav .sidebar-nav-active {
+    color: #FFA500;
+    border-bottom-color: #FFA500;
+}
+.sidebar-nav .sidebar-nav-active:hover {
+    color: #FFA500;
+}
+.post-toc .nav .active-current > a {
+    color: #FFA500;
+}
+.page-post-detail .sidebar-toggle-line {
+    background: #FFA500;
+}
+header.header{
+	border-bottom: 1px solid #E2E2E2;
+}
