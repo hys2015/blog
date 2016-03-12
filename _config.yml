@@ -96,7 +96,6 @@ category_generator:
 # npm install hexo-generator-feed --save
 plugin:
 - hexo-generator-feed
-feed:
 type: atom
 path: atom.xml
 limit: 20

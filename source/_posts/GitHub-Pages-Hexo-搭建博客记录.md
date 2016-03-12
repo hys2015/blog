@@ -108,10 +108,46 @@ admin_enable 是开启标记博主功能
 一张图说明一切
 ![添加自定义css](http://7xrsid.com1.z0.glb.clouddn.com/blogcustom_css.png "添加自定义css")
 
-#### 添加统计功能
+### 添加统计功能
 使用[不蒜子][12]，功能介绍详细，使用方便
 
---END--
+### --2016-3-12更新--
+### 添加 RSS 订阅
+使用hexo的插件 hexo-generator-feed
+项目地址: [hexo-generator-feed][16]
+安装方法
+```
+npm install hexo-generator-feed --save
+```
+然后在 hexo/_config.yml 中添加
+```
+plugin:
+- hexo-generator-feed
+type: atom
+path: atom.xml
+limit: 20
+```
+注意冒号后的空格
+
+然后，再使用 `hexo g` 命令，就能生成rss文件了
+
+在NexT主题的 _config.xml 中，在rss后面添加 /atom.xml，就会在头像下方出现RSS图标，点击就是刚刚生成的xml文件 
+
+### 添加 自动生成 sitemap(网站地图)
+
+使用 hexo 的插件 hexo-generator-sitemap
+项目地址：Github:[hexo-generator-sitemap][15]
+安装方法
+```
+npm install hexo-generator-sitemap --save
+```
+在 hexo/_config.xml 中添加一行
+```
+sitemap: sitemap.xml
+```
+然后再执行 `hexo g` 之后，访问 yoururl/sitemap.xml 就能看到生成的sitemap文件了。
+然后把sitemap文件url添加到[百度站长][13]或者[Google Analytics][14]上，就能够被搜索引擎收录了。
+
 
   [1]: http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000 "廖雪峰的Git教程"
   [2]: https://pages.github.com/ "GitHub Pages 官方网站"
@@ -125,4 +161,7 @@ admin_enable 是开启标记博主功能
   [10]: http://theme-next.iissnan.com/ "NexT文档"
   [11]: http://duoshuo.com/ "多说"
   [12]: http://ibruce.info/2015/04/04/busuanzi/ "不蒜子简易计数"
-  
+  [13]: http://zhanzhang.baidu.com "百度站长"
+  [14]: https://analytics.google.com/analytics/web/ "Google Analytics"
+  [15]: https://github.com/hexojs/hexo-generator-sitemap "hexo-sitemap"
+  [16]: https://github.com/hexojs/hexo-generator-feed "hexo-feed"
