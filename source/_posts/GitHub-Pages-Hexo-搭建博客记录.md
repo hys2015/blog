@@ -100,13 +100,13 @@ admin_enable 是开启标记博主功能
 
 #### 获取user_id的方法
 找到自己的留言，在用户名上右键->检查（资源审查），然后如图
-![获取user_id](/blog/images/user_id.png "获取user_id")
+![获取user_id](http://7xrsid.com1.z0.glb.clouddn.com/bloguser_id.png "获取user_id")
 将拿到的user_id放到，上面那段代码的user_id: 后面，注意**冒号之后**一定要有**空格**
 然后评论后面就会有相应的标记了
 
 #### 多说后台添加自定义css
 一张图说明一切
-![添加自定义css](/blog/images/custom_css.png "添加自定义css")
+![添加自定义css](http://7xrsid.com1.z0.glb.clouddn.com/blogcustom_css.png "添加自定义css")
 
 #### 添加统计功能
 使用[不蒜子][12]，功能介绍详细，使用方便
