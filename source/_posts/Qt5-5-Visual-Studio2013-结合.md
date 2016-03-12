@@ -5,7 +5,7 @@ tags:
 - Qt
 - VisualStudio
 - 学习记录
-categroy:
+category:
 - 学习记录
 
 ---
