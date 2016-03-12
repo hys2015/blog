@@ -78,6 +78,7 @@ deploy:
 # npm install hexo-generator-category --save
 # npm install hexo-generator-tag --save
 
+
 index_generator: 
   per_page: 10
   
@@ -91,6 +92,13 @@ tag_generator:
 
 category_generator:
   per_page: 10
-  
-# nexT theme
-since: 2016
+
+# npm install hexo-generator-feed --save
+plugin:
+- hexo-generator-feed
+feed:
+type: atom
+path: atom.xml
+limit: 20
+
+sitemap: sitemap.xml
