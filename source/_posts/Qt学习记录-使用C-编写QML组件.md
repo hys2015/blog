@@ -123,6 +123,10 @@ int main(int argc, char *argv[])
 必要的qt头文件没有include，导致构建时出现了莫名其妙的错误，看log也看不出来代码哪里写错了，全是stdio.h中的错误。以后要谨记这点。
 
 
+# 参考文档
+
+- [Writing QML Extensions with C++][9]
+
 
 [1]: http://doc.qt.io/qt-5/qtqml-index.html "Qt QML"
 [2]: https://zh.wikipedia.org/wiki/QML "QML wikipedia"
@@ -132,3 +136,4 @@ int main(int argc, char *argv[])
 [6]: http://doc.qt.io/qt-5/qobject.html#Q_PROPERTY "Q_PROPERTY"
 [7]: http://doc.qt.io/qt-5/qobject.html#Q_INVOKABLE "Q_INVOKABLE"
 [8]: http://doc.qt.io/qt-5/qobject.html "QObject"
+[9]: http://doc.qt.io/qt-5/qtqml-tutorials-extending-qml-example.html "Writing QML Extensions with C++"
