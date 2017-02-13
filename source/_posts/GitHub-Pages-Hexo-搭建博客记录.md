@@ -5,7 +5,7 @@ tags:
 - Hexo
 - GitHub Pages
 category: 
-- 随笔
+- 日常
 ---
 
 曾经想用阿里云ecs自己搭一个博客，平常可以写点东西放上去，结果过于麻烦并且不必要。Github Pages + Hexo是在windows上很友好的一个组合。

@@ -12,8 +12,8 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://hengyishu.cn/blog
-root: /blog/
+url: http://hengyishu.cn
+root: /blog
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
@@ -68,9 +68,12 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy: 
-  type: git
+- type: git
   repo: git@github.com:hys2015/blog.git
   branch: gh-pages
+- type: git
+  repo: git@git.coding.net:markheng/blog.git
+  branch: coding-pages
   
 # Extension 
 # npm install hexo-generator-index --save

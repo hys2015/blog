@@ -1,0 +1,22 @@
+
+2016年4月10日17:07:33
+---
+
+# 继承QOpenGLWidget实现OpenGL
+一般的OpenGL实现需要将图形绘制在一个窗口内，Qt可以将OpenGL绘制在组件内，方便管理
+
+
+# Qt中指定OpenGL版本
+qt中默认支持的OpenGL版本为es2.0，我使用的是3.3，需要让`GraphicEngine`类继承`QOpenGLFunctions_3_3_Core`
+```
+/*===========GraphicEngine.h=============*/
+...
+class GraphicEngine : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
+{
+	// class content 
+	...
+}
+other code
+...
+```
+
