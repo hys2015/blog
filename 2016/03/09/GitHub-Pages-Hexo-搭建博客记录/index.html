@@ -1,0 +1,959 @@
+<!doctype html>
+
+
+
+  
+
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/blog/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/blog/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo,GitHub Pages," />
+
+
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="持之以恒" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="曾经想用阿里云ecs自己搭一个博客，平常可以写点东西放上去，结果过于麻烦并且不必要。Github Pages + Hexo是在windows上很友好的一个组合。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub Pages + Hexo 搭建博客记录">
+<meta property="og:url" content="http://hengyishu.cn/2016/03/09/GitHub-Pages-Hexo-搭建博客记录/index.html">
+<meta property="og:site_name" content="持之以恒">
+<meta property="og:description" content="曾经想用阿里云ecs自己搭一个博客，平常可以写点东西放上去，结果过于麻烦并且不必要。Github Pages + Hexo是在windows上很友好的一个组合。">
+<meta property="og:image" content="http://7xrsid.com1.z0.glb.clouddn.com/bloguser_id.png">
+<meta property="og:image" content="http://7xrsid.com1.z0.glb.clouddn.com/blogcustom_css.png">
+<meta property="og:updated_time" content="2017-02-16T10:43:05.966Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GitHub Pages + Hexo 搭建博客记录">
+<meta name="twitter:description" content="曾经想用阿里云ecs自己搭一个博客，平常可以写点东西放上去，结果过于麻烦并且不必要。Github Pages + Hexo是在windows上很友好的一个组合。">
+<meta name="twitter:image" content="http://7xrsid.com1.z0.glb.clouddn.com/bloguser_id.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6260328050223744000,
+      author: '博主'
+    }
+  };
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+            
+
+<link href="/blog/css/markcss.css" rel="stylesheet" type="text/css" />
+
+  <title> GitHub Pages + Hexo 搭建博客记录 | 持之以恒 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/blog/"  class="brand" rel="start">
+      <span class="logo-line-before"><i style="transform:translateX(100%);"></i></span>
+      <span class="site-title">持之以恒</span>
+      <span class="logo-line-after"><i style="transform:translateX(0);"></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">There's always something behind me.</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="http://hengyishu.cn" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/blog/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                GitHub Pages + Hexo 搭建博客记录
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-09T16:12:01+08:00" content="2016-03-09">
+              2016-03-09
+            </time>
+          </span>
+		  
+		  
+		    <span id="busuanzi_container_page_pv">&nbsp;&nbsp;|&nbsp;&nbsp;阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
+		  
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/blog/categories/日常/" itemprop="url" rel="index">
+                    <span itemprop="name">日常</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/blog/2016/03/09/GitHub-Pages-Hexo-搭建博客记录/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/09/GitHub-Pages-Hexo-搭建博客记录/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>曾经想用阿里云ecs自己搭一个博客，平常可以写点东西放上去，结果过于麻烦并且不必要。Github Pages + Hexo是在windows上很友好的一个组合。<br><a id="more"></a><br>好多教程里用的是 jekyll 来生成静态网页，但是在windows上使用并不是官方推荐的，所以我使用了hexo作为生成工具。</p>
+<h1 id="需要安装的软件"><a href="#需要安装的软件" class="headerlink" title="需要安装的软件"></a>需要安装的软件</h1><ul>
+<li><a href="https://nodejs.org/en/" title="node.js" target="_blank" rel="external">node.js</a></li>
+<li><a href="https://git-scm.com/downloads" title="Git Download Page" target="_blank" rel="external">git</a></li>
+<li><a href="https://hexo.io/zh-cn/%20hexo-%E5%BF%AB%E9%80%9F%E3%80%81%E7%AE%80%E6%B4%81%E4%B8%94%E9%AB%98%E6%95%88%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6" target="_blank" rel="external">hexo</a></li>
+</ul>
+<h1 id="关于Git及GitHub"><a href="#关于Git及GitHub" class="headerlink" title="关于Git及GitHub"></a>关于Git及GitHub</h1><h2 id="Git-amp-GitHub"><a href="#Git-amp-GitHub" class="headerlink" title="Git &amp; GitHub"></a>Git &amp; GitHub</h2><p>关于Git的教程网上很多，我推荐我看过的一个<br><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" title="廖雪峰的Git教程" target="_blank" rel="external">廖雪峰的Git教程</a><br>里面说的很详细，不再赘述</p>
+<h2 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h2><p>GitHub是一个在线托管仓库，GitHub Pages就是把你的仓库变成一个可以访问的静态网站的功能。</p>
+<p>相关介绍(同时也是官方教程):<br><a href="https://pages.github.com/" title="GitHub Pages 官方网站" target="_blank" rel="external">GitHub Pages</a></p>
+<p>通过Github Pages你可以为你的Github账户建立一个自己的主页，每一个托管在github上的项目都可以作为一个二级目录来展示你网站的相应的部分或者实现相应的功能。</p>
+<p>由于只支持静态网页的访问（毕竟免费），所以如果想要搭建博客，那么就需要一套自动生成静态网页的工具，还要整合一些网络上的服务，以便于让自己的博客功能更加丰富。</p>
+<h2 id="开启Github-Pages"><a href="#开启Github-Pages" class="headerlink" title="开启Github Pages"></a>开启Github Pages</h2><p>网上各种教程，比如这个:<br><a href="http://lovenight.github.io/2015/11/10/Hexo-3-1-1-%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/" title="loveNight hexo3.3.1搭建博客指南" target="_blank" rel="external">Hexo3.3.1搭建博客指南</a></p>
+<h1 id="关于Hexo"><a href="#关于Hexo" class="headerlink" title="关于Hexo"></a>关于Hexo</h1><p>官网链接：<br><a href="https://hexo.io/zh-cn/%20hexo-%E5%BF%AB%E9%80%9F%E3%80%81%E7%AE%80%E6%B4%81%E4%B8%94%E9%AB%98%E6%95%88%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6" target="_blank" rel="external">Hexo - 快速、简洁且高效的博客框架</a><br>需要注意的是安装之前需要先安装node.js，下载请到这里:<br><a href="https://nodejs.org/en/" title="node.js" target="_blank" rel="external">nodejs.org</a><br>hexo安装完成之后，参考hexo官网的文档，或者上面那篇<a href="http://lovenight.github.io/2015/11/10/Hexo-3-1-1-%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/" title="loveNight hexo3.3.1搭建博客指南" target="_blank" rel="external">博客</a>内的说明，就可以使用hexo进行博客的更新的管理了。<br>如果需要美化的话，hexo中提供的有主题，也可以自己根据需要制作。</p>
+<h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><h2 id="git-filename-filepath-too-long"><a href="#git-filename-filepath-too-long" class="headerlink" title="git filename/filepath too long"></a>git filename/filepath too long</h2><p>因为想要保存hexo源文件到github，便于换电脑时候也能写博客（参考<a href="http://zhihu.com/question/21193762/answer/79109280?utm_campaign=webshare&amp;utm_source=weibo&amp;utm_medium=zhihu" title="CrazyMilk的回答" target="_blank" rel="external">这里</a>），使用<code>git add .</code> 命令时提示node_modules中的文件有一部分因为名字太长而无法访问，找到一个说法是可以在git内设置变量如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --global core.longpaths true</div></pre></td></tr></table></figure></p>
+<p>可以让git接收过长的路径名，结果还是不行<br>google了一下发现是windows api的锅，所以只好把 node_modules文件夹放入 .gitignore文件，解决</p>
+<h2 id="git-permission-denied"><a href="#git-permission-denied" class="headerlink" title="git permission denied"></a>git permission denied</h2><p>因为 git bash（安装git之后的终端窗口）连接github仓库时需要rsa密钥，我之前用的是github的bash，所以有密钥，就不要生成新的秘钥，再添加到github的白名单里了。<br>添加秘钥的方法参考:<br><a href="https://help.github.com/articles/generating-an-ssh-key/" title="Generating an SSH key" target="_blank" rel="external">Generate a SSH key</a><br><a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#adding-your-ssh-key-to-the-ssh-agent" title="Add your SSH key to your ssh-agent" target="_blank" rel="external">Adding your SSH key to the ssh-agent</a></p>
+<h2 id="自动替换crlf为lf"><a href="#自动替换crlf为lf" class="headerlink" title="自动替换crlf为lf"></a>自动替换crlf为lf</h2><p>lf是linux系统中使用的换行符，crlf是windows中使用的换行符。<br>因为windows和linux在换行符上的差异。因为跨平台的特性，git默认会检查换行符，并给出警告。<br>一下引用自git官方文档:</p>
+<blockquote>
+<p><code>core.autocrlf</code><br>假如你正在Windows上写程序，又或者你正在和其他人合作，他们在Windows上编程，而你却在其他系统上，在这些情况下，你可能会遇到行尾结束符问题。这是因为Windows使用回车和换行两个字符来结束一行，而Mac和Linux只使用换行一个字符。虽然这是小问题，但它会极大地扰乱跨平台协作。</p>
+<p>Git可以在你提交时自动地把行结束符CRLF转换成LF，而在签出代码时把LF转换成CRLF。用core.autocrlf来打开此项功能，如果是在Windows系统上，把它设置成true，这样当签出代码时，LF会被转换成CRLF：</p>
+<p><code>$git config --global core.autocrlf true</code><br>Linux或Mac系统使用LF作为行结束符，因此你不想<br>Git<br>在签出文件时进行自动的转换；当一个以CRLF为行结束符的文件不小心被引入时你肯定想进行修正，把core.autocrlf设置成input来告诉<br>Git 在提交时把CRLF转换成LF，签出时不转换：</p>
+<p><code>$ git config --global core.autocrlf input</code></p>
+<p>这样会在Windows系统上的签出文件中保留CRLF，会在Mac和Linux系统上，包括仓库中保留LF。</p>
+<p>如果你是Windows程序员，且正在开发仅运行在Windows上的项目，可以设置false取消此功能，把回车符记录在库中：</p>
+<p><code>$ git config --global core.autocrlf false</code></p>
+</blockquote>
+<h2 id="个性化博客"><a href="#个性化博客" class="headerlink" title="个性化博客"></a>个性化博客</h2><p>我使用的是<a href="http://theme-next.iissnan.com/" title="NexT文档" target="_blank" rel="external">NexT-Muse</a>主题，这个主题提供的插件什么的都挺齐全。</p>
+<h3 id="为博客添加多说的评论功能"><a href="#为博客添加多说的评论功能" class="headerlink" title="为博客添加多说的评论功能"></a>为博客添加<a href="http://duoshuo.com/" title="多说" target="_blank" rel="external">多说</a>的评论功能</h3><p>配置相当简单，在主题 themes/next/_config.yml 文件中找到如下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">duoshuo_info:</div><div class="line">  ua_enable: true</div><div class="line">  admin_enable: true</div><div class="line">  user_id: </div><div class="line">  #admin_nickname: ROOT</div></pre></td></tr></table></figure></p>
+<p>user_id 改为自己多说的id<br>ua_enable 是开启获取用户平台功能，开启之后会显示用户所用的操作系统和浏览器版本<br>admin_enable 是开启标记博主功能</p>
+<h4 id="获取user-id的方法"><a href="#获取user-id的方法" class="headerlink" title="获取user_id的方法"></a>获取user_id的方法</h4><p>找到自己的留言，在用户名上右键-&gt;检查（资源审查），然后如图<br><img src="http://7xrsid.com1.z0.glb.clouddn.com/bloguser_id.png" alt="获取user_id" title="获取user_id"><br>将拿到的user_id放到，上面那段代码的user_id: 后面，注意<strong>冒号之后</strong>一定要有<strong>空格</strong><br>然后评论后面就会有相应的标记了</p>
+<h4 id="多说后台添加自定义css"><a href="#多说后台添加自定义css" class="headerlink" title="多说后台添加自定义css"></a>多说后台添加自定义css</h4><p>一张图说明一切<br><img src="http://7xrsid.com1.z0.glb.clouddn.com/blogcustom_css.png" alt="添加自定义css" title="添加自定义css"></p>
+<h3 id="添加统计功能"><a href="#添加统计功能" class="headerlink" title="添加统计功能"></a>添加统计功能</h3><p>使用<a href="http://ibruce.info/2015/04/04/busuanzi/" title="不蒜子简易计数" target="_blank" rel="external">不蒜子</a>，功能介绍详细，使用方便</p>
+<h3 id="–2016-3-12更新–"><a href="#–2016-3-12更新–" class="headerlink" title="–2016-3-12更新–"></a>–2016-3-12更新–</h3><h3 id="添加-RSS-订阅"><a href="#添加-RSS-订阅" class="headerlink" title="添加 RSS 订阅"></a>添加 RSS 订阅</h3><p>使用hexo的插件 hexo-generator-feed<br>项目地址: <a href="https://github.com/hexojs/hexo-generator-feed" title="hexo-feed" target="_blank" rel="external">hexo-generator-feed</a><br>安装方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-feed --save</div></pre></td></tr></table></figure></p>
+<p>然后在 hexo/_config.yml 中添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">plugin:</div><div class="line">- hexo-generator-feed</div><div class="line">type: atom</div><div class="line">path: atom.xml</div><div class="line">limit: 20</div></pre></td></tr></table></figure></p>
+<p>注意冒号后的空格</p>
+<p>然后，再使用 <code>hexo g</code> 命令，就能生成rss文件了</p>
+<p>在NexT主题的 _config.xml 中，在rss后面添加 /atom.xml，就会在头像下方出现RSS图标，点击就是刚刚生成的xml文件 </p>
+<h3 id="添加-自动生成-sitemap-网站地图"><a href="#添加-自动生成-sitemap-网站地图" class="headerlink" title="添加 自动生成 sitemap(网站地图)"></a>添加 自动生成 sitemap(网站地图)</h3><p>使用 hexo 的插件 hexo-generator-sitemap<br>项目地址：Github:<a href="https://github.com/hexojs/hexo-generator-sitemap" title="hexo-sitemap" target="_blank" rel="external">hexo-generator-sitemap</a><br>安装方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-sitemap --save</div></pre></td></tr></table></figure></p>
+<p>在 hexo/_config.xml 中添加一行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sitemap: sitemap.xml</div></pre></td></tr></table></figure></p>
+<p>然后再执行 <code>hexo g</code> 之后，访问 yoururl/sitemap.xml 就能看到生成的sitemap文件了。<br>然后把sitemap文件url添加到<a href="http://zhanzhang.baidu.com" title="百度站长" target="_blank" rel="external">百度站长</a>或者<a href="https://analytics.google.com/analytics/web/" title="Google Analytics" target="_blank" rel="external">Google Analytics</a>上，就能够被搜索引擎收录了。</p>
+<h2 id="消除hexo转义符对mathjax公式的影响"><a href="#消除hexo转义符对mathjax公式的影响" class="headerlink" title="消除hexo转义符对mathjax公式的影响"></a>消除hexo转义符对mathjax公式的影响</h2><p>参考问题中修改marked.js的回答，目前还没有发现什么问题。<br><a href="https://segmentfault.com/q/1010000003987383/a-1020000003987577" target="_blank" rel="external">https://segmentfault.com/q/1010000003987383/a-1020000003987577</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/Hexo/" rel="tag">#Hexo</a>
+          
+            <a href="/blog/tags/GitHub-Pages/" rel="tag">#GitHub Pages</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2016/03/12/Qt5-5-Visual-Studio2013-结合/" rel="prev" title="Qt5.5 + Visual Studio 2013 结合">
+               下一篇: Qt5.5 + Visual Studio 2013 结合 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/09/GitHub-Pages-Hexo-搭建博客记录/"
+           data-title="GitHub Pages + Hexo 搭建博客记录" data-url="http://hengyishu.cn/blog/2016/03/09/GitHub-Pages-Hexo-搭建博客记录/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/blog/images/avatar.png"
+               alt="Mark Heng" />
+          <p class="site-author-name" itemprop="name">Mark Heng</p>
+          <p class="site-description motion-element" itemprop="description">我们的目标是星辰大海啊!</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/blog/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/blog/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/blog/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/blog/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+		     <p class="site-author-name">联系我</p>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/hys2015" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/i93hys" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://zhihu.com/people/heng-yi-shu" target="_blank">
+                  
+                    <i class="fa fa-graduation-cap"></i> Zhihu
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/hengyishu" target="_blank">
+                  
+                    <i class="fa fa-comments"></i> CSDN
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:markheng2014@gmail.com" target="_blank">
+                  
+                    <i class="fa fa-send"></i> Mail
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+			<p class="site-author-name">友情链接</p>
+            
+              <span class="links-of-author-item">
+                <a href="http://hengyishu.cn" target="_blank">HengYishu</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zybuluo.com" target="_blank">ZuoYeBuLuo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.qiniu.com/" target="_blank">QiNiu</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.learnopengl.com" target="_blank">LearnOpenGL</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#需要安装的软件"><span class="nav-number">1.</span> <span class="nav-text">需要安装的软件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于Git及GitHub"><span class="nav-number">2.</span> <span class="nav-text">关于Git及GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-amp-GitHub"><span class="nav-number">2.1.</span> <span class="nav-text">Git & GitHub</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub-Pages"><span class="nav-number">2.2.</span> <span class="nav-text">GitHub Pages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启Github-Pages"><span class="nav-number">2.3.</span> <span class="nav-text">开启Github Pages</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于Hexo"><span class="nav-number">3.</span> <span class="nav-text">关于Hexo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#遇到的问题"><span class="nav-number">4.</span> <span class="nav-text">遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#git-filename-filepath-too-long"><span class="nav-number">4.1.</span> <span class="nav-text">git filename/filepath too long</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-permission-denied"><span class="nav-number">4.2.</span> <span class="nav-text">git permission denied</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动替换crlf为lf"><span class="nav-number">4.3.</span> <span class="nav-text">自动替换crlf为lf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个性化博客"><span class="nav-number">4.4.</span> <span class="nav-text">个性化博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为博客添加多说的评论功能"><span class="nav-number">4.4.1.</span> <span class="nav-text">为博客添加多说的评论功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#获取user-id的方法"><span class="nav-number">4.4.1.1.</span> <span class="nav-text">获取user_id的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多说后台添加自定义css"><span class="nav-number">4.4.1.2.</span> <span class="nav-text">多说后台添加自定义css</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加统计功能"><span class="nav-number">4.4.2.</span> <span class="nav-text">添加统计功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#–2016-3-12更新–"><span class="nav-number">4.4.3.</span> <span class="nav-text">–2016-3-12更新–</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加-RSS-订阅"><span class="nav-number">4.4.4.</span> <span class="nav-text">添加 RSS 订阅</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加-自动生成-sitemap-网站地图"><span class="nav-number">4.4.5.</span> <span class="nav-text">添加 自动生成 sitemap(网站地图)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消除hexo转义符对mathjax公式的影响"><span class="nav-number">4.5.</span> <span class="nav-text">消除hexo转义符对mathjax公式的影响</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-h-square"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mark Heng</span>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257893123'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1257893123' type='text/javascript'%3E%3C/script%3E"));</script>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="/blog/sitemap.xml">网站地图</a>
+</div>
+
+<div class="powered-by">
+  <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+	&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+	<span id="busuanzi_container_site_pv">
+	本站总访问量<span style="text-decoration:underline;" id="busuanzi_value_site_pv"></span>次
+	&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+	<span id="busuanzi_container_site_uv">
+	您是本站第<span style="text-decoration:underline;" id="busuanzi_value_site_uv"></span>位访客
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/blog/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/blog/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/blog/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/blog/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/blog/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/blog/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/blog/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"markheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      <script src="/blog/vendors/ua-parser-js/dist/ua-parser.min.js"></script>
+      <script src="/blog/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$']],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        processEnvironments: true
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <!--
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+    -->
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+  
+
+
+  
+
+
+</body>
+</html>

@@ -1,0 +1,968 @@
+<!doctype html>
+
+
+
+  
+
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/blog/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/blog/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="学习记录,Qt," />
+
+
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="持之以恒" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="写个demo感受一下OpenGL如何在Qt上应用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Qt]OpenGL与Qt结合|OpenGL under QML">
+<meta property="og:url" content="http://hengyishu.cn/2016/03/22/Qt-OpenGL与Qt结合-OpenGL-under-QML/index.html">
+<meta property="og:site_name" content="持之以恒">
+<meta property="og:description" content="写个demo感受一下OpenGL如何在Qt上应用。">
+<meta property="og:updated_time" content="2017-02-14T03:14:55.004Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Qt]OpenGL与Qt结合|OpenGL under QML">
+<meta name="twitter:description" content="写个demo感受一下OpenGL如何在Qt上应用。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6260328050223744000,
+      author: '博主'
+    }
+  };
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+            
+
+<link href="/blog/css/markcss.css" rel="stylesheet" type="text/css" />
+
+  <title> [Qt]OpenGL与Qt结合|OpenGL under QML | 持之以恒 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/blog/"  class="brand" rel="start">
+      <span class="logo-line-before"><i style="transform:translateX(100%);"></i></span>
+      <span class="site-title">持之以恒</span>
+      <span class="logo-line-after"><i style="transform:translateX(0);"></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">There's always something behind me.</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="http://hengyishu.cn" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/blog/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                [Qt]OpenGL与Qt结合|OpenGL under QML
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-22T14:24:50+08:00" content="2016-03-22">
+              2016-03-22
+            </time>
+          </span>
+		  
+		  
+		    <span id="busuanzi_container_page_pv">&nbsp;&nbsp;|&nbsp;&nbsp;阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
+		  
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/blog/categories/学习记录/" itemprop="url" rel="index">
+                    <span itemprop="name">学习记录</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/blog/2016/03/22/Qt-OpenGL与Qt结合-OpenGL-under-QML/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/22/Qt-OpenGL与Qt结合-OpenGL-under-QML/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>写个demo感受一下OpenGL如何在Qt上应用。<br><a id="more"></a></p>
+<h1 id="OpenGL"><a href="#OpenGL" class="headerlink" title="OpenGL"></a>OpenGL</h1><blockquote>
+<p>开放图形库（英语：Open Graphics Library，缩写为OpenGL）是个定义了一个跨编程语言、跨平台的应用程序接口（API）的规范，它用于生成二维、三维图像。这个接口由近350个不同的函数调用组成，用来从简单的图形比特绘制复杂的三维景象。而另一种程序接口系统是仅用于Microsoft Windows上的Direct3D。OpenGL常用于CAD、虚拟实境、科学可视化程序和电子游戏开发。</p>
+<p>OpenGL的高效实现（利用了图形加速硬件）存在于Windows，很多UNIX平台和Mac OS。这些实现一般由显示设备厂商提供，而且非常依赖于该厂商提供的硬件。开放源代码库Mesa是一个纯基于软件的图形API，它的代码兼容于OpenGL。但是，由于许可证的原因，它只声称是一个“非常相似”的API。<br>-摘自<a href="https://zh.wikipedia.org/wiki/OpenGL" title="OpenGL wiki" target="_blank" rel="external">OpenGL wiki</a></p>
+</blockquote>
+<p>关于OpenGL的编程展开是个很大的话题，不再赘述，有兴趣的可以参考</p>
+<ul>
+<li><a href="http://www.learnopengl.com/" title="learnopengl" target="_blank" rel="external">LearnOpenGL</a></li>
+<li><a href="http://www.opengl-tutorial.org/" title="opengltutorail" target="_blank" rel="external">OpenGLTutorial</a></li>
+</ul>
+<h1 id="OpenGL与Qt结合"><a href="#OpenGL与Qt结合" class="headerlink" title="OpenGL与Qt结合"></a>OpenGL与Qt结合</h1><p>我写的demo参考这篇文章：<a href="http://doc.qt.io/qt-5/qtquick-scenegraph-openglunderqml-example.html" title="openglunderqml" target="_blank" rel="external">OpenGLUnderQML</a><br>因为之前写文本编辑器的原因，现在看这篇教程感觉容易理解的多。跟着写就好，主要就是理解一下Qt中究竟是如何将OpenGL结合起来的。</p>
+<p>这个demo简明扼要，主要思路如下：</p>
+<ol>
+<li>写Squircle类和Squirecle类，前者作为组件注册进qml，后者作为Squircle类中的一个成员，处理一些渲染的问题。定义一些信号函数和一些槽函数。</li>
+<li>在qml中写好布局</li>
+<li>在qml中修改Squircle中的成员t的值</li>
+<li>每次渲染都会根据t的值进行，从而画出不同的图案</li>
+</ol>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><blockquote>
+<p>The OpenGL under QML example shows how an application can make use of the QQuickWindow::beforeRendering() signal to draw custom OpenGL content under a Qt Quick scene. This signal is emitted at the start of every frame, before the scene graph starts its rendering, thus any OpenGL draw calls that are made as a response to this signal, will stack under the Qt Quick items.</p>
+<p>As an alternative, applications that wish to render OpenGL content on top of the Qt Quick scene, can do so by connecting to the QQuickWindow::afterRendering() signal.</p>
+<p>本例展示了应用程序如何利用<code>QQuickWindow::beforeRendering</code>信号在QtQuick场景下画出自定义的OpenGl内容。这个信号会在每一帧渲染之前触发，也就是在图像场景绘制之前，因此任何此信号的槽函数中的OpenGL调用都会栈式堆叠在QtQuick控件之下。<br>另外，如果应用程序想要在QtQuick控件之上绘制图像，那么可以针对<code>QQuickWindow::afterRendering</code>信号编写槽函数并与之连接。 </p>
+</blockquote>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="用到的信号"><a href="#用到的信号" class="headerlink" title="用到的信号"></a>用到的信号</h2><h3 id="QQuickItem-windowChanged"><a href="#QQuickItem-windowChanged" class="headerlink" title="QQuickItem::windowChanged"></a>QQuickItem::windowChanged</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Squircle::Squircle()</div><div class="line">    : <span class="keyword">m_t</span>(<span class="number">0</span>)</div><div class="line">    , m_renderer(<span class="number">0</span>)</div><div class="line">&#123;</div><div class="line">    connect(<span class="keyword">this</span>, &amp;QQuickItem::windowChanged, <span class="keyword">this</span>, &amp;Squircle::handleWindowChanged);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>void QQuickItem::windowChanged(QQuickWindow *window)<br>This signal is emitted when the item’s window changes.</p>
+</blockquote>
+<h3 id="void-QQuickWindow-beforeSynchronizing"><a href="#void-QQuickWindow-beforeSynchronizing" class="headerlink" title="void QQuickWindow::beforeSynchronizing()"></a>void QQuickWindow::beforeSynchronizing()</h3><blockquote>
+<p>This signal is emitted before the scene graph is synchronized with the QML state.<br>This signal can be used to do any preparation required before calls to QQuickItem::updatePaintNode().<br>The GL context used for rendering the scene graph will be bound at this point.<br>Warning: This signal is emitted from the scene graph rendering thread. If your slot function needs to finish before execution continues, you must make sure that the connection is direct (see Qt::ConnectionType).<br>Warning: Make very sure that a signal handler for beforeSynchronizing leaves the GL context in the same state as it was when the signal handler was entered. Failing to do so can result in the scene not rendering properly.</p>
+</blockquote>
+<p>同步的信号</p>
+<h3 id="void-QQuickWindow-sceneGraphInvalidated"><a href="#void-QQuickWindow-sceneGraphInvalidated" class="headerlink" title="void QQuickWindow::sceneGraphInvalidated()"></a>void QQuickWindow::sceneGraphInvalidated()</h3><blockquote>
+<p>This signal is emitted when the scene graph has been invalidated.<br>This signal implies that the opengl rendering context used has been invalidated and all user resources tied to that context should be released.<br>The OpenGL context of this window will be bound when this function is called. The only exception is if the native OpenGL has been destroyed outside Qt’s control, for instance through EGL_CONTEXT_LOST.<br>This signal will be emitted from the scene graph rendering thread.</p>
+</blockquote>
+<p>场景渲染结束，需要释放资源的信号</p>
+<h3 id="void-QQuickWindow-beforeRendering"><a href="#void-QQuickWindow-beforeRendering" class="headerlink" title="void QQuickWindow::beforeRendering()"></a>void QQuickWindow::beforeRendering()</h3><blockquote>
+<p>This signal is emitted before the scene starts rendering.</p>
+<p>Combined with the modes for clearing the background, this option can be used to paint using raw GL under QML content.</p>
+<p>The GL context used for rendering the scene graph will be bound at this point.</p>
+<p>Warning: This signal is emitted from the scene graph rendering thread. If your slot function needs to finish before execution continues, you must make sure that the connection is direct (see Qt::ConnectionType).</p>
+<p>Warning: Make very sure that a signal handler for beforeRendering leaves the GL context in the same state as it was when the signal handler was entered. Failing to do so can result in the scene not rendering properly.</p>
+</blockquote>
+<p>前面介绍过的图形渲染之前的信号</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="文件名的写法"><a href="#文件名的写法" class="headerlink" title="文件名的写法"></a>文件名的写法</h3><p>QOpenGLShaderProgram的方法addShaderFromFile中的第二个参数需要一个文件名，这个文件名我最开始写的是<code>&quot;vertex.vsh&quot;</code>，结果一直提示找不到文件，查了查，看到别人代码写成<code>&quot;:/vertex.vsh&quot;</code>就可以了。不太清楚是为什么。</p>
+<h3 id="关于Qt-main函数中的窗口启动方式"><a href="#关于Qt-main函数中的窗口启动方式" class="headerlink" title="关于Qt main函数中的窗口启动方式"></a>关于Qt main函数中的窗口启动方式</h3><ol>
+<li>现在见到的有几种，通过ApplicationEngine读取qml，在qml中定义window，然后出现窗口</li>
+<li>QQuickView直接载入qml文件，然后显示出来</li>
+</ol>
+<p>-END-</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/学习记录/" rel="tag">#学习记录</a>
+          
+            <a href="/blog/tags/Qt/" rel="tag">#Qt</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2016/03/18/Qt学习记录-使用C-编写QML组件/" rel="next" title="[Qt]使用C++编写QML组件">
+                <i class="fa fa-chevron-left"></i>上一篇: [Qt]使用C++编写QML组件
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2016/05/29/提高windows使用体检的软件/" rel="prev" title="windows健康高效大法">
+               下一篇: windows健康高效大法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/22/Qt-OpenGL与Qt结合-OpenGL-under-QML/"
+           data-title="[Qt]OpenGL与Qt结合|OpenGL under QML" data-url="http://hengyishu.cn/blog/2016/03/22/Qt-OpenGL与Qt结合-OpenGL-under-QML/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/blog/images/avatar.png"
+               alt="Mark Heng" />
+          <p class="site-author-name" itemprop="name">Mark Heng</p>
+          <p class="site-description motion-element" itemprop="description">我们的目标是星辰大海啊!</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/blog/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/blog/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/blog/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/blog/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+		     <p class="site-author-name">联系我</p>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/hys2015" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/i93hys" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://zhihu.com/people/heng-yi-shu" target="_blank">
+                  
+                    <i class="fa fa-graduation-cap"></i> Zhihu
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/hengyishu" target="_blank">
+                  
+                    <i class="fa fa-comments"></i> CSDN
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:markheng2014@gmail.com" target="_blank">
+                  
+                    <i class="fa fa-send"></i> Mail
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+			<p class="site-author-name">友情链接</p>
+            
+              <span class="links-of-author-item">
+                <a href="http://hengyishu.cn" target="_blank">HengYishu</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zybuluo.com" target="_blank">ZuoYeBuLuo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.qiniu.com/" target="_blank">QiNiu</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.learnopengl.com" target="_blank">LearnOpenGL</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OpenGL"><span class="nav-number">1.</span> <span class="nav-text">OpenGL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OpenGL与Qt结合"><span class="nav-number">2.</span> <span class="nav-text">OpenGL与Qt结合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原理"><span class="nav-number">3.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用到的信号"><span class="nav-number">4.1.</span> <span class="nav-text">用到的信号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#QQuickItem-windowChanged"><span class="nav-number">4.1.1.</span> <span class="nav-text">QQuickItem::windowChanged</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#void-QQuickWindow-beforeSynchronizing"><span class="nav-number">4.1.2.</span> <span class="nav-text">void QQuickWindow::beforeSynchronizing()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#void-QQuickWindow-sceneGraphInvalidated"><span class="nav-number">4.1.3.</span> <span class="nav-text">void QQuickWindow::sceneGraphInvalidated()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#void-QQuickWindow-beforeRendering"><span class="nav-number">4.1.4.</span> <span class="nav-text">void QQuickWindow::beforeRendering()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">4.2.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件名的写法"><span class="nav-number">4.2.1.</span> <span class="nav-text">文件名的写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于Qt-main函数中的窗口启动方式"><span class="nav-number">4.2.2.</span> <span class="nav-text">关于Qt main函数中的窗口启动方式</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-h-square"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mark Heng</span>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257893123'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1257893123' type='text/javascript'%3E%3C/script%3E"));</script>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="/blog/sitemap.xml">网站地图</a>
+</div>
+
+<div class="powered-by">
+  <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+	&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+	<span id="busuanzi_container_site_pv">
+	本站总访问量<span style="text-decoration:underline;" id="busuanzi_value_site_pv"></span>次
+	&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+	<span id="busuanzi_container_site_uv">
+	您是本站第<span style="text-decoration:underline;" id="busuanzi_value_site_uv"></span>位访客
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/blog/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/blog/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/blog/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/blog/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/blog/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/blog/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/blog/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"markheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      <script src="/blog/vendors/ua-parser-js/dist/ua-parser.min.js"></script>
+      <script src="/blog/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$']],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        processEnvironments: true
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <!--
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+    -->
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+  
+
+
+  
+
+
+</body>
+</html>

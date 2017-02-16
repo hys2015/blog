@@ -1,0 +1,941 @@
+<!doctype html>
+
+
+
+  
+
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/blog/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/blog/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="效率,神器," />
+
+
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="持之以恒" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="好久没写博客了，上次写的东西还是3月多的，自己真是越来越懒了。之前在知乎看到很多关于“如何优雅地windows”的讨论，自己看了试了一些，这里结合自己的经历分享一下体验。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="windows健康高效大法">
+<meta property="og:url" content="http://hengyishu.cn/2016/05/29/提高windows使用体检的软件/index.html">
+<meta property="og:site_name" content="持之以恒">
+<meta property="og:description" content="好久没写博客了，上次写的东西还是3月多的，自己真是越来越懒了。之前在知乎看到很多关于“如何优雅地windows”的讨论，自己看了试了一些，这里结合自己的经历分享一下体验。">
+<meta property="og:image" content="http://7xrsid.com1.z0.glb.clouddn.com/5-29%2Fdesktop.png">
+<meta property="og:image" content="http://7xrsid.com1.z0.glb.clouddn.com/5-29%2Flistary1.png">
+<meta property="og:image" content="http://7xrsid.com1.z0.glb.clouddn.com/5-29%2Flistary2.png">
+<meta property="og:updated_time" content="2017-02-14T03:14:55.007Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="windows健康高效大法">
+<meta name="twitter:description" content="好久没写博客了，上次写的东西还是3月多的，自己真是越来越懒了。之前在知乎看到很多关于“如何优雅地windows”的讨论，自己看了试了一些，这里结合自己的经历分享一下体验。">
+<meta name="twitter:image" content="http://7xrsid.com1.z0.glb.clouddn.com/5-29%2Fdesktop.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6260328050223744000,
+      author: '博主'
+    }
+  };
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+            
+
+<link href="/blog/css/markcss.css" rel="stylesheet" type="text/css" />
+
+  <title> windows健康高效大法 | 持之以恒 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/blog/"  class="brand" rel="start">
+      <span class="logo-line-before"><i style="transform:translateX(100%);"></i></span>
+      <span class="site-title">持之以恒</span>
+      <span class="logo-line-after"><i style="transform:translateX(0);"></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">There's always something behind me.</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="http://hengyishu.cn" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/blog/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                windows健康高效大法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-29T22:34:45+08:00" content="2016-05-29">
+              2016-05-29
+            </time>
+          </span>
+		  
+		  
+		    <span id="busuanzi_container_page_pv">&nbsp;&nbsp;|&nbsp;&nbsp;阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
+		  
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/blog/categories/日常/" itemprop="url" rel="index">
+                    <span itemprop="name">日常</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/blog/2016/05/29/提高windows使用体检的软件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/29/提高windows使用体检的软件/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>好久没写博客了，上次写的东西还是3月多的，自己真是越来越懒了。<br>之前在知乎看到很多关于“如何优雅地windows”的讨论，自己看了试了一些，这里结合自己的经历分享一下体验。<br><a id="more"></a><br>首先，自己桌面镇一下~<br><img src="http://7xrsid.com1.z0.glb.clouddn.com/5-29%2Fdesktop.png" alt="桌面" title="桌面"><br>桌面简单为主，应用程序都放在了开始菜单。我关闭了小娜的按钮，左上角放了一个下拉关机，上面中间是经常用到的程序，右边有一些需要用到但是频率不那么高的快捷方式（文件夹）。需要干活的时候，桌面上放一些需要用到的东西的快捷方式，完事之后就删掉，方便！</p>
+<h2 id="Clover"><a href="#Clover" class="headerlink" title="Clover"></a>Clover</h2><p>国产软件，不过很久没更新了，官方最高支持到win8，但是我win10一直在用，偶尔会崩溃，win7据说没问题。<br>文件夹的收藏是我一直很重要的一个需求，因为经常需要在很多文件夹里面来回翻找，没用这个软件之前都是一个个去点，clover添加收藏之后简直爽爆。另外，标签页也很漂亮，比起其他同样功能的软件QtTabbar要好很多。<br>官网：<br><a href="http://cn.ejie.me/" title="易捷科技" target="_blank" rel="external">Clover2</a></p>
+<h2 id="Listary"><a href="#Listary" class="headerlink" title="Listary"></a>Listary</h2><p>这是个好看版的everything，也是款效率提升神器。虽然win10的整合了小娜，也可以进行全局搜索，但是感觉没有那么顺畅，就用了listary。listary可以设置全局快捷键（我是win + F）进行搜索，而且搜索速度相当快。</p>
+<p><img src="http://7xrsid.com1.z0.glb.clouddn.com/5-29%2Flistary1.png" alt="Listary全局搜索" title="Listary全局搜索"><br><img src="http://7xrsid.com1.z0.glb.clouddn.com/5-29%2Flistary2.png" alt="Listary2" title="Listary"></p>
+<p>官网地址:<br><a href="http://www.listary.com/" title="Listary" target="_blank" rel="external">Listary: File Search &amp; App Launcher</a></p>
+<h2 id="网易云"><a href="#网易云" class="headerlink" title="网易云"></a>网易云</h2><p>不多说，确实好用，情怀加分。</p>
+<p><a href="http://music.163.com/#/download" title="Netease Music" target="_blank" rel="external">网易云音乐</a></p>
+<h2 id="QQ轻聊版"><a href="#QQ轻聊版" class="headerlink" title="QQ轻聊版"></a>QQ轻聊版</h2><p>去掉烦人的广告和QQ秀，也没有QQ空间评论提醒，空间依赖症慎用。</p>
+<p><a href="http://im.qq.com/lightqq/" title="QQ light" target="_blank" rel="external">QQ轻聊版</a></p>
+<h2 id="电脑管家"><a href="#电脑管家" class="headerlink" title="电脑管家"></a>电脑管家</h2><p>好像杀毒能力不怎么样？可以用来升级软件用。</p>
+<p><a href="http://guanjia.qq.com/" target="_blank" rel="external">腾讯电脑管家</a></p>
+<h2 id="potplayer"><a href="#potplayer" class="headerlink" title="potplayer"></a>potplayer</h2><p>绿色全能播放器(手动笑脸)</p>
+<p><a href="http://www.potplayer.org/" target="_blank" rel="external">PotPlayer</a></p>
+<h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><p>谷歌大法好！</p>
+<h2 id="Latern"><a href="#Latern" class="headerlink" title="Latern"></a>Latern</h2><p>免费的fan qiang神器<br><a href="https://getlantern.org/" target="_blank" rel="external">Get Lantern</a></p>
+<h2 id="f-lux"><a href="#f-lux" class="headerlink" title="f.lux"></a>f.lux</h2><p>调节屏幕色温，长时间对着屏幕也不会很难受。</p>
+<p><a href="https://justgetflux.com/" target="_blank" rel="external">f.lux下载</a></p>
+<h2 id="notepad"><a href="#notepad" class="headerlink" title="notepad++"></a>notepad++</h2><p>多功能小巧的编辑器。<br><a href="https://notepad-plus-plus.org/" target="_blank" rel="external">notepad++</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/效率/" rel="tag">#效率</a>
+          
+            <a href="/blog/tags/神器/" rel="tag">#神器</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2016/03/22/Qt-OpenGL与Qt结合-OpenGL-under-QML/" rel="next" title="[Qt]OpenGL与Qt结合|OpenGL under QML">
+                <i class="fa fa-chevron-left"></i>上一篇: [Qt]OpenGL与Qt结合|OpenGL under QML
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2017/01/31/我的二〇一六/" rel="prev" title="我的二〇一六">
+               下一篇: 我的二〇一六 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/29/提高windows使用体检的软件/"
+           data-title="windows健康高效大法" data-url="http://hengyishu.cn/blog/2016/05/29/提高windows使用体检的软件/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/blog/images/avatar.png"
+               alt="Mark Heng" />
+          <p class="site-author-name" itemprop="name">Mark Heng</p>
+          <p class="site-description motion-element" itemprop="description">我们的目标是星辰大海啊!</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/blog/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/blog/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/blog/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/blog/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+		     <p class="site-author-name">联系我</p>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/hys2015" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/i93hys" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://zhihu.com/people/heng-yi-shu" target="_blank">
+                  
+                    <i class="fa fa-graduation-cap"></i> Zhihu
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/hengyishu" target="_blank">
+                  
+                    <i class="fa fa-comments"></i> CSDN
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:markheng2014@gmail.com" target="_blank">
+                  
+                    <i class="fa fa-send"></i> Mail
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+			<p class="site-author-name">友情链接</p>
+            
+              <span class="links-of-author-item">
+                <a href="http://hengyishu.cn" target="_blank">HengYishu</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zybuluo.com" target="_blank">ZuoYeBuLuo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.qiniu.com/" target="_blank">QiNiu</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.learnopengl.com" target="_blank">LearnOpenGL</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Clover"><span class="nav-number">1.</span> <span class="nav-text">Clover</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Listary"><span class="nav-number">2.</span> <span class="nav-text">Listary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网易云"><span class="nav-number">3.</span> <span class="nav-text">网易云</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QQ轻聊版"><span class="nav-number">4.</span> <span class="nav-text">QQ轻聊版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#电脑管家"><span class="nav-number">5.</span> <span class="nav-text">电脑管家</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#potplayer"><span class="nav-number">6.</span> <span class="nav-text">potplayer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chrome"><span class="nav-number">7.</span> <span class="nav-text">Chrome</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Latern"><span class="nav-number">8.</span> <span class="nav-text">Latern</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f-lux"><span class="nav-number">9.</span> <span class="nav-text">f.lux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#notepad"><span class="nav-number">10.</span> <span class="nav-text">notepad++</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-h-square"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mark Heng</span>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257893123'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1257893123' type='text/javascript'%3E%3C/script%3E"));</script>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="/blog/sitemap.xml">网站地图</a>
+</div>
+
+<div class="powered-by">
+  <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+	&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+	<span id="busuanzi_container_site_pv">
+	本站总访问量<span style="text-decoration:underline;" id="busuanzi_value_site_pv"></span>次
+	&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+	<span id="busuanzi_container_site_uv">
+	您是本站第<span style="text-decoration:underline;" id="busuanzi_value_site_uv"></span>位访客
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/blog/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/blog/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/blog/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/blog/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/blog/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/blog/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/blog/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"markheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      <script src="/blog/vendors/ua-parser-js/dist/ua-parser.min.js"></script>
+      <script src="/blog/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$']],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        processEnvironments: true
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <!--
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+    -->
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+  
+
+
+  
+
+
+</body>
+</html>

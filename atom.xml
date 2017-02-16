@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>持之以恒</title>
+  <subtitle>There&#39;s always something behind me.</subtitle>
+  <link href="/blog/atom.xml" rel="self"/>
+  
+  <link href="http://hengyishu.cn/"/>
+  <updated>2017-02-16T10:42:12.607Z</updated>
+  <id>http://hengyishu.cn/</id>
+  
+  <author>
+    <name>Mark Heng</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>迭代最近点方法ICP</title>
+    <link href="http://hengyishu.cn/2017/02/16/%E8%BF%AD%E4%BB%A3%E6%9C%80%E8%BF%91%E7%82%B9%E6%96%B9%E6%B3%95ICP/"/>
+    <id>http://hengyishu.cn/2017/02/16/迭代最近点方法ICP/</id>
+    <published>2017-02-16T08:57:57.000Z</published>
+    <updated>2017-02-16T10:42:12.607Z</updated>
+    
+    <content type="html"><![CDATA[<p>ICP迭代最近点方法，是三维建模中将点云模型对齐的一种常用方法。</p>
+<a id="more"></a>
+<h2 id="ICP算法"><a href="#ICP算法" class="headerlink" title="ICP算法"></a>ICP算法</h2><p><a href="https://en.wikipedia.org/wiki/Iterative_closest_point" target="_blank" rel="external">wiki</a></p>
+<blockquote>
+<p>ICP算法中，一幅点云，称为<strong>参考</strong>或者<strong>目标点云</strong>，是固定不动的。另一幅，称为<strong>源点云</strong>，被算法变换到与参考点云最佳匹配的位置。算法迭代的得出变换矩阵（平移和旋转的组合），这个矩阵需要最小化从源到目标点云的距离。</p>
+<p><strong>输入：</strong> 目标点云和源点云；两幅点云对齐的评判标准（非必须）；终止迭代的条件<br><strong>输出：</strong>计算的变换矩阵</p>
+<p><strong>主要步骤：</strong></p>
+<ol>
+<li>对源点云中的每一个点，找到目标点云中的最近点，作为匹配位置</li>
+<li>使用均方差函数估算上述步骤找到的、可以将源点云变换到上一步找到的匹配位置的刚性变换。</li>
+<li>对源点云应用上述刚性变换</li>
+<li>迭代</li>
+</ol>
+</blockquote>
+<p><a href="http://101.96.8.164/www.cs.princeton.edu/~smr/papers/icpstability.pdf" target="_blank" rel="external">数学解释与稳定性分析</a></p>
+<blockquote>
+<p>$$<br>E = \Sigma_i [(p_i - q_i) \cdot<br>n_i + t \cdot n_i +\\<br>\alpha(p_{i,y}n_{i,z} - p_{i,z}n_{i,y}) +<br>\\ \beta (p_{i,z}n_{i,x} - p_{i,x}n_{i,z}) + \\ \gamma(p_{i,x}n_{i,y} - p_{i,y}n_{i,x})] ^ 2<br>$$<br>设 $c = p \times n$ 且<br>$$<br>r =<br>\begin{pmatrix}<br>\alpha \\ \beta \\ \gamma<br>\end{pmatrix}<br>$$<br>则E可以写为<br>$$<br>E = \Sigma_i[(p_i - q_i)\cdot n_i + t \cdot n_i + r \cdot c_i] ^ 2<br>$$</p>
+</blockquote>
+<p>这里依据的是向量积的坐标表示。<br><a href="https://zh.wikipedia.org/wiki/%E5%90%91%E9%87%8F%E7%A7%AF" target="_blank" rel="external">https://zh.wikipedia.org/wiki/%E5%90%91%E9%87%8F%E7%A7%AF</a><br>wiki中“三维坐标”一节中的说明。</p>
+<p><strong>实现参考</strong><br><a href="http://www.cnblogs.com/sddai/p/6129437.html" target="_blank" rel="external">http://www.cnblogs.com/sddai/p/6129437.html</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;ICP迭代最近点方法，是三维建模中将点云模型对齐的一种常用方法。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="学习记录" scheme="http://hengyishu.cn/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>k-d树</title>
+    <link href="http://hengyishu.cn/2017/02/16/k-d%E6%A0%91/"/>
+    <id>http://hengyishu.cn/2017/02/16/k-d树/</id>
+    <published>2017-02-16T08:44:43.000Z</published>
+    <updated>2017-02-16T08:56:23.741Z</updated>
+    
+    <content type="html"><![CDATA[<p>k-d树是查找相邻点很重要的一种数据结构。<br><a id="more"></a></p>
+<blockquote>
+<p>索引结构中相似性查询有两种基本的方式：一种是<strong>范围查询</strong>（range searches），另一种是<strong>K近邻查询</strong>（K-neighbor searches）。<br>范围查询就是给定查询点和查询距离的阈值，从数据集中找出所有与查询点距离小于阈值的数据；<br>K近邻查询是给定查询点及正整数K，从数据集中找到距离查询点最近的K个数据，当K=1时，就是最近邻查询（nearest neighbor searches）。</p>
+</blockquote>
+<p>特征匹配算子可以分为两类，一类是线性扫描法（穷举），一类是建立数据索引，然后进行快速匹配。</p>
+<p>k-d树是索引树的一种。划分的空间没有混叠（clipping）的，另一种划分空间是有混叠（overlapping）的。</p>
+<p>k-d树的算法分为两类，一类是有关k-d树的构建算法，一类是在k-d树上进行邻近查找的算法。</p>
+<h3 id="k-d树的构建算法"><a href="#k-d树的构建算法" class="headerlink" title="k-d树的构建算法"></a>k-d树的构建算法</h3><p>k-d是k-dimension的缩写，是对数据点在k维空间中划分的一种数据结构。k-d树实际上是一种二叉树。<br>它结点内容包括：</p>
+<table>
+<thead>
+<tr>
+<th>数据名</th>
+<th>类型</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dom_elt</td>
+<td>k维的向量</td>
+<td>k维空间中的一个点，k-d树在某个维度以这个点为界进行划分</td>
+</tr>
+<tr>
+<td>split</td>
+<td>正数</td>
+<td>表示进行划分的维数的序号</td>
+</tr>
+<tr>
+<td>left</td>
+<td>kd-tree</td>
+<td>左子树</td>
+</tr>
+<tr>
+<td>right</td>
+<td>kd-tree</td>
+<td>右子树</td>
+</tr>
+</tbody>
+</table>
+<p>注意split是当前结点进行划分的维数的序号，序号只是为了在算法中表示方便，其实就是维度的标识。</p>
+<p><strong>算法描述</strong></p>
+<p><strong>split选取</strong><br>选取split时，为了得到较好的划分效果（较高的分辨率），通常做法是，计算每个维度的方差$\sigma_i$，如果$\sigma_p$是$\sigma_i$中最大的，那么取维度$p$作为split。</p>
+<p><strong>dom_elt选取</strong><br>将所有元素按照split维的数值大小进行排序，取最中间的那个元素作为dom_elt。</p>
+<p><strong>建立子树</strong><br>假设ele为k维空间中的任意，对dom_elt一侧的数据($ele[split]\le dom_elt[split]$)建立左子树，树根为当前结点的左子结点。另一侧的数据($ele[split] &gt; dom_elt[split]$)建立右子树，树根为当前结点的右子节点。</p>
+<blockquote>
+<p>伪代码<br>算法：构建k-d树(build_kd_tree)<br>输入：k维点集ele_set<br>输出：k-d树 kd_t</p>
+<ol>
+<li>如果ele_set 为空，则返回空</li>
+<li>调用选择分裂点的子程序，得到分裂点dom_elt和分裂的维度split</li>
+<li>ele_set_left = ${e | e \in ele_set, e[split] \le dom_elt[split] } $<br>ele_set_right = ${e | e \in ele_set, e[split] \gt dom_ elt[split]} $</li>
+<li>build_kd_tree(ele_set_left)<br>build_kd_tree(ele_set_right)</li>
+</ol>
+</blockquote>
+<p>分裂点指的是结点中的dom_elt值，标识了当前分裂的界线。</p>
+<h3 id="k-d树的邻近查找"><a href="#k-d树的邻近查找" class="headerlink" title="k-d树的邻近查找"></a>k-d树的邻近查找</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">算法：k-d树查找target点的最近邻点(find_kd_tree)</div><div class="line">输入：k-d树kd_tree, 目标点 target</div><div class="line">输出：目标的最近邻点nearest, 最近距离dist</div><div class="line"></div><div class="line">1. 如果kd_tree为空，则设dist为无穷大，返回</div><div class="line">2. 搜索k-d树直到叶子结点，记录搜索过的路径</div><div class="line">pSearch 指向 kd_tree的根节点</div><div class="line">while(pSearch指向的结点p不是叶子结点)</div><div class="line">&#123;</div><div class="line">    将p加入到search_path中</div><div class="line">    if(target[p.split] &lt;= p.dom_elt[p.split])&#123;</div><div class="line">        pSearch指向当前结点的左子树    </div><div class="line">    &#125;else&#123;</div><div class="line">        pSearch指向当前结点的右子树</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">取出search_path中最后一个赋值给nearest</div><div class="line">dist = Distance(nearest, target)</div><div class="line">3. 回溯搜索路径</div><div class="line">while(search_path 不为空)</div><div class="line">&#123;</div><div class="line">    pBack = search_path最后一个元素</div><div class="line">    if(pBack 为叶子结点)</div><div class="line">    &#123;</div><div class="line">        if(Distance(nearset, target) &gt;</div><div class="line">           Distance(pBack-&gt;dom_elt, target) )</div><div class="line">        &#123;</div><div class="line">            nearset = pBack-&gt;dom_elt</div><div class="line">            dist = Distance(pBack-&gt;dom_elt, target)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    else</div><div class="line">    &#123;</div><div class="line">        s = pBack-&gt;split</div><div class="line">        if(abs(pBack-&gt;dom_elt[s] - target[s]) &lt; dist)</div><div class="line">        &#123;</div><div class="line">            if( Distance(nearest, target) &gt; </div><div class="line">                Distance(pBack-&gt;dom_elt, target) )  </div><div class="line">            &#123;  </div><div class="line">                nearest = pBack-&gt;dom_elt;  </div><div class="line">                dist = Distance(pBack-&gt;dom_elt, target);  </div><div class="line">            &#125;  </div><div class="line">            if(target[s] &lt;= pBack-&gt;dom_elt[s]) </div><div class="line">                pSearch = pBack-&gt;right;  </div><div class="line">            else  </div><div class="line">                pSearch = pBack-&gt;left;</div><div class="line">            if(pSearch != NULL)  </div><div class="line">                pSearch加入到search_path中      </div><div class="line">            &#125; </div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>参考:</strong><br><a href="http://underthehood.blog.51cto.com/2531780/687160" target="_blank" rel="external">http://underthehood.blog.51cto.com/2531780/687160</a><br><a href="https://en.wikipedia.org/wiki/K-d_tree" target="_blank" rel="external">k-d tree wikipedia</a><br><a href="http://www.cnblogs.com/eyeszjwang/articles/2429382.html" target="_blank" rel="external">http://www.cnblogs.com/eyeszjwang/articles/2429382.html</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;k-d树是查找相邻点很重要的一种数据结构。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="学习记录" scheme="http://hengyishu.cn/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="数据结构" scheme="http://hengyishu.cn/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我的二〇一六</title>
+    <link href="http://hengyishu.cn/2017/01/31/%E6%88%91%E7%9A%84%E4%BA%8C%E3%80%87%E4%B8%80%E5%85%AD/"/>
+    <id>http://hengyishu.cn/2017/01/31/我的二〇一六/</id>
+    <published>2017-01-31T11:02:03.000Z</published>
+    <updated>2017-02-14T03:14:55.007Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="零"><a href="#零" class="headerlink" title="零"></a>零</h2><p>写下这些文字的时候，2017已经过去了将近一个月。好久没有写过东西，以前觉得有些想法就让他烂在心里的好，然而现在觉得生活中零零碎碎的东西如果都烂掉了，岂不是太过可惜，不如记下，偶尔翻看，回味一番。</p>
+<a id="more"></a>
+<h2 id="一"><a href="#一" class="headerlink" title="一"></a>一</h2><p>2016元旦，许久不见的小伙伴们大学中最后一次相约在钟楼下跨年，大学四年，对钟楼广场的一草一木熟悉得不得了，小伙伴们虽然许久未见，但是彼此没有任何陌生之感。跨年早已没有最初的兴奋与激动，只是觉得这有可能是最后一次跨年的机会，如果不在，一定会相当可惜。</p>
+<p>钟楼广场依旧熙熙攘攘，中间为了看舞台表演，大家分成两拨不幸走散。相约在我们院办楼下集合，但是人实在是太多，走着走着跨年倒计时已经响起，驻足观望，忽然发现身边一个小伙伴都没有，不禁一阵感叹，静静地听完钟声，大家终于会合一处，拍照留念，道别。</p>
+<p>一月份的后半个月，就配合材料院的张正武老师一起为学生处做年度总结会上用的年度总结视频，之前跟学生处的人合作过，也知道了他们的工作流程和大概效率，整个过程并不着急，边做边等放假，到一月底年度总结会召开时候总算完工，还记得当时寒假已经放假两天了，终于到家，准备迎接新年。</p>
+<h2 id="二"><a href="#二" class="headerlink" title="二"></a>二</h2><p>这个寒假是本科最后一次寒假，毕设开题已经结束，自己慢慢悠悠地学习毕设中需要用到的东西，偶尔看一下读研需要用到的知识，写写代码。齐老师也没有要求我到北京去，所以一直待到校历开学才不情愿地从家赶到学校。</p>
+<p>寒假的红包大战，是微信支付宝第一次也是最后一次红包大战（2017微信没有了，QQ出战了）。我也参与了集福大战，然而并没有好运集到全部的福卡去分得六百多块钱。</p>
+<h2 id="三"><a href="#三" class="headerlink" title="三"></a>三</h2><p>武汉之行计划了半个多月，本来四个小伙伴，最后一个小伙伴因为要去北京面试去不了，只剩我陪两只萌妹子一起开启武汉之旅。本来打算毕业这段时间除了武汉之外再去其他地方，但是因为各种各样的原因就给耽误掉了，不过毕业旅行还算没有耽误。也第一次在旅行的时候花了半天时间上网打游戏。</p>
+<p>毕设也如期进行，石磊老师得我们相当和蔼，我们所有同学也在尽自己努力配合老师的工作。开题报告修改，翻译文献等等都稳步推进。</p>
+<p>四年里也第一次逛了逛数学楼旁边的海棠大道和樱花林，不得不说，除了那块石头比较蠢之外，花还都是相当漂亮的。</p>
+<h2 id="四五"><a href="#四五" class="headerlink" title="四五"></a>四五</h2><p>总觉的毕业还很遥远，但是时光不紧不慢毫不留情。从武汉回来之后，发现自己的毕设进度有点落后，为了赶上中期检查，抓紧时间进行了一番恶补，总算没有落下后腿。然后整个四月底五月都在日夜不停地写代码，虽然我的毕设题目算是比较直接，但是其中还是有很多细节需要一点点地学习和实现。最终，在五月中的时候，代码部分基本完成，不禁松了一口气，开始准备文档，等待答辩的那一天。</p>
+<p>五月末的时候，毕业视频的工作又找到了我，还在学校的一伙同学就凑成了一个团队，为了毕业视频的工作紧张筹备。本来对于这个工作我是拒绝的，但是加入之后发现一起工作的小伙伴们务实又有趣，于是决定还是留下来跟大家一起完成为同学们准备的最后一个礼物。虽然大家都没有参与过相关的活动，但是大家热情都很高涨，而且直到跟老师一起合作，才发现王成和杜晨健老师也是相当开明，跟之前的印象有挺大区别。</p>
+<h2 id="六"><a href="#六" class="headerlink" title="六"></a>六</h2><p>六月之前一直觉得毕业季还很遥远，后来才发现是自己不愿意认真地考虑这些事情，有意无意地就回避掉了这个问题。六月正式进入毕业季，答辩、班级合影、毕业典礼，所以这些事情一股脑地冲了进来，没有时间感慨，没有时间挽留，像身处巨大的水流之中，不断地被推着前进，能做的只能是把这些事情留在记忆里，慢慢回味。</p>
+<p>答辩远比我想象的简单，把自己准备的材料加速加速再加速一股脑说完，老师简单提问一下，前后不到十分钟，就标志着自己本科的学习生涯真的结束了。答辩结束之后，大家郑重地把自己的论文光盘放进档案袋里，外面写上自己的名字。教室里空调坏了，很热又很吵，所有的小伙伴们却写的很慢很认真。把档案袋收起来交给老师的那一刻，心里仍然有些许遗憾，觉得论文还可以写的更优美，程序设计可以更完善。而且论文交了之后，大部分同学的学生生涯就宣告结束，我也要准备开启新的篇章。无论怎么样，大家都还是恋恋不舍。</p>
+<p>班级合影，同班四年，合影这天一定是全班同学感情最真挚热烈的一天。从早到晚，男生西服西裤，女生汉服，顶着大太阳拍了一整天的照片。在教室拍照的时候我还摔了一跤，不过好在照片效果相当不错，我趁机也和全班每个同学拍了张合影，觉得即便是我以后记不得所有人的名字，我也还有这些珍贵的记录。</p>
+<p>毕业典礼，三年观众，终成主角。我们将近十个人忙活了一个多月的毕业视频在毕业典礼上给大家送去了大学四年最后的回忆。虽然有诸多的瑕疵，制作过程中也遇到了各种各样的问题，但我们所有小伙伴付出了心血，不管怎么样，我们最后交出了一份还算满意的作品。</p>
+<p>毕业季，活宝们也终将分别，我们来自天南海北，有缘能够在郑州相识，更庆幸大家可以在四年之后仍然是好朋友。毕业典礼的前一天，大家最后一次一起到ktv纳凉，在菊园候车亭吃了西瓜聊了聊天，好像不是即将分别，而是像刚认识的时候那种夜宵小聚，没有太多的离别感伤，虽然不知道大家下次再见会是在哪，但是我们彼此都有一定会再见的笃定。看着在篮球场附近拍的照片，想起最初活宝们一起玩耍的小伙伴有好几十个，最后都因为各种各样的原因离开，只剩下照片里这几个不离不弃的小伙伴。祝大家都能各自安好吧。</p>
+<h2 id="七八"><a href="#七八" class="headerlink" title="七八"></a>七八</h2><p>闲散的假期，有空就看书看电影动画片听歌写代码。七月底跟妈妈一块去洛阳，见到了最漂亮的蓝天白云。游泳时不注意，半个月的中耳炎也让我夏天的出行计划泡汤。</p>
+<p>这个假期跟之前最大的不同就是小伙伴们大都开始了职场生涯，再也不能随时开黑，不能没有限制随意玩耍。我的内心是开心又失落的，开心大家未来都有了着落，逐渐开启了各自新的人生道路，失落是大家以后见面的机会越来越少，也可能会渐行渐远。我只希望无论人在哪，情谊永不褪色。</p>
+<h2 id="九"><a href="#九" class="headerlink" title="九"></a>九</h2><p>期待了一年，总算开学，整夜的火车，坐着最早的一班地铁赶到学校。报到、注册、认识师兄同学，一切都带着最初的新鲜与好奇心，看着亚洲最大的NMB、帝都最漂亮的林荫大道、设施完善的实验室和体育馆，心中激动无以言表。接着选课、上课、读论文、读代码，渐渐冷静下来，开始和小伙伴们吐槽学校的点点滴滴：建筑命名无脑粗暴、上课教室搞得人晕头转向、上四层楼等于上八层、下午课跟晚上课之间只有十五分钟吃饭时间、图书馆找书简直不能更麻烦…</p>
+<p>研究和课程的任务不断增加，逐渐感到了身上的压力，在一遍遍地赶DDL中，慢慢地适应了读研的节奏，也逐渐掌握了一些论文阅读和研究的方法，自己在研究人员的道路上逐渐地驾轻就熟。</p>
+<h2 id="十十一"><a href="#十十一" class="headerlink" title="十十一"></a>十十一</h2><p>读研之后第一个长假，约了小伙伴天津之行。没想到这次旅行让我萌生了重新拾起过去遗憾的想法。认识了四年的姑娘，之前总觉得没有做好准备，也看不太清楚自己的未来，认为不会有什么结果。终于在那个阴雨绵绵的傍晚，我鼓起所有的勇气闯入了她的世界，开始相信无论前路如何，总能风雨同舟携手前行。相处时间越久，我就越感到庆幸自己没有因为犹豫而错过身边这么优秀的姑娘。我们就像相恋多年的恋人一样，彼此那么地默契合拍，彼此尊重和依赖，努力而专心地呵护着对方的感情。</p>
+<p>我的人生旅途从此多了一个伴侣，每天电话都有说不完的话，一起记录生活，同步彼此的作息，同步追剧，她的光芒让我整个时光都填满了甜蜜和温柔。而帝都多了一对好奇探路者，我们一起探索这千年古都，一起搜索神秘美食，一起参观帝都的角角落落，在越来越多的地方留下我们的脚印。我们满怀信心，爱着彼此，不畏前路。</p>
+<h2 id="十二"><a href="#十二" class="headerlink" title="十二"></a>十二</h2><p>选课太多，DDL几乎都积攒在年底，十二月一直忙忙忙，从来没有停下。先是各个科目的大作业，然后完成一些科目需要提交的论文代码，一路跌跌撞撞地进入期末复习。发现小伙伴们都已经不在意大家彼此的成绩对比，都会一起讨论课程内容，对课程重点内容做出自己的判断，然后各自或者一起做出一份复习总结，大家开始齐心协力进行期末复习，都不希望任何人因为课程的原因而耽误了自己的研究生涯。</p>
+<p>最终，紧紧张张的考试总算结束，考试并没有我们担心的那么恐怖，而更像是一个资格审查，进行完这些考核，才标志着我们终有资格进行下一步的研究生活。要感谢一起复习的甲丙丁，大家下个学期也要一起努力，少打撸多看论文多看书！</p>
+<h2 id="二〇一七"><a href="#二〇一七" class="headerlink" title="二〇一七"></a>二〇一七</h2><p>两天时间总算把二〇一六年过了一遍，之前也想写过类似的内容，但是最后不了了之，这次总算完成。新年愿望这算是完成的第一个，其他的愿望列在下面：</p>
+<ul>
+<li>把日记本用满一整年</li>
+<li>重新开始更新自己的博客，写什么都行</li>
+<li>记录自己读过的书，照片文字都行</li>
+<li>接着记录自己看过的电影</li>
+<li>在研究之路上有所突破</li>
+<li>坚持运动</li>
+<li>把github也用起来</li>
+</ul>
+<p>二〇一七，不忘初心，鸡年大吉！</p>
+<p><strong>二〇一七一月二十七 除夕</strong></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;零&quot;&gt;&lt;a href=&quot;#零&quot; class=&quot;headerlink&quot; title=&quot;零&quot;&gt;&lt;/a&gt;零&lt;/h2&gt;&lt;p&gt;写下这些文字的时候，2017已经过去了将近一个月。好久没有写过东西，以前觉得有些想法就让他烂在心里的好，然而现在觉得生活中零零碎碎的东西如果都烂掉了，岂不是太过可惜，不如记下，偶尔翻看，回味一番。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://hengyishu.cn/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="2016" scheme="http://hengyishu.cn/tags/2016/"/>
+    
+      <category term="总结" scheme="http://hengyishu.cn/tags/%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>windows健康高效大法</title>
+    <link href="http://hengyishu.cn/2016/05/29/%E6%8F%90%E9%AB%98windows%E4%BD%BF%E7%94%A8%E4%BD%93%E6%A3%80%E7%9A%84%E8%BD%AF%E4%BB%B6/"/>
+    <id>http://hengyishu.cn/2016/05/29/提高windows使用体检的软件/</id>
+    <published>2016-05-29T14:34:45.000Z</published>
+    <updated>2017-02-14T03:14:55.007Z</updated>
+    
+    <content type="html"><![CDATA[<p>好久没写博客了，上次写的东西还是3月多的，自己真是越来越懒了。<br>之前在知乎看到很多关于“如何优雅地windows”的讨论，自己看了试了一些，这里结合自己的经历分享一下体验。<br><a id="more"></a><br>首先，自己桌面镇一下~<br><img src="http://7xrsid.com1.z0.glb.clouddn.com/5-29%2Fdesktop.png" alt="桌面" title="桌面"><br>桌面简单为主，应用程序都放在了开始菜单。我关闭了小娜的按钮，左上角放了一个下拉关机，上面中间是经常用到的程序，右边有一些需要用到但是频率不那么高的快捷方式（文件夹）。需要干活的时候，桌面上放一些需要用到的东西的快捷方式，完事之后就删掉，方便！</p>
+<h2 id="Clover"><a href="#Clover" class="headerlink" title="Clover"></a>Clover</h2><p>国产软件，不过很久没更新了，官方最高支持到win8，但是我win10一直在用，偶尔会崩溃，win7据说没问题。<br>文件夹的收藏是我一直很重要的一个需求，因为经常需要在很多文件夹里面来回翻找，没用这个软件之前都是一个个去点，clover添加收藏之后简直爽爆。另外，标签页也很漂亮，比起其他同样功能的软件QtTabbar要好很多。<br>官网：<br><a href="http://cn.ejie.me/" title="易捷科技" target="_blank" rel="external">Clover2</a></p>
+<h2 id="Listary"><a href="#Listary" class="headerlink" title="Listary"></a>Listary</h2><p>这是个好看版的everything，也是款效率提升神器。虽然win10的整合了小娜，也可以进行全局搜索，但是感觉没有那么顺畅，就用了listary。listary可以设置全局快捷键（我是win + F）进行搜索，而且搜索速度相当快。</p>
+<p><img src="http://7xrsid.com1.z0.glb.clouddn.com/5-29%2Flistary1.png" alt="Listary全局搜索" title="Listary全局搜索"><br><img src="http://7xrsid.com1.z0.glb.clouddn.com/5-29%2Flistary2.png" alt="Listary2" title="Listary"></p>
+<p>官网地址:<br><a href="http://www.listary.com/" title="Listary" target="_blank" rel="external">Listary: File Search &amp; App Launcher</a></p>
+<h2 id="网易云"><a href="#网易云" class="headerlink" title="网易云"></a>网易云</h2><p>不多说，确实好用，情怀加分。</p>
+<p><a href="http://music.163.com/#/download" title="Netease Music" target="_blank" rel="external">网易云音乐</a></p>
+<h2 id="QQ轻聊版"><a href="#QQ轻聊版" class="headerlink" title="QQ轻聊版"></a>QQ轻聊版</h2><p>去掉烦人的广告和QQ秀，也没有QQ空间评论提醒，空间依赖症慎用。</p>
+<p><a href="http://im.qq.com/lightqq/" title="QQ light" target="_blank" rel="external">QQ轻聊版</a></p>
+<h2 id="电脑管家"><a href="#电脑管家" class="headerlink" title="电脑管家"></a>电脑管家</h2><p>好像杀毒能力不怎么样？可以用来升级软件用。</p>
+<p><a href="http://guanjia.qq.com/" target="_blank" rel="external">腾讯电脑管家</a></p>
+<h2 id="potplayer"><a href="#potplayer" class="headerlink" title="potplayer"></a>potplayer</h2><p>绿色全能播放器(手动笑脸)</p>
+<p><a href="http://www.potplayer.org/" target="_blank" rel="external">PotPlayer</a></p>
+<h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><p>谷歌大法好！</p>
+<h2 id="Latern"><a href="#Latern" class="headerlink" title="Latern"></a>Latern</h2><p>免费的fan qiang神器<br><a href="https://getlantern.org/" target="_blank" rel="external">Get Lantern</a></p>
+<h2 id="f-lux"><a href="#f-lux" class="headerlink" title="f.lux"></a>f.lux</h2><p>调节屏幕色温，长时间对着屏幕也不会很难受。</p>
+<p><a href="https://justgetflux.com/" target="_blank" rel="external">f.lux下载</a></p>
+<h2 id="notepad"><a href="#notepad" class="headerlink" title="notepad++"></a>notepad++</h2><p>多功能小巧的编辑器。<br><a href="https://notepad-plus-plus.org/" target="_blank" rel="external">notepad++</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;好久没写博客了，上次写的东西还是3月多的，自己真是越来越懒了。&lt;br&gt;之前在知乎看到很多关于“如何优雅地windows”的讨论，自己看了试了一些，这里结合自己的经历分享一下体验。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="日常" scheme="http://hengyishu.cn/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+      <category term="效率" scheme="http://hengyishu.cn/tags/%E6%95%88%E7%8E%87/"/>
+    
+      <category term="神器" scheme="http://hengyishu.cn/tags/%E7%A5%9E%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Qt]OpenGL与Qt结合|OpenGL under QML</title>
+    <link href="http://hengyishu.cn/2016/03/22/Qt-OpenGL%E4%B8%8EQt%E7%BB%93%E5%90%88-OpenGL-under-QML/"/>
+    <id>http://hengyishu.cn/2016/03/22/Qt-OpenGL与Qt结合-OpenGL-under-QML/</id>
+    <published>2016-03-22T06:24:50.000Z</published>
+    <updated>2017-02-14T03:14:55.004Z</updated>
+    
+    <content type="html"><![CDATA[<p>写个demo感受一下OpenGL如何在Qt上应用。<br><a id="more"></a></p>
+<h1 id="OpenGL"><a href="#OpenGL" class="headerlink" title="OpenGL"></a>OpenGL</h1><blockquote>
+<p>开放图形库（英语：Open Graphics Library，缩写为OpenGL）是个定义了一个跨编程语言、跨平台的应用程序接口（API）的规范，它用于生成二维、三维图像。这个接口由近350个不同的函数调用组成，用来从简单的图形比特绘制复杂的三维景象。而另一种程序接口系统是仅用于Microsoft Windows上的Direct3D。OpenGL常用于CAD、虚拟实境、科学可视化程序和电子游戏开发。</p>
+<p>OpenGL的高效实现（利用了图形加速硬件）存在于Windows，很多UNIX平台和Mac OS。这些实现一般由显示设备厂商提供，而且非常依赖于该厂商提供的硬件。开放源代码库Mesa是一个纯基于软件的图形API，它的代码兼容于OpenGL。但是，由于许可证的原因，它只声称是一个“非常相似”的API。<br>-摘自<a href="https://zh.wikipedia.org/wiki/OpenGL" title="OpenGL wiki" target="_blank" rel="external">OpenGL wiki</a></p>
+</blockquote>
+<p>关于OpenGL的编程展开是个很大的话题，不再赘述，有兴趣的可以参考</p>
+<ul>
+<li><a href="http://www.learnopengl.com/" title="learnopengl" target="_blank" rel="external">LearnOpenGL</a></li>
+<li><a href="http://www.opengl-tutorial.org/" title="opengltutorail" target="_blank" rel="external">OpenGLTutorial</a></li>
+</ul>
+<h1 id="OpenGL与Qt结合"><a href="#OpenGL与Qt结合" class="headerlink" title="OpenGL与Qt结合"></a>OpenGL与Qt结合</h1><p>我写的demo参考这篇文章：<a href="http://doc.qt.io/qt-5/qtquick-scenegraph-openglunderqml-example.html" title="openglunderqml" target="_blank" rel="external">OpenGLUnderQML</a><br>因为之前写文本编辑器的原因，现在看这篇教程感觉容易理解的多。跟着写就好，主要就是理解一下Qt中究竟是如何将OpenGL结合起来的。</p>
+<p>这个demo简明扼要，主要思路如下：</p>
+<ol>
+<li>写Squircle类和Squirecle类，前者作为组件注册进qml，后者作为Squircle类中的一个成员，处理一些渲染的问题。定义一些信号函数和一些槽函数。</li>
+<li>在qml中写好布局</li>
+<li>在qml中修改Squircle中的成员t的值</li>
+<li>每次渲染都会根据t的值进行，从而画出不同的图案</li>
+</ol>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><blockquote>
+<p>The OpenGL under QML example shows how an application can make use of the QQuickWindow::beforeRendering() signal to draw custom OpenGL content under a Qt Quick scene. This signal is emitted at the start of every frame, before the scene graph starts its rendering, thus any OpenGL draw calls that are made as a response to this signal, will stack under the Qt Quick items.</p>
+<p>As an alternative, applications that wish to render OpenGL content on top of the Qt Quick scene, can do so by connecting to the QQuickWindow::afterRendering() signal.</p>
+<p>本例展示了应用程序如何利用<code>QQuickWindow::beforeRendering</code>信号在QtQuick场景下画出自定义的OpenGl内容。这个信号会在每一帧渲染之前触发，也就是在图像场景绘制之前，因此任何此信号的槽函数中的OpenGL调用都会栈式堆叠在QtQuick控件之下。<br>另外，如果应用程序想要在QtQuick控件之上绘制图像，那么可以针对<code>QQuickWindow::afterRendering</code>信号编写槽函数并与之连接。 </p>
+</blockquote>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="用到的信号"><a href="#用到的信号" class="headerlink" title="用到的信号"></a>用到的信号</h2><h3 id="QQuickItem-windowChanged"><a href="#QQuickItem-windowChanged" class="headerlink" title="QQuickItem::windowChanged"></a>QQuickItem::windowChanged</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Squircle::Squircle()</div><div class="line">    : <span class="keyword">m_t</span>(<span class="number">0</span>)</div><div class="line">    , m_renderer(<span class="number">0</span>)</div><div class="line">&#123;</div><div class="line">    connect(<span class="keyword">this</span>, &amp;QQuickItem::windowChanged, <span class="keyword">this</span>, &amp;Squircle::handleWindowChanged);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>void QQuickItem::windowChanged(QQuickWindow *window)<br>This signal is emitted when the item’s window changes.</p>
+</blockquote>
+<h3 id="void-QQuickWindow-beforeSynchronizing"><a href="#void-QQuickWindow-beforeSynchronizing" class="headerlink" title="void QQuickWindow::beforeSynchronizing()"></a>void QQuickWindow::beforeSynchronizing()</h3><blockquote>
+<p>This signal is emitted before the scene graph is synchronized with the QML state.<br>This signal can be used to do any preparation required before calls to QQuickItem::updatePaintNode().<br>The GL context used for rendering the scene graph will be bound at this point.<br>Warning: This signal is emitted from the scene graph rendering thread. If your slot function needs to finish before execution continues, you must make sure that the connection is direct (see Qt::ConnectionType).<br>Warning: Make very sure that a signal handler for beforeSynchronizing leaves the GL context in the same state as it was when the signal handler was entered. Failing to do so can result in the scene not rendering properly.</p>
+</blockquote>
+<p>同步的信号</p>
+<h3 id="void-QQuickWindow-sceneGraphInvalidated"><a href="#void-QQuickWindow-sceneGraphInvalidated" class="headerlink" title="void QQuickWindow::sceneGraphInvalidated()"></a>void QQuickWindow::sceneGraphInvalidated()</h3><blockquote>
+<p>This signal is emitted when the scene graph has been invalidated.<br>This signal implies that the opengl rendering context used has been invalidated and all user resources tied to that context should be released.<br>The OpenGL context of this window will be bound when this function is called. The only exception is if the native OpenGL has been destroyed outside Qt’s control, for instance through EGL_CONTEXT_LOST.<br>This signal will be emitted from the scene graph rendering thread.</p>
+</blockquote>
+<p>场景渲染结束，需要释放资源的信号</p>
+<h3 id="void-QQuickWindow-beforeRendering"><a href="#void-QQuickWindow-beforeRendering" class="headerlink" title="void QQuickWindow::beforeRendering()"></a>void QQuickWindow::beforeRendering()</h3><blockquote>
+<p>This signal is emitted before the scene starts rendering.</p>
+<p>Combined with the modes for clearing the background, this option can be used to paint using raw GL under QML content.</p>
+<p>The GL context used for rendering the scene graph will be bound at this point.</p>
+<p>Warning: This signal is emitted from the scene graph rendering thread. If your slot function needs to finish before execution continues, you must make sure that the connection is direct (see Qt::ConnectionType).</p>
+<p>Warning: Make very sure that a signal handler for beforeRendering leaves the GL context in the same state as it was when the signal handler was entered. Failing to do so can result in the scene not rendering properly.</p>
+</blockquote>
+<p>前面介绍过的图形渲染之前的信号</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="文件名的写法"><a href="#文件名的写法" class="headerlink" title="文件名的写法"></a>文件名的写法</h3><p>QOpenGLShaderProgram的方法addShaderFromFile中的第二个参数需要一个文件名，这个文件名我最开始写的是<code>&quot;vertex.vsh&quot;</code>，结果一直提示找不到文件，查了查，看到别人代码写成<code>&quot;:/vertex.vsh&quot;</code>就可以了。不太清楚是为什么。</p>
+<h3 id="关于Qt-main函数中的窗口启动方式"><a href="#关于Qt-main函数中的窗口启动方式" class="headerlink" title="关于Qt main函数中的窗口启动方式"></a>关于Qt main函数中的窗口启动方式</h3><ol>
+<li>现在见到的有几种，通过ApplicationEngine读取qml，在qml中定义window，然后出现窗口</li>
+<li>QQuickView直接载入qml文件，然后显示出来</li>
+</ol>
+<p>-END-</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;写个demo感受一下OpenGL如何在Qt上应用。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="学习记录" scheme="http://hengyishu.cn/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="学习记录" scheme="http://hengyishu.cn/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    
+      <category term="Qt" scheme="http://hengyishu.cn/tags/Qt/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Qt]使用C++编写QML组件</title>
+    <link href="http://hengyishu.cn/2016/03/18/Qt%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E4%BD%BF%E7%94%A8C-%E7%BC%96%E5%86%99QML%E7%BB%84%E4%BB%B6/"/>
+    <id>http://hengyishu.cn/2016/03/18/Qt学习记录-使用C-编写QML组件/</id>
+    <published>2016-03-18T13:58:00.000Z</published>
+    <updated>2017-02-14T03:14:55.006Z</updated>
+    
+    <content type="html"><![CDATA[<p>初学Qt，官网文档看的有点乱乱的，经常找不到自己需要的东西。于是决定跟着官网的一篇文章写一个Demo–一个简单的文本编辑器，参考教程在<a href="http://doc.qt.io/qt-5/gettingstartedqml.html" title="Getting Started Programming with Qt Quick" target="_blank" rel="external">这里</a><br><a id="more"></a></p>
+<h1 id="QML-amp-QML-modules"><a href="#QML-amp-QML-modules" class="headerlink" title="QML &amp; QML modules"></a>QML &amp; QML modules</h1><p>QML (Qt Markup Language<a href="https://zh.wikipedia.org/wiki/QML" title="QML wikipedia" target="_blank" rel="external">2</a> 或 Qt Meta Language 或 Qt Modeling Language<a href="http://doc.qt.io/qt-5/gettingstartedqml.html" title="Getting Started Programming with Qt Quick" target="_blank" rel="external">3</a>) 是基于JavaScript、宣告式编程的编程语言，用于设计用户界面为主的应用程序。它是Qt Quick，诺基亚开发的用户界面创建包的一部分。QML 主要用于移动应用程序，注重于触控输入、流畅的动画（60张/秒）和用户体验。QML documents 描述元素的对象树。</p>
+<p>QML 元素可以通过标准 JavaScript 增强，包括这 inline 和引入.js 档。元素可以也无缝集成和使用 Qt 框架的 C++ 组件扩展。</p>
+<p>语言的名称是 QML。runtime的名称是 QQuickView。</p>
+<p>===以上来自<a href="https://zh.wikipedia.org/wiki/QML" title="QML wikipedia" target="_blank" rel="external">QML wiki</a>===</p>
+<p>简而言之，QML是一个基于javascript的语言，能够方便地进行用户界面设计，也能够通过引入js文件和访问c++对象来拓展功能，使用方便又功能强大。</p>
+<p>QML官方参考文档: <a href="http://doc.qt.io/qt-5/qtqml-index.html" title="Qt QML" target="_blank" rel="external">QtQML</a></p>
+<h1 id="QML访问C-对象"><a href="#QML访问C-对象" class="headerlink" title="QML访问C++对象"></a>QML访问C++对象</h1><p>使用Qt的重点就在于如何将QML与自己需要实现的功能代码相结合，既满足QML简单的特点，又能实现自己所需要的功能。<br>开头就提到，我是跟着这篇教程–<a href="http://doc.qt.io/qt-5/gettingstartedqml.html" title="Getting Started Programming with Qt Quick" target="_blank" rel="external">Getting Started Programming with Qt Quick</a>做的Demo，想要先熟悉一下开发过程。<br>接下来就是入坑爬坑的阶段了。</p>
+<p>环境说明： </p>
+<ul>
+<li>win10</li>
+<li>Qt5.5 for msvs2013 64bit</li>
+<li>QtCreator</li>
+</ul>
+<p><strong>教程内的源码包含在Qt的Example文件夹内！地址类似这样 Qt\Qt5.5.1\Examples\Qt-5.5\quick\tutorials\gettingStartedQml</strong></p>
+<h2 id="新建工程"><a href="#新建工程" class="headerlink" title="新建工程"></a>新建工程</h2><p>想了解Qt Quick 1 vs Qt Quick 2的同学请移步: <a href="https://wiki.qt.io/QML1-vs-QML2" title="QML1-vs-QML2" target="_blank" rel="external">QML1-vs-QML2</a><br>这个过程教程里没有详细说明，因为使用的控件都是自己写的，所以新建一个Qt Quick的工程就好。</p>
+<h2 id="写qml控件"><a href="#写qml控件" class="headerlink" title="写qml控件"></a>写qml控件</h2><p>跟着教程写控件包括 Button, EditMenu, FileMenu，MenuBar这些东西，参考源码的内容写就好，这时候因为有些交互代码（比如点击按钮要进行保存之类的）没有相应的C++代码支持，所以会报错，这些报错的内容可以先不写，后面再补上。</p>
+<h2 id="写C-对象"><a href="#写C-对象" class="headerlink" title="写C++对象"></a>写C++对象</h2><p>也是参考源码来写，没什么大问题，这个地方不会有什么报错的，就跟着Qt的教程把需要的写的宏和语句写好了就行</p>
+<h3 id="重要的宏"><a href="#重要的宏" class="headerlink" title="重要的宏"></a>重要的宏</h3><p>重要的宏有这几个<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//类定义的时候需要</div><div class="line">Q_OBJECT</div><div class="line"></div><div class="line">//设定属性已经读写属性对应的C++函数以及发出的那种信号</div><div class="line">Q_PROPERTY(type propertyName READ propertyName Write setPropertyName NOTIFY signalName)</div><div class="line"></div><div class="line">//可以被QML调用的函数</div><div class="line">Q_INVOKABLE void yourFunctionName( args.. );</div></pre></td></tr></table></figure></p>
+<p>为什么要用这些宏，参考官方文档：<br><a href="http://doc.qt.io/qt-5/qobject.html#Q_OBJECT" title="Q_OBJECT" target="_blank" rel="external">Q_OBJECT</a><br><a href="http://doc.qt.io/qt-5/qobject.html#Q_PROPERTY" title="Q_PROPERTY" target="_blank" rel="external">Q_PROPERTY</a><br><a href="http://doc.qt.io/qt-5/qobject.html#Q_INVOKABLE" title="Q_INVOKABLE" target="_blank" rel="external">Q_INVOKABLE</a><br>更多宏，请参考<a href="http://doc.qt.io/qt-5/qobject.html" title="QObject" target="_blank" rel="external">QObject</a>的Macros小节</p>
+<h2 id="QML访问C-对象-1"><a href="#QML访问C-对象-1" class="headerlink" title="QML访问C++对象"></a>QML访问C++对象</h2><p>这是个难点，把QML的样式写好之后，需要添加功能，相应的C++代码也写好了，但是要结合起来还是有点麻烦。<br>上面提到的教程是通过qmlscene带参运行，来达到qml和C++代码的结合，但是这样的话就不能在Qt Creator中写代码时，看到提示了，很难受，所以就得看看其他的办法。</p>
+<h3 id="Qt-Creator-中使用qmlscene运行项目"><a href="#Qt-Creator-中使用qmlscene运行项目" class="headerlink" title="Qt Creator 中使用qmlscene运行项目"></a>Qt Creator 中使用qmlscene运行项目</h3><p>顺带说一下如何在Qt Creator中使用qmlscene运行demo中的源码</p>
+<ol>
+<li>使用qmake生成imports文件夹，生成文件夹的地址得在 <code>QtCreator -》 项目</code> 中构建设置下的shadow build是否打钩，如果打钩，那么生成的文件会在 构建目录中。没有打钩的话，就是在项目文件夹下生成。</li>
+<li>把imports放到demo源码的目录</li>
+<li>配置运行参数<br>在 QtCreator -》项目 中的设置如图<br><img src="http://7xrsid.com1.z0.glb.clouddn.com/qt-qml-qmlscene.png" alt="qtCreator-qmlscene"><br>参数也如图中所示，接下来运行即可</li>
+<li>注意：第一步中生成imports的文件夹要和第3步中的运行时的版本是一致的，也就是说如果生成imports时是release版，那么第3部构建时也需要是release，如果是debug版的就都需要时debug版，不能混用。</li>
+</ol>
+<h3 id="不使用qmlscene运行"><a href="#不使用qmlscene运行" class="headerlink" title="不使用qmlscene运行"></a>不使用qmlscene运行</h3><p>qt自带的源码中的项目打开，目录结构是这样的<br><img src="http://7xrsid.com1.z0.glb.clouddn.com/qt-qml-getstartedqml.png" alt="目录结构"><br>可以看到，没有qml相关的文件<br>我也不太明白为什么要这样设置，但是使用上面提到的qmlscene的方法确实可以运行。<br>然后我就想了想办法，把c++代码和qml结合起来。</p>
+<p>在我们自己建的项目中，把写好的c++代码的头文件和源代码文件添加进项目，然后在main函数QmlApplicationEngine初始化之前把我们自己写的FileDialog组件注册一下就好，代码如下(添加的就是星号之间的代码)<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//main.cpp</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QGuiApplication&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QQmlApplicationEngine&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"FileDialog/dialogPlugin.h"</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function">QGuiApplication <span class="title">app</span><span class="params">(argc, argv)</span></span>;</div><div class="line">	</div><div class="line"><span class="comment">//****************************</span></div><div class="line">    DialogPlugin plugin;</div><div class="line">    plugin.registerTypes(<span class="string">"FileDialog"</span>);</div><div class="line"><span class="comment">//****************************</span></div><div class="line"></div><div class="line">    QQmlApplicationEngine engine;</div><div class="line">    engine.load(QUrl(QStringLiteral(<span class="string">"qrc:/main.qml"</span>)));</div><div class="line"></div><div class="line">    <span class="keyword">return</span> app.exec();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>项目结构如下<br><img src="http://7xrsid.com1.z0.glb.clouddn.com/qt-qml-motepad.png" alt="motepad"></p>
+<p>然后再进行构建，运行就可以运行了。</p>
+<p>而且，这样写的话，在qml文件中import FileDialog之后，可以看到自己定义的那些属性和可以被引用的方法！</p>
+<h2 id="踩坑记录"><a href="#踩坑记录" class="headerlink" title="踩坑记录"></a>踩坑记录</h2><h3 id="必要的qt头文件没有include"><a href="#必要的qt头文件没有include" class="headerlink" title="必要的qt头文件没有include"></a>必要的qt头文件没有include</h3><p>必要的qt头文件没有include，导致构建时出现了莫名其妙的错误，看log也看不出来代码哪里写错了，全是stdio.h中的错误。以后要谨记这点。</p>
+<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><ul>
+<li><a href="http://doc.qt.io/qt-5/qtqml-tutorials-extending-qml-example.html" title="Writing QML Extensions with C++" target="_blank" rel="external">Writing QML Extensions with C++</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;初学Qt，官网文档看的有点乱乱的，经常找不到自己需要的东西。于是决定跟着官网的一篇文章写一个Demo–一个简单的文本编辑器，参考教程在&lt;a href=&quot;http://doc.qt.io/qt-5/gettingstartedqml.html&quot; title=&quot;Getting Started Programming with Qt Quick&quot;&gt;这里&lt;/a&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="学习记录" scheme="http://hengyishu.cn/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="学习记录" scheme="http://hengyishu.cn/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    
+      <category term="Qt" scheme="http://hengyishu.cn/tags/Qt/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Qt5.5 + Visual Studio 2013 结合</title>
+    <link href="http://hengyishu.cn/2016/03/12/Qt5-5-Visual-Studio2013-%E7%BB%93%E5%90%88/"/>
+    <id>http://hengyishu.cn/2016/03/12/Qt5-5-Visual-Studio2013-结合/</id>
+    <published>2016-03-12T06:50:18.000Z</published>
+    <updated>2017-02-14T03:14:55.005Z</updated>
+    
+    <content type="html"><![CDATA[<p>Qt Creater 编写代码不够舒服，而vs拥有强大的开发调试环境，在vs上进行qt开发，两全其美。<br><a id="more"></a></p>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ul>
+<li>本文适用情况仅限于windows环境下，其他环境不保证具有参考意义。</li>
+</ul>
+<h1 id="VisualStudio"><a href="#VisualStudio" class="headerlink" title="VisualStudio"></a>VisualStudio</h1><p>VisualStudio不多介绍，用过的都说好。<br>到<a href="https://www.visualstudio.com/downloads/download-visual-studio-vs" title="Download MS VisualStudio" target="_blank" rel="external">VS下载页</a>下载vs2013，安装即可，破解什么的网上有好多，实在不会的话就某宝买一个。</p>
+<h1 id="Qt"><a href="#Qt" class="headerlink" title="Qt"></a>Qt</h1><p>Qt - 一套代码，创建强大的应用和设备<br>具体介绍参见<a href="http://www.qt.io/cn/" title="qt Chinese" target="_blank" rel="external">Qt官网</a><br>到目前为止（2016年3月），最新版本的Qt是5.5。<br>安装Qt相当简单，到<a href="http://www.qt.io/cn/download-open-source/" title="Qt Download CN" target="_blank" rel="external">下载页面</a>下载好Qt5.5，安装即可。我用的是Qt 5.5.1 for Windows 64-bit (VS 2013, 823 MB)，然后安装就好了。</p>
+<h1 id="在vs2013上使用qt"><a href="#在vs2013上使用qt" class="headerlink" title="在vs2013上使用qt"></a>在vs2013上使用qt</h1><p>在<a href="http://www.qt.io/cn/download-open-source/" title="Qt Download CN" target="_blank" rel="external">Qt下载页</a>中选择Other Downloads,下载<strong>qt-vs-addin-1.2.4-opensource</strong>，或者到<a href="http://download.qt.io/official_releases/vsaddin/qt-vs-addin-1.2.4-opensource.exe.mirrorlist" title="qt vs-add-in 1.2.4" target="_blank" rel="external">这里</a>选择一个网速好点的镜像。<br><strong>qt-vs-addin-1.2.5需要将vs2013升级到最新版，否则安装时候会出现问题。</strong></p>
+<p>安装完 qt-vs-addin 之后，在vs的菜单栏上会多出一个菜单选项-qt5，然后，做一下配置。</p>
+<ol>
+<li>如图配置qt的路径<br><img src="http://7xrsid.com1.z0.glb.clouddn.com/qt-vs-qt-options.png" alt="配置Qt路径"><br><img src="http://7xrsid.com1.z0.glb.clouddn.com/qt-vs-add-path.png" alt="填写路径"><br>这里我的路径是 %你的Qt路径%/Qt/Qt5.5.1/5.5/msvc2013_64 ，然后就配置完毕了。</li>
+</ol>
+<h2 id="Visual-Assists-x"><a href="#Visual-Assists-x" class="headerlink" title="Visual Assists x"></a>Visual Assists x</h2><p>配置到这里，其实qt已经配置完毕了，但是相信你会看到你编辑器还是会对你的代码报错，毕竟vs再强大，也不可能把所有语法的提示都给你提前做好，所以这时候就需要我们自己安装插件了。<br>这里我选择的是 Visual Assists X，官网在这里:<a href="http://www.wholetomato.com/" title="Visual Assist x - VAX" target="_blank" rel="external">Visual Assists X</a>，下载完，安装就好，然后进行一下简单的配置。参考<a href="http://blog.csdn.net/gameloft9/article/details/46403525" title="vsx 配置" target="_blank" rel="external">这里</a>。<br>然后就可以舒服地写代码了</p>
+<p>-END-</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Qt Creater 编写代码不够舒服，而vs拥有强大的开发调试环境，在vs上进行qt开发，两全其美。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="学习记录" scheme="http://hengyishu.cn/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="学习记录" scheme="http://hengyishu.cn/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    
+      <category term="Qt" scheme="http://hengyishu.cn/tags/Qt/"/>
+    
+      <category term="VisualStudio" scheme="http://hengyishu.cn/tags/VisualStudio/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GitHub Pages + Hexo 搭建博客记录</title>
+    <link href="http://hengyishu.cn/2016/03/09/GitHub-Pages-Hexo-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AE%B0%E5%BD%95/"/>
+    <id>http://hengyishu.cn/2016/03/09/GitHub-Pages-Hexo-搭建博客记录/</id>
+    <published>2016-03-09T08:12:01.000Z</published>
+    <updated>2017-02-16T10:43:05.966Z</updated>
+    
+    <content type="html"><![CDATA[<p>曾经想用阿里云ecs自己搭一个博客，平常可以写点东西放上去，结果过于麻烦并且不必要。Github Pages + Hexo是在windows上很友好的一个组合。<br><a id="more"></a><br>好多教程里用的是 jekyll 来生成静态网页，但是在windows上使用并不是官方推荐的，所以我使用了hexo作为生成工具。</p>
+<h1 id="需要安装的软件"><a href="#需要安装的软件" class="headerlink" title="需要安装的软件"></a>需要安装的软件</h1><ul>
+<li><a href="https://nodejs.org/en/" title="node.js" target="_blank" rel="external">node.js</a></li>
+<li><a href="https://git-scm.com/downloads" title="Git Download Page" target="_blank" rel="external">git</a></li>
+<li><a href="https://hexo.io/zh-cn/%20hexo-%E5%BF%AB%E9%80%9F%E3%80%81%E7%AE%80%E6%B4%81%E4%B8%94%E9%AB%98%E6%95%88%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6" target="_blank" rel="external">hexo</a></li>
+</ul>
+<h1 id="关于Git及GitHub"><a href="#关于Git及GitHub" class="headerlink" title="关于Git及GitHub"></a>关于Git及GitHub</h1><h2 id="Git-amp-GitHub"><a href="#Git-amp-GitHub" class="headerlink" title="Git &amp; GitHub"></a>Git &amp; GitHub</h2><p>关于Git的教程网上很多，我推荐我看过的一个<br><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" title="廖雪峰的Git教程" target="_blank" rel="external">廖雪峰的Git教程</a><br>里面说的很详细，不再赘述</p>
+<h2 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h2><p>GitHub是一个在线托管仓库，GitHub Pages就是把你的仓库变成一个可以访问的静态网站的功能。</p>
+<p>相关介绍(同时也是官方教程):<br><a href="https://pages.github.com/" title="GitHub Pages 官方网站" target="_blank" rel="external">GitHub Pages</a></p>
+<p>通过Github Pages你可以为你的Github账户建立一个自己的主页，每一个托管在github上的项目都可以作为一个二级目录来展示你网站的相应的部分或者实现相应的功能。</p>
+<p>由于只支持静态网页的访问（毕竟免费），所以如果想要搭建博客，那么就需要一套自动生成静态网页的工具，还要整合一些网络上的服务，以便于让自己的博客功能更加丰富。</p>
+<h2 id="开启Github-Pages"><a href="#开启Github-Pages" class="headerlink" title="开启Github Pages"></a>开启Github Pages</h2><p>网上各种教程，比如这个:<br><a href="http://lovenight.github.io/2015/11/10/Hexo-3-1-1-%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/" title="loveNight hexo3.3.1搭建博客指南" target="_blank" rel="external">Hexo3.3.1搭建博客指南</a></p>
+<h1 id="关于Hexo"><a href="#关于Hexo" class="headerlink" title="关于Hexo"></a>关于Hexo</h1><p>官网链接：<br><a href="https://hexo.io/zh-cn/%20hexo-%E5%BF%AB%E9%80%9F%E3%80%81%E7%AE%80%E6%B4%81%E4%B8%94%E9%AB%98%E6%95%88%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6" target="_blank" rel="external">Hexo - 快速、简洁且高效的博客框架</a><br>需要注意的是安装之前需要先安装node.js，下载请到这里:<br><a href="https://nodejs.org/en/" title="node.js" target="_blank" rel="external">nodejs.org</a><br>hexo安装完成之后，参考hexo官网的文档，或者上面那篇<a href="http://lovenight.github.io/2015/11/10/Hexo-3-1-1-%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/" title="loveNight hexo3.3.1搭建博客指南" target="_blank" rel="external">博客</a>内的说明，就可以使用hexo进行博客的更新的管理了。<br>如果需要美化的话，hexo中提供的有主题，也可以自己根据需要制作。</p>
+<h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><h2 id="git-filename-filepath-too-long"><a href="#git-filename-filepath-too-long" class="headerlink" title="git filename/filepath too long"></a>git filename/filepath too long</h2><p>因为想要保存hexo源文件到github，便于换电脑时候也能写博客（参考<a href="http://zhihu.com/question/21193762/answer/79109280?utm_campaign=webshare&amp;utm_source=weibo&amp;utm_medium=zhihu" title="CrazyMilk的回答" target="_blank" rel="external">这里</a>），使用<code>git add .</code> 命令时提示node_modules中的文件有一部分因为名字太长而无法访问，找到一个说法是可以在git内设置变量如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --global core.longpaths true</div></pre></td></tr></table></figure></p>
+<p>可以让git接收过长的路径名，结果还是不行<br>google了一下发现是windows api的锅，所以只好把 node_modules文件夹放入 .gitignore文件，解决</p>
+<h2 id="git-permission-denied"><a href="#git-permission-denied" class="headerlink" title="git permission denied"></a>git permission denied</h2><p>因为 git bash（安装git之后的终端窗口）连接github仓库时需要rsa密钥，我之前用的是github的bash，所以有密钥，就不要生成新的秘钥，再添加到github的白名单里了。<br>添加秘钥的方法参考:<br><a href="https://help.github.com/articles/generating-an-ssh-key/" title="Generating an SSH key" target="_blank" rel="external">Generate a SSH key</a><br><a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#adding-your-ssh-key-to-the-ssh-agent" title="Add your SSH key to your ssh-agent" target="_blank" rel="external">Adding your SSH key to the ssh-agent</a></p>
+<h2 id="自动替换crlf为lf"><a href="#自动替换crlf为lf" class="headerlink" title="自动替换crlf为lf"></a>自动替换crlf为lf</h2><p>lf是linux系统中使用的换行符，crlf是windows中使用的换行符。<br>因为windows和linux在换行符上的差异。因为跨平台的特性，git默认会检查换行符，并给出警告。<br>一下引用自git官方文档:</p>
+<blockquote>
+<p><code>core.autocrlf</code><br>假如你正在Windows上写程序，又或者你正在和其他人合作，他们在Windows上编程，而你却在其他系统上，在这些情况下，你可能会遇到行尾结束符问题。这是因为Windows使用回车和换行两个字符来结束一行，而Mac和Linux只使用换行一个字符。虽然这是小问题，但它会极大地扰乱跨平台协作。</p>
+<p>Git可以在你提交时自动地把行结束符CRLF转换成LF，而在签出代码时把LF转换成CRLF。用core.autocrlf来打开此项功能，如果是在Windows系统上，把它设置成true，这样当签出代码时，LF会被转换成CRLF：</p>
+<p><code>$git config --global core.autocrlf true</code><br>Linux或Mac系统使用LF作为行结束符，因此你不想<br>Git<br>在签出文件时进行自动的转换；当一个以CRLF为行结束符的文件不小心被引入时你肯定想进行修正，把core.autocrlf设置成input来告诉<br>Git 在提交时把CRLF转换成LF，签出时不转换：</p>
+<p><code>$ git config --global core.autocrlf input</code></p>
+<p>这样会在Windows系统上的签出文件中保留CRLF，会在Mac和Linux系统上，包括仓库中保留LF。</p>
+<p>如果你是Windows程序员，且正在开发仅运行在Windows上的项目，可以设置false取消此功能，把回车符记录在库中：</p>
+<p><code>$ git config --global core.autocrlf false</code></p>
+</blockquote>
+<h2 id="个性化博客"><a href="#个性化博客" class="headerlink" title="个性化博客"></a>个性化博客</h2><p>我使用的是<a href="http://theme-next.iissnan.com/" title="NexT文档" target="_blank" rel="external">NexT-Muse</a>主题，这个主题提供的插件什么的都挺齐全。</p>
+<h3 id="为博客添加多说的评论功能"><a href="#为博客添加多说的评论功能" class="headerlink" title="为博客添加多说的评论功能"></a>为博客添加<a href="http://duoshuo.com/" title="多说" target="_blank" rel="external">多说</a>的评论功能</h3><p>配置相当简单，在主题 themes/next/_config.yml 文件中找到如下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">duoshuo_info:</div><div class="line">  ua_enable: true</div><div class="line">  admin_enable: true</div><div class="line">  user_id: </div><div class="line">  #admin_nickname: ROOT</div></pre></td></tr></table></figure></p>
+<p>user_id 改为自己多说的id<br>ua_enable 是开启获取用户平台功能，开启之后会显示用户所用的操作系统和浏览器版本<br>admin_enable 是开启标记博主功能</p>
+<h4 id="获取user-id的方法"><a href="#获取user-id的方法" class="headerlink" title="获取user_id的方法"></a>获取user_id的方法</h4><p>找到自己的留言，在用户名上右键-&gt;检查（资源审查），然后如图<br><img src="http://7xrsid.com1.z0.glb.clouddn.com/bloguser_id.png" alt="获取user_id" title="获取user_id"><br>将拿到的user_id放到，上面那段代码的user_id: 后面，注意<strong>冒号之后</strong>一定要有<strong>空格</strong><br>然后评论后面就会有相应的标记了</p>
+<h4 id="多说后台添加自定义css"><a href="#多说后台添加自定义css" class="headerlink" title="多说后台添加自定义css"></a>多说后台添加自定义css</h4><p>一张图说明一切<br><img src="http://7xrsid.com1.z0.glb.clouddn.com/blogcustom_css.png" alt="添加自定义css" title="添加自定义css"></p>
+<h3 id="添加统计功能"><a href="#添加统计功能" class="headerlink" title="添加统计功能"></a>添加统计功能</h3><p>使用<a href="http://ibruce.info/2015/04/04/busuanzi/" title="不蒜子简易计数" target="_blank" rel="external">不蒜子</a>，功能介绍详细，使用方便</p>
+<h3 id="–2016-3-12更新–"><a href="#–2016-3-12更新–" class="headerlink" title="–2016-3-12更新–"></a>–2016-3-12更新–</h3><h3 id="添加-RSS-订阅"><a href="#添加-RSS-订阅" class="headerlink" title="添加 RSS 订阅"></a>添加 RSS 订阅</h3><p>使用hexo的插件 hexo-generator-feed<br>项目地址: <a href="https://github.com/hexojs/hexo-generator-feed" title="hexo-feed" target="_blank" rel="external">hexo-generator-feed</a><br>安装方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-feed --save</div></pre></td></tr></table></figure></p>
+<p>然后在 hexo/_config.yml 中添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">plugin:</div><div class="line">- hexo-generator-feed</div><div class="line">type: atom</div><div class="line">path: atom.xml</div><div class="line">limit: 20</div></pre></td></tr></table></figure></p>
+<p>注意冒号后的空格</p>
+<p>然后，再使用 <code>hexo g</code> 命令，就能生成rss文件了</p>
+<p>在NexT主题的 _config.xml 中，在rss后面添加 /atom.xml，就会在头像下方出现RSS图标，点击就是刚刚生成的xml文件 </p>
+<h3 id="添加-自动生成-sitemap-网站地图"><a href="#添加-自动生成-sitemap-网站地图" class="headerlink" title="添加 自动生成 sitemap(网站地图)"></a>添加 自动生成 sitemap(网站地图)</h3><p>使用 hexo 的插件 hexo-generator-sitemap<br>项目地址：Github:<a href="https://github.com/hexojs/hexo-generator-sitemap" title="hexo-sitemap" target="_blank" rel="external">hexo-generator-sitemap</a><br>安装方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-sitemap --save</div></pre></td></tr></table></figure></p>
+<p>在 hexo/_config.xml 中添加一行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sitemap: sitemap.xml</div></pre></td></tr></table></figure></p>
+<p>然后再执行 <code>hexo g</code> 之后，访问 yoururl/sitemap.xml 就能看到生成的sitemap文件了。<br>然后把sitemap文件url添加到<a href="http://zhanzhang.baidu.com" title="百度站长" target="_blank" rel="external">百度站长</a>或者<a href="https://analytics.google.com/analytics/web/" title="Google Analytics" target="_blank" rel="external">Google Analytics</a>上，就能够被搜索引擎收录了。</p>
+<h2 id="消除hexo转义符对mathjax公式的影响"><a href="#消除hexo转义符对mathjax公式的影响" class="headerlink" title="消除hexo转义符对mathjax公式的影响"></a>消除hexo转义符对mathjax公式的影响</h2><p>参考问题中修改marked.js的回答，目前还没有发现什么问题。<br><a href="https://segmentfault.com/q/1010000003987383/a-1020000003987577" target="_blank" rel="external">https://segmentfault.com/q/1010000003987383/a-1020000003987577</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;曾经想用阿里云ecs自己搭一个博客，平常可以写点东西放上去，结果过于麻烦并且不必要。Github Pages + Hexo是在windows上很友好的一个组合。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="日常" scheme="http://hengyishu.cn/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+      <category term="Hexo" scheme="http://hengyishu.cn/tags/Hexo/"/>
+    
+      <category term="GitHub Pages" scheme="http://hengyishu.cn/tags/GitHub-Pages/"/>
+    
+  </entry>
+  
+</feed>
