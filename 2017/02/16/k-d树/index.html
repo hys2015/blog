@@ -368,7 +368,7 @@
 <ol>
 <li>如果ele_set 为空，则返回空</li>
 <li>调用选择分裂点的子程序，得到分裂点dom_elt和分裂的维度split</li>
-<li>ele_set_left = ${e | e \in ele_set, e[split] \le dom_elt[split] } $<br>ele_set_right = ${e | e \in ele_set, e[split] \gt dom_ elt[split]} $</li>
+<li>ele_set_left = $\{e | e \in ele_set, e[split] \le dom_elt[split] \} $<br>ele_set_right = $\{e | e \in ele_set, e[split] \gt dom_ elt[split]\} $</li>
 <li>build_kd_tree(ele_set_left)<br>build_kd_tree(ele_set_right)</li>
 </ol>
 </blockquote>
