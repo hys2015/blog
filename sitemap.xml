@@ -2,16 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://hengyishu.cn/blog/2016/03/09/GitHub-Pages-Hexo-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AE%B0%E5%BD%95/</loc>
+    <loc>http://hengyishu.cn/blog/2017/02/18/%E6%8F%90%E9%AB%98windows%E4%BD%BF%E7%94%A8%E4%BD%93%E6%A3%80%E7%9A%84%E8%BD%AF%E4%BB%B6/</loc>
     
-    <lastmod>2017-02-16T10:43:05.966Z</lastmod>
+    <lastmod>2017-02-18T02:45:40.483Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://hengyishu.cn/blog/2017/02/16/%E8%BF%AD%E4%BB%A3%E6%9C%80%E8%BF%91%E7%82%B9%E6%96%B9%E6%B3%95ICP/</loc>
     
-    <lastmod>2017-02-16T10:42:12.607Z</lastmod>
+    <lastmod>2017-02-18T02:29:57.446Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://hengyishu.cn/blog/2017/02/18/CUDA-%E5%85%A5%E9%97%A8/</loc>
+    
+    <lastmod>2017-02-18T02:21:40.595Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://hengyishu.cn/blog/2017/02/18/Debug-in-visual-c/</loc>
+    
+    <lastmod>2017-02-18T02:15:05.095Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://hengyishu.cn/blog/2016/03/09/GitHub-Pages-Hexo-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AE%B0%E5%BD%95/</loc>
+    
+    <lastmod>2017-02-16T10:43:05.966Z</lastmod>
     
   </url>
   
@@ -52,13 +73,6 @@
   
   <url>
     <loc>http://hengyishu.cn/blog/2017/01/31/%E6%88%91%E7%9A%84%E4%BA%8C%E3%80%87%E4%B8%80%E5%85%AD/</loc>
-    
-    <lastmod>2017-02-14T03:14:55.007Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://hengyishu.cn/blog/2016/05/29/%E6%8F%90%E9%AB%98windows%E4%BD%BF%E7%94%A8%E4%BD%93%E6%A3%80%E7%9A%84%E8%BD%AF%E4%BB%B6/</loc>
     
     <lastmod>2017-02-14T03:14:55.007Z</lastmod>
     

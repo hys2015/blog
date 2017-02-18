@@ -42,7 +42,7 @@
 <link href="/blog/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Qt,学习记录," />
+  <meta name="keywords" content="VisualC++,Debug,VisualStudio," />
 
 
 
@@ -60,16 +60,16 @@
 
 
 
-<meta name="description" content="写个demo感受一下OpenGL如何在Qt上应用。">
+<meta name="description" content="最近在研究师兄的代码，编译一遍挺久，所以趁此机会了解一下相关debug的技巧和方法，有助于提高自己的开发效率。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[Qt]OpenGL与Qt结合|OpenGL under QML">
-<meta property="og:url" content="http://hengyishu.cn/2016/03/22/Qt-OpenGL与Qt结合-OpenGL-under-QML/index.html">
+<meta property="og:title" content="Debug in visual c++">
+<meta property="og:url" content="http://hengyishu.cn/2017/02/18/Debug-in-visual-c/index.html">
 <meta property="og:site_name" content="持之以恒">
-<meta property="og:description" content="写个demo感受一下OpenGL如何在Qt上应用。">
-<meta property="og:updated_time" content="2017-02-14T03:14:55.004Z">
+<meta property="og:description" content="最近在研究师兄的代码，编译一遍挺久，所以趁此机会了解一下相关debug的技巧和方法，有助于提高自己的开发效率。">
+<meta property="og:updated_time" content="2017-02-18T02:15:05.095Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[Qt]OpenGL与Qt结合|OpenGL under QML">
-<meta name="twitter:description" content="写个demo感受一下OpenGL如何在Qt上应用。">
+<meta name="twitter:title" content="Debug in visual c++">
+<meta name="twitter:description" content="最近在研究师兄的代码，编译一遍挺久，所以趁此机会了解一下相关debug的技巧和方法，有助于提高自己的开发效率。">
 
 
 
@@ -102,7 +102,7 @@
 
 <link href="/blog/css/markcss.css" rel="stylesheet" type="text/css" />
 
-  <title> [Qt]OpenGL与Qt结合|OpenGL under QML | 持之以恒 </title>
+  <title> Debug in visual c++ | 持之以恒 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -250,7 +250,7 @@
             
             
               
-                [Qt]OpenGL与Qt结合|OpenGL under QML
+                Debug in visual c++
               
             
           </h1>
@@ -262,8 +262,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-22T14:24:50+08:00" content="2016-03-22">
-              2016-03-22
+            <time itemprop="dateCreated" datetime="2017-02-18T10:12:00+08:00" content="2017-02-18">
+              2017-02-18
             </time>
           </span>
 		  
@@ -296,8 +296,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/blog/2016/03/22/Qt-OpenGL与Qt结合-OpenGL-under-QML/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/22/Qt-OpenGL与Qt结合-OpenGL-under-QML/" itemprop="commentsCount"></span>
+                <a href="/blog/2017/02/18/Debug-in-visual-c/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/18/Debug-in-visual-c/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -319,55 +319,31 @@
       
 
       
-        <p>写个demo感受一下OpenGL如何在Qt上应用。<br><a id="more"></a></p>
-<h1 id="OpenGL"><a href="#OpenGL" class="headerlink" title="OpenGL"></a>OpenGL</h1><blockquote>
-<p>开放图形库（英语：Open Graphics Library，缩写为OpenGL）是个定义了一个跨编程语言、跨平台的应用程序接口（API）的规范，它用于生成二维、三维图像。这个接口由近350个不同的函数调用组成，用来从简单的图形比特绘制复杂的三维景象。而另一种程序接口系统是仅用于Microsoft Windows上的Direct3D。OpenGL常用于CAD、虚拟实境、科学可视化程序和电子游戏开发。</p>
-<p>OpenGL的高效实现（利用了图形加速硬件）存在于Windows，很多UNIX平台和Mac OS。这些实现一般由显示设备厂商提供，而且非常依赖于该厂商提供的硬件。开放源代码库Mesa是一个纯基于软件的图形API，它的代码兼容于OpenGL。但是，由于许可证的原因，它只声称是一个“非常相似”的API。<br>-摘自<a href="https://zh.wikipedia.org/wiki/OpenGL" title="OpenGL wiki" target="_blank" rel="external">OpenGL wiki</a></p>
-</blockquote>
-<p>关于OpenGL的编程展开是个很大的话题，不再赘述，有兴趣的可以参考</p>
+        <p>最近在研究师兄的代码，编译一遍挺久，所以趁此机会了解一下相关debug的技巧和方法，有助于提高自己的开发效率。</p>
+<a id="more"></a>
+<h2 id="VS调试器调试技巧"><a href="#VS调试器调试技巧" class="headerlink" title="VS调试器调试技巧"></a>VS调试器调试技巧</h2><p><a href="http://blog.jobbole.com/33865/" target="_blank" rel="external">http://blog.jobbole.com/33865/</a><br><a href="http://hovertree.com/h/bjaf/pbqy1f1k.htm" target="_blank" rel="external">http://hovertree.com/h/bjaf/pbqy1f1k.htm</a><br><a href="http://blog.jobbole.com/45249/" target="_blank" rel="external">http://blog.jobbole.com/45249/</a></p>
 <ul>
-<li><a href="http://www.learnopengl.com/" title="learnopengl" target="_blank" rel="external">LearnOpenGL</a></li>
-<li><a href="http://www.opengl-tutorial.org/" title="opengltutorail" target="_blank" rel="external">OpenGLTutorial</a></li>
+<li>调用堆栈</li>
+<li>鼠标悬停查看变量信息</li>
+<li>调试过程中直接给变量赋值</li>
+<li>拖动黄色箭头改变程序运行流程</li>
+<li>通过<code>ptr+offset,count</code>添加变量监视(watch)</li>
 </ul>
-<h1 id="OpenGL与Qt结合"><a href="#OpenGL与Qt结合" class="headerlink" title="OpenGL与Qt结合"></a>OpenGL与Qt结合</h1><p>我写的demo参考这篇文章：<a href="http://doc.qt.io/qt-5/qtquick-scenegraph-openglunderqml-example.html" title="openglunderqml" target="_blank" rel="external">OpenGLUnderQML</a><br>因为之前写文本编辑器的原因，现在看这篇教程感觉容易理解的多。跟着写就好，主要就是理解一下Qt中究竟是如何将OpenGL结合起来的。</p>
-<p>这个demo简明扼要，主要思路如下：</p>
-<ol>
-<li>写Squircle类和Squirecle类，前者作为组件注册进qml，后者作为Squircle类中的一个成员，处理一些渲染的问题。定义一些信号函数和一些槽函数。</li>
-<li>在qml中写好布局</li>
-<li>在qml中修改Squircle中的成员t的值</li>
-<li>每次渲染都会根据t的值进行，从而画出不同的图案</li>
-</ol>
-<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><blockquote>
-<p>The OpenGL under QML example shows how an application can make use of the QQuickWindow::beforeRendering() signal to draw custom OpenGL content under a Qt Quick scene. This signal is emitted at the start of every frame, before the scene graph starts its rendering, thus any OpenGL draw calls that are made as a response to this signal, will stack under the Qt Quick items.</p>
-<p>As an alternative, applications that wish to render OpenGL content on top of the Qt Quick scene, can do so by connecting to the QQuickWindow::afterRendering() signal.</p>
-<p>本例展示了应用程序如何利用<code>QQuickWindow::beforeRendering</code>信号在QtQuick场景下画出自定义的OpenGl内容。这个信号会在每一帧渲染之前触发，也就是在图像场景绘制之前，因此任何此信号的槽函数中的OpenGL调用都会栈式堆叠在QtQuick控件之下。<br>另外，如果应用程序想要在QtQuick控件之上绘制图像，那么可以针对<code>QQuickWindow::afterRendering</code>信号编写槽函数并与之连接。 </p>
-</blockquote>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="用到的信号"><a href="#用到的信号" class="headerlink" title="用到的信号"></a>用到的信号</h2><h3 id="QQuickItem-windowChanged"><a href="#QQuickItem-windowChanged" class="headerlink" title="QQuickItem::windowChanged"></a>QQuickItem::windowChanged</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Squircle::Squircle()</div><div class="line">    : <span class="keyword">m_t</span>(<span class="number">0</span>)</div><div class="line">    , m_renderer(<span class="number">0</span>)</div><div class="line">&#123;</div><div class="line">    connect(<span class="keyword">this</span>, &amp;QQuickItem::windowChanged, <span class="keyword">this</span>, &amp;Squircle::handleWindowChanged);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="断点和追踪点"><a href="#断点和追踪点" class="headerlink" title="断点和追踪点"></a>断点和追踪点</h2><p><a href="https://msdn.microsoft.com/zh-cn/library/232dxah7(v=vs.90).aspx" target="_blank" rel="external">https://msdn.microsoft.com/zh-cn/library/232dxah7(v=vs.90).aspx</a></p>
+<h2 id="MACRO-ASSERT、TRACE、VERIFY"><a href="#MACRO-ASSERT、TRACE、VERIFY" class="headerlink" title="MACRO - ASSERT、TRACE、VERIFY"></a>MACRO - ASSERT、TRACE、VERIFY</h2><p><a href="http://blog.csdn.net/chocolateconanlan/article/details/4061545" target="_blank" rel="external">http://blog.csdn.net/chocolateconanlan/article/details/4061545</a><br>博客最后部分<br>以及MSDN<br><a href="https://msdn.microsoft.com/en-us/library/9sb57dw4.aspx" target="_blank" rel="external">https://msdn.microsoft.com/en-us/library/9sb57dw4.aspx</a></p>
 <blockquote>
-<p>void QQuickItem::windowChanged(QQuickWindow *window)<br>This signal is emitted when the item’s window changes.</p>
+<p><strong>Syntax语法</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">assert(   </div><div class="line">   expression   </div><div class="line">);  </div><div class="line">void _assert(  </div><div class="line">   char const* message,  </div><div class="line">   char const* filename,  </div><div class="line">   unsigned line  </div><div class="line">);  </div><div class="line">void _wassert(  </div><div class="line">   wchar_t const* message,  </div><div class="line">   wchar_t const* filename,  </div><div class="line">   unsigned line  </div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p><strong>Parameters参数</strong><br>expression<br>: A scalar expression (including pointer expressions) that evaluates to nonzero (true) or 0 (false).</p>
 </blockquote>
-<h3 id="void-QQuickWindow-beforeSynchronizing"><a href="#void-QQuickWindow-beforeSynchronizing" class="headerlink" title="void QQuickWindow::beforeSynchronizing()"></a>void QQuickWindow::beforeSynchronizing()</h3><blockquote>
-<p>This signal is emitted before the scene graph is synchronized with the QML state.<br>This signal can be used to do any preparation required before calls to QQuickItem::updatePaintNode().<br>The GL context used for rendering the scene graph will be bound at this point.<br>Warning: This signal is emitted from the scene graph rendering thread. If your slot function needs to finish before execution continues, you must make sure that the connection is direct (see Qt::ConnectionType).<br>Warning: Make very sure that a signal handler for beforeSynchronizing leaves the GL context in the same state as it was when the signal handler was entered. Failing to do so can result in the scene not rendering properly.</p>
+<p>message<br>: The message to display.</p>
+<p>filename<br>: The name of the source file the assertion failed in.</p>
+<p>line<br>: The line number in the source file of the failed assertion.</p>
+<h2 id="MACRO-OutputDebugString"><a href="#MACRO-OutputDebugString" class="headerlink" title="MACRO - OutputDebugString"></a>MACRO - OutputDebugString</h2><blockquote>
+<p>You can use OutputDebugString. OutputDebugString is a macro that depending on your build options either maps to <code>OutputDebugStringA(char const*)</code>or <code>OutputDebugStringW(wchar_t const*)</code>. In the later case you will have to supply a wide character string to the function. To create a wide character literal you can use the L prefix:<br><code>OutputDebugStringW(L&quot;My output string.&quot;);</code><br>Normally you will use the macro version together with the _T macro like this:<br><code>OutputDebugString(_T(&quot;My output string.&quot;));</code><br>If you project is configured to build for UNICODE it will expand into:<br><code>OutputDebugStringW(L&quot;My output string.&quot;);</code><br>If you are not building for UNICODE it will expand into:<br><code>OutputDebugStringA(&quot;My output string.&quot;);</code></p>
 </blockquote>
-<p>同步的信号</p>
-<h3 id="void-QQuickWindow-sceneGraphInvalidated"><a href="#void-QQuickWindow-sceneGraphInvalidated" class="headerlink" title="void QQuickWindow::sceneGraphInvalidated()"></a>void QQuickWindow::sceneGraphInvalidated()</h3><blockquote>
-<p>This signal is emitted when the scene graph has been invalidated.<br>This signal implies that the opengl rendering context used has been invalidated and all user resources tied to that context should be released.<br>The OpenGL context of this window will be bound when this function is called. The only exception is if the native OpenGL has been destroyed outside Qt’s control, for instance through EGL_CONTEXT_LOST.<br>This signal will be emitted from the scene graph rendering thread.</p>
-</blockquote>
-<p>场景渲染结束，需要释放资源的信号</p>
-<h3 id="void-QQuickWindow-beforeRendering"><a href="#void-QQuickWindow-beforeRendering" class="headerlink" title="void QQuickWindow::beforeRendering()"></a>void QQuickWindow::beforeRendering()</h3><blockquote>
-<p>This signal is emitted before the scene starts rendering.</p>
-<p>Combined with the modes for clearing the background, this option can be used to paint using raw GL under QML content.</p>
-<p>The GL context used for rendering the scene graph will be bound at this point.</p>
-<p>Warning: This signal is emitted from the scene graph rendering thread. If your slot function needs to finish before execution continues, you must make sure that the connection is direct (see Qt::ConnectionType).</p>
-<p>Warning: Make very sure that a signal handler for beforeRendering leaves the GL context in the same state as it was when the signal handler was entered. Failing to do so can result in the scene not rendering properly.</p>
-</blockquote>
-<p>前面介绍过的图形渲染之前的信号</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="文件名的写法"><a href="#文件名的写法" class="headerlink" title="文件名的写法"></a>文件名的写法</h3><p>QOpenGLShaderProgram的方法addShaderFromFile中的第二个参数需要一个文件名，这个文件名我最开始写的是<code>&quot;vertex.vsh&quot;</code>，结果一直提示找不到文件，查了查，看到别人代码写成<code>&quot;:/vertex.vsh&quot;</code>就可以了。不太清楚是为什么。</p>
-<h3 id="关于Qt-main函数中的窗口启动方式"><a href="#关于Qt-main函数中的窗口启动方式" class="headerlink" title="关于Qt main函数中的窗口启动方式"></a>关于Qt main函数中的窗口启动方式</h3><ol>
-<li>现在见到的有几种，通过ApplicationEngine读取qml，在qml中定义window，然后出现窗口</li>
-<li>QQuickView直接载入qml文件，然后显示出来</li>
-</ol>
-<p>-END-</p>
+<h2 id="Logging-Class"><a href="#Logging-Class" class="headerlink" title="Logging Class"></a>Logging Class</h2><p>Logging Framework from Dr.p<br><a href="http://www.drdobbs.com/cpp/logging-in-c/201804215" target="_blank" rel="external">http://www.drdobbs.com/cpp/logging-in-c/201804215</a></p>
+<p>简单的stderr debug类，来自<br><a href="http://stackoverflow.com/questions/6168107/how-to-implement-a-good-debug-logging-feature-in-a-project" target="_blank" rel="external">http://stackoverflow.com/questions/6168107/how-to-implement-a-good-debug-logging-feature-in-a-project</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">#ifndef _LOGGER_HPP_</div><div class="line">#define _LOGGER_HPP_</div><div class="line"></div><div class="line">#include &lt;iostream&gt;</div><div class="line">#include &lt;sstream&gt;</div><div class="line"></div><div class="line">/* consider adding boost thread id since we&apos;ll want to know whose writting and</div><div class="line"> * won&apos;t want to repeat it for every single call */</div><div class="line"></div><div class="line">/* consider adding policy class to allow users to redirect logging to specific</div><div class="line"> * files via the command line</div><div class="line"> */</div><div class="line"></div><div class="line">enum loglevel_e</div><div class="line">    &#123;logERROR, logWARNING, logINFO, logDEBUG, logDEBUG1, logDEBUG2, logDEBUG3, logDEBUG4&#125;;</div><div class="line"></div><div class="line">class logIt</div><div class="line">&#123;</div><div class="line">public:</div><div class="line">    logIt(loglevel_e _loglevel = logERROR) &#123;</div><div class="line">        _buffer &lt;&lt; _loglevel &lt;&lt; &quot; :&quot; </div><div class="line">            &lt;&lt; std::string(</div><div class="line">                _loglevel &gt; logDEBUG </div><div class="line">                ? (_loglevel - logDEBUG) * 4 </div><div class="line">                : 1</div><div class="line">                , &apos; &apos;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    template &lt;typename T&gt;</div><div class="line">    logIt &amp; operator&lt;&lt;(T const &amp; value)</div><div class="line">    &#123;</div><div class="line">        _buffer &lt;&lt; value;</div><div class="line">        return *this;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ~logIt()</div><div class="line">    &#123;</div><div class="line">        _buffer &lt;&lt; std::endl;</div><div class="line">        // This is atomic according to the POSIX standard</div><div class="line">        // http://www.gnu.org/s/libc/manual/html_node/Streams-and-Threads.html</div><div class="line">        std::cerr &lt;&lt; _buffer.str();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">private:</div><div class="line">    std::ostringstream _buffer;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">extern loglevel_e loglevel;</div><div class="line"></div><div class="line">#define log(level) \</div><div class="line">if (level &gt; loglevel) ; \</div><div class="line">else logIt(level)</div><div class="line"></div><div class="line">#endif</div></pre></td></tr></table></figure></p>
+<p>用法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">// define and turn off for the rest of the test suite</div><div class="line">loglevel_e loglevel = logERROR;</div><div class="line"></div><div class="line">void logTest(void) &#123;</div><div class="line">    loglevel_e loglevel_save = loglevel;</div><div class="line"></div><div class="line">    loglevel = logDEBUG4;</div><div class="line"></div><div class="line">    log(logINFO) &lt;&lt; &quot;foo &quot; &lt;&lt; &quot;bar &quot; &lt;&lt; &quot;baz&quot;;</div><div class="line"></div><div class="line">    int count = 3;</div><div class="line">    log(logDEBUG) &lt;&lt; &quot;A loop with &quot;    &lt;&lt; count &lt;&lt; &quot; iterations&quot;;</div><div class="line">    for (int i = 0; i != count; ++i)</div><div class="line">    &#123;</div><div class="line">        log(logDEBUG1) &lt;&lt; &quot;the counter i = &quot; &lt;&lt; i;</div><div class="line">        log(logDEBUG2) &lt;&lt; &quot;the counter i = &quot; &lt;&lt; i;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    loglevel = loglevel_save;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -382,9 +358,11 @@
       
         <div class="post-tags">
           
-            <a href="/blog/tags/Qt/" rel="tag">#Qt</a>
+            <a href="/blog/tags/VisualC/" rel="tag">#VisualC++</a>
           
-            <a href="/blog/tags/学习记录/" rel="tag">#学习记录</a>
+            <a href="/blog/tags/Debug/" rel="tag">#Debug</a>
+          
+            <a href="/blog/tags/VisualStudio/" rel="tag">#VisualStudio</a>
           
         </div>
       
@@ -393,16 +371,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2016/03/18/Qt学习记录-使用C-编写QML组件/" rel="next" title="[Qt]使用C++编写QML组件">
-                <i class="fa fa-chevron-left"></i>上一篇: [Qt]使用C++编写QML组件
+              <a href="/blog/2017/02/16/迭代最近点方法ICP/" rel="next" title="迭代最近点方法ICP">
+                <i class="fa fa-chevron-left"></i>上一篇: 迭代最近点方法ICP
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2017/01/31/我的二〇一六/" rel="prev" title="我的二〇一六">
-               下一篇: 我的二〇一六 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2017/02/18/CUDA-入门/" rel="prev" title="CUDA 入门">
+               下一篇: CUDA 入门 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -465,8 +443,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/22/Qt-OpenGL与Qt结合-OpenGL-under-QML/"
-           data-title="[Qt]OpenGL与Qt结合|OpenGL under QML" data-url="http://hengyishu.cn/blog/2016/03/22/Qt-OpenGL与Qt结合-OpenGL-under-QML/">
+      <div class="ds-thread" data-thread-key="2017/02/18/Debug-in-visual-c/"
+           data-title="Debug in visual c++" data-url="http://hengyishu.cn/blog/2017/02/18/Debug-in-visual-c/">
       </div>
     
   </div>
@@ -629,7 +607,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OpenGL"><span class="nav-number">1.</span> <span class="nav-text">OpenGL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OpenGL与Qt结合"><span class="nav-number">2.</span> <span class="nav-text">OpenGL与Qt结合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原理"><span class="nav-number">3.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用到的信号"><span class="nav-number">4.1.</span> <span class="nav-text">用到的信号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#QQuickItem-windowChanged"><span class="nav-number">4.1.1.</span> <span class="nav-text">QQuickItem::windowChanged</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#void-QQuickWindow-beforeSynchronizing"><span class="nav-number">4.1.2.</span> <span class="nav-text">void QQuickWindow::beforeSynchronizing()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#void-QQuickWindow-sceneGraphInvalidated"><span class="nav-number">4.1.3.</span> <span class="nav-text">void QQuickWindow::sceneGraphInvalidated()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#void-QQuickWindow-beforeRendering"><span class="nav-number">4.1.4.</span> <span class="nav-text">void QQuickWindow::beforeRendering()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">4.2.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件名的写法"><span class="nav-number">4.2.1.</span> <span class="nav-text">文件名的写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于Qt-main函数中的窗口启动方式"><span class="nav-number">4.2.2.</span> <span class="nav-text">关于Qt main函数中的窗口启动方式</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#VS调试器调试技巧"><span class="nav-number">1.</span> <span class="nav-text">VS调试器调试技巧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#断点和追踪点"><span class="nav-number">2.</span> <span class="nav-text">断点和追踪点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MACRO-ASSERT、TRACE、VERIFY"><span class="nav-number">3.</span> <span class="nav-text">MACRO - ASSERT、TRACE、VERIFY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MACRO-OutputDebugString"><span class="nav-number">4.</span> <span class="nav-text">MACRO - OutputDebugString</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Logging-Class"><span class="nav-number">5.</span> <span class="nav-text">Logging Class</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

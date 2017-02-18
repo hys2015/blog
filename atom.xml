@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://hengyishu.cn/"/>
-  <updated>2017-02-16T10:42:12.607Z</updated>
+  <updated>2017-02-18T02:45:40.483Z</updated>
   <id>http://hengyishu.cn/</id>
   
   <author>
@@ -16,11 +16,138 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>windows高效软件</title>
+    <link href="http://hengyishu.cn/2017/02/18/%E6%8F%90%E9%AB%98windows%E4%BD%BF%E7%94%A8%E4%BD%93%E6%A3%80%E7%9A%84%E8%BD%AF%E4%BB%B6/"/>
+    <id>http://hengyishu.cn/2017/02/18/提高windows使用体检的软件/</id>
+    <published>2017-02-18T02:35:13.000Z</published>
+    <updated>2017-02-18T02:45:40.483Z</updated>
+    
+    <content type="html"><![CDATA[<p>更新一下，这半年来有一些新的软件可以推荐。<br><a id="more"></a></p>
+<h2 id="cmd-markdown"><a href="#cmd-markdown" class="headerlink" title="cmd markdown"></a>cmd markdown</h2><p>支持标准md语法，支持mathjax公式，写博客，写学习笔记都很实用。<br>有web版，pc版，pc版支持离线写作。自带同步，到哪都能用，相当方便。<br>唯一有缺憾的就是移动端编辑界面支持不太好，不过没有太大影响。</p>
+<p><a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="external">网页版cmd markdown</a><br><a href="https://www.zybuluo.com/cmd/" target="_blank" rel="external">下载客户端</a></p>
+<h2 id="欧陆词典"><a href="#欧陆词典" class="headerlink" title="欧陆词典"></a>欧陆词典</h2><p>没有广告，多端同步，看腻了某道词典广告的同学可以试一下这个，可能有些功能稍微弱一点，但是对日常查单词足够了（毕竟翻译的话我就找度娘谷哥了XD）。<br>跨平台，linux没有，其它主流平台都有。<br><a href="http://www.eudic.net/eudic/windows.aspx" target="_blank" rel="external">欧陆词典 - Windows平台上最好用的词典软件，支持海量扩充词库</a></p>
+<hr>
+<p>以下是原文（有改动）</p>
+<p>好久没写博客了，上次写的东西还是3月多的，自己真是越来越懒了。<br>之前在知乎看到很多关于“如何优雅地windows”的讨论，自己看了试了一些，这里结合自己的经历分享一下体验。<br>首先，自己桌面镇一下~<br><img src="http://7xrsid.com1.z0.glb.clouddn.com/5-29%2Fdesktop.png" alt="桌面" title="桌面"><br>桌面简单为主，应用程序都放在了开始菜单。我关闭了小娜的按钮，左上角放了一个下拉关机，上面中间是经常用到的程序，右边有一些需要用到但是频率不那么高的快捷方式（文件夹）。需要干活的时候，桌面上放一些需要用到的东西的快捷方式，完事之后就删掉，方便！</p>
+<h2 id="Clover-（不再推荐，有广告，而且发现win10自己的窗口管理习惯了的话效率也蛮高的）"><a href="#Clover-（不再推荐，有广告，而且发现win10自己的窗口管理习惯了的话效率也蛮高的）" class="headerlink" title="Clover （不再推荐，有广告，而且发现win10自己的窗口管理习惯了的话效率也蛮高的）"></a><del>Clover</del> （不再推荐，有广告，而且发现win10自己的窗口管理习惯了的话效率也蛮高的）</h2><p>国产软件，不过很久没更新了，官方最高支持到win8，但是我win10一直在用，偶尔会崩溃，win7据说没问题。<br>文件夹的收藏是我一直很重要的一个需求，因为经常需要在很多文件夹里面来回翻找，没用这个软件之前都是一个个去点，clover添加收藏之后简直爽爆。另外，标签页也很漂亮，比起其他同样功能的软件QtTabbar要好很多。<br>官网：<br><a href="http://cn.ejie.me/" title="易捷科技" target="_blank" rel="external">Clover2</a></p>
+<h2 id="Listary"><a href="#Listary" class="headerlink" title="Listary"></a>Listary</h2><p>这是个好看版的everything，也是款效率提升神器。虽然win10的整合了小娜，也可以进行全局搜索，但是感觉没有那么顺畅，就用了listary。listary可以设置全局快捷键（我是win + F）进行搜索，而且搜索速度相当快。</p>
+<p><img src="http://7xrsid.com1.z0.glb.clouddn.com/5-29%2Flistary1.png" alt="Listary全局搜索" title="Listary全局搜索"><br><img src="http://7xrsid.com1.z0.glb.clouddn.com/5-29%2Flistary2.png" alt="Listary2" title="Listary"></p>
+<p>官网地址:<br><a href="http://www.listary.com/" title="Listary" target="_blank" rel="external">Listary: File Search &amp; App Launcher</a></p>
+<h2 id="网易云"><a href="#网易云" class="headerlink" title="网易云"></a>网易云</h2><p>不多说，确实好用，情怀加分。</p>
+<p><a href="http://music.163.com/#/download" title="Netease Music" target="_blank" rel="external">网易云音乐</a></p>
+<h2 id="QQ轻聊版"><a href="#QQ轻聊版" class="headerlink" title="QQ轻聊版"></a>QQ轻聊版</h2><p>去掉烦人的广告和QQ秀，也没有QQ空间评论提醒，空间依赖症慎用。</p>
+<p><a href="http://im.qq.com/lightqq/" title="QQ light" target="_blank" rel="external">QQ轻聊版</a></p>
+<h2 id="电脑管家"><a href="#电脑管家" class="headerlink" title="电脑管家"></a>电脑管家</h2><p>好像杀毒能力不怎么样？可以用来升级软件用。</p>
+<p><a href="http://guanjia.qq.com/" target="_blank" rel="external">腾讯电脑管家</a></p>
+<h2 id="potplayer"><a href="#potplayer" class="headerlink" title="potplayer"></a>potplayer</h2><p>绿色全能播放器(手动笑脸)</p>
+<p><a href="http://www.potplayer.org/" target="_blank" rel="external">PotPlayer</a></p>
+<h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><p>谷歌大法好！</p>
+<h2 id="Latern"><a href="#Latern" class="headerlink" title="Latern"></a>Latern</h2><p>fan qiang神器,2016开始就不免费了，每个月有800m流量，其它需要充值，我现在用SS(滑稽:P<br><a href="https://getlantern.org/" target="_blank" rel="external">Get Lantern</a></p>
+<h2 id="f-lux"><a href="#f-lux" class="headerlink" title="f.lux"></a>f.lux</h2><p>调节屏幕色温，长时间对着屏幕也不会很难受。</p>
+<p><a href="https://justgetflux.com/" target="_blank" rel="external">f.lux下载</a></p>
+<h2 id="notepad"><a href="#notepad" class="headerlink" title="notepad++"></a>notepad++</h2><p>多功能小巧的编辑器。<br><a href="https://notepad-plus-plus.org/" target="_blank" rel="external">notepad++</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;更新一下，这半年来有一些新的软件可以推荐。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="日常" scheme="http://hengyishu.cn/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+      <category term="效率" scheme="http://hengyishu.cn/tags/%E6%95%88%E7%8E%87/"/>
+    
+      <category term="神器" scheme="http://hengyishu.cn/tags/%E7%A5%9E%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CUDA 入门</title>
+    <link href="http://hengyishu.cn/2017/02/18/CUDA-%E5%85%A5%E9%97%A8/"/>
+    <id>http://hengyishu.cn/2017/02/18/CUDA-入门/</id>
+    <published>2017-02-18T02:19:48.000Z</published>
+    <updated>2017-02-18T02:21:40.595Z</updated>
+    
+    <content type="html"><![CDATA[<p>三维重建离不开大规模的矩阵运算，合理编程利用GPU可以加速这些运算的效率。</p>
+<a id="more"></a>
+<h2 id="CUDA教程"><a href="#CUDA教程" class="headerlink" title="CUDA教程"></a>CUDA教程</h2><p>参考<br><a href="http://blog.csdn.net/sunmc1204953974/article/details/51074102" target="_blank" rel="external">http://blog.csdn.net/sunmc1204953974/article/details/51074102</a><br>博客中结合例子，把GPU内的基本概念做了比较详尽的介绍，对于入门很友好。</p>
+<h3 id="让VS-IntelliSense识别cuda函数、变量"><a href="#让VS-IntelliSense识别cuda函数、变量" class="headerlink" title="让VS IntelliSense识别cuda函数、变量"></a>让VS IntelliSense识别cuda函数、变量</h3><p><strong>针对device代码中的变量，比如threadId.x等</strong><br>加入如下#include语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#include &lt;device_launch_parameters.h&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>针对device线程同步函数__syncthreads()</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#pragma once</div><div class="line">#ifdef __INTELLISENSE__</div><div class="line">void __syncthreads();</div><div class="line">...</div><div class="line">#endif</div></pre></td></tr></table></figure></p>
+<h3 id="CUDA调试困难？？"><a href="#CUDA调试困难？？" class="headerlink" title="CUDA调试困难？？"></a>CUDA调试困难？？</h3><p>linux下使用 cuda gdb<br>windows下使用 nsight</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;三维重建离不开大规模的矩阵运算，合理编程利用GPU可以加速这些运算的效率。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="学习记录" scheme="http://hengyishu.cn/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="CUDA, GPU编程" scheme="http://hengyishu.cn/tags/CUDA-GPU%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Debug in visual c++</title>
+    <link href="http://hengyishu.cn/2017/02/18/Debug-in-visual-c/"/>
+    <id>http://hengyishu.cn/2017/02/18/Debug-in-visual-c/</id>
+    <published>2017-02-18T02:12:00.000Z</published>
+    <updated>2017-02-18T02:15:05.095Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在研究师兄的代码，编译一遍挺久，所以趁此机会了解一下相关debug的技巧和方法，有助于提高自己的开发效率。</p>
+<a id="more"></a>
+<h2 id="VS调试器调试技巧"><a href="#VS调试器调试技巧" class="headerlink" title="VS调试器调试技巧"></a>VS调试器调试技巧</h2><p><a href="http://blog.jobbole.com/33865/" target="_blank" rel="external">http://blog.jobbole.com/33865/</a><br><a href="http://hovertree.com/h/bjaf/pbqy1f1k.htm" target="_blank" rel="external">http://hovertree.com/h/bjaf/pbqy1f1k.htm</a><br><a href="http://blog.jobbole.com/45249/" target="_blank" rel="external">http://blog.jobbole.com/45249/</a></p>
+<ul>
+<li>调用堆栈</li>
+<li>鼠标悬停查看变量信息</li>
+<li>调试过程中直接给变量赋值</li>
+<li>拖动黄色箭头改变程序运行流程</li>
+<li>通过<code>ptr+offset,count</code>添加变量监视(watch)</li>
+</ul>
+<h2 id="断点和追踪点"><a href="#断点和追踪点" class="headerlink" title="断点和追踪点"></a>断点和追踪点</h2><p><a href="https://msdn.microsoft.com/zh-cn/library/232dxah7(v=vs.90).aspx" target="_blank" rel="external">https://msdn.microsoft.com/zh-cn/library/232dxah7(v=vs.90).aspx</a></p>
+<h2 id="MACRO-ASSERT、TRACE、VERIFY"><a href="#MACRO-ASSERT、TRACE、VERIFY" class="headerlink" title="MACRO - ASSERT、TRACE、VERIFY"></a>MACRO - ASSERT、TRACE、VERIFY</h2><p><a href="http://blog.csdn.net/chocolateconanlan/article/details/4061545" target="_blank" rel="external">http://blog.csdn.net/chocolateconanlan/article/details/4061545</a><br>博客最后部分<br>以及MSDN<br><a href="https://msdn.microsoft.com/en-us/library/9sb57dw4.aspx" target="_blank" rel="external">https://msdn.microsoft.com/en-us/library/9sb57dw4.aspx</a></p>
+<blockquote>
+<p><strong>Syntax语法</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">assert(   </div><div class="line">   expression   </div><div class="line">);  </div><div class="line">void _assert(  </div><div class="line">   char const* message,  </div><div class="line">   char const* filename,  </div><div class="line">   unsigned line  </div><div class="line">);  </div><div class="line">void _wassert(  </div><div class="line">   wchar_t const* message,  </div><div class="line">   wchar_t const* filename,  </div><div class="line">   unsigned line  </div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p><strong>Parameters参数</strong><br>expression<br>: A scalar expression (including pointer expressions) that evaluates to nonzero (true) or 0 (false).</p>
+</blockquote>
+<p>message<br>: The message to display.</p>
+<p>filename<br>: The name of the source file the assertion failed in.</p>
+<p>line<br>: The line number in the source file of the failed assertion.</p>
+<h2 id="MACRO-OutputDebugString"><a href="#MACRO-OutputDebugString" class="headerlink" title="MACRO - OutputDebugString"></a>MACRO - OutputDebugString</h2><blockquote>
+<p>You can use OutputDebugString. OutputDebugString is a macro that depending on your build options either maps to <code>OutputDebugStringA(char const*)</code>or <code>OutputDebugStringW(wchar_t const*)</code>. In the later case you will have to supply a wide character string to the function. To create a wide character literal you can use the L prefix:<br><code>OutputDebugStringW(L&quot;My output string.&quot;);</code><br>Normally you will use the macro version together with the _T macro like this:<br><code>OutputDebugString(_T(&quot;My output string.&quot;));</code><br>If you project is configured to build for UNICODE it will expand into:<br><code>OutputDebugStringW(L&quot;My output string.&quot;);</code><br>If you are not building for UNICODE it will expand into:<br><code>OutputDebugStringA(&quot;My output string.&quot;);</code></p>
+</blockquote>
+<h2 id="Logging-Class"><a href="#Logging-Class" class="headerlink" title="Logging Class"></a>Logging Class</h2><p>Logging Framework from Dr.p<br><a href="http://www.drdobbs.com/cpp/logging-in-c/201804215" target="_blank" rel="external">http://www.drdobbs.com/cpp/logging-in-c/201804215</a></p>
+<p>简单的stderr debug类，来自<br><a href="http://stackoverflow.com/questions/6168107/how-to-implement-a-good-debug-logging-feature-in-a-project" target="_blank" rel="external">http://stackoverflow.com/questions/6168107/how-to-implement-a-good-debug-logging-feature-in-a-project</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">#ifndef _LOGGER_HPP_</div><div class="line">#define _LOGGER_HPP_</div><div class="line"></div><div class="line">#include &lt;iostream&gt;</div><div class="line">#include &lt;sstream&gt;</div><div class="line"></div><div class="line">/* consider adding boost thread id since we&apos;ll want to know whose writting and</div><div class="line"> * won&apos;t want to repeat it for every single call */</div><div class="line"></div><div class="line">/* consider adding policy class to allow users to redirect logging to specific</div><div class="line"> * files via the command line</div><div class="line"> */</div><div class="line"></div><div class="line">enum loglevel_e</div><div class="line">    &#123;logERROR, logWARNING, logINFO, logDEBUG, logDEBUG1, logDEBUG2, logDEBUG3, logDEBUG4&#125;;</div><div class="line"></div><div class="line">class logIt</div><div class="line">&#123;</div><div class="line">public:</div><div class="line">    logIt(loglevel_e _loglevel = logERROR) &#123;</div><div class="line">        _buffer &lt;&lt; _loglevel &lt;&lt; &quot; :&quot; </div><div class="line">            &lt;&lt; std::string(</div><div class="line">                _loglevel &gt; logDEBUG </div><div class="line">                ? (_loglevel - logDEBUG) * 4 </div><div class="line">                : 1</div><div class="line">                , &apos; &apos;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    template &lt;typename T&gt;</div><div class="line">    logIt &amp; operator&lt;&lt;(T const &amp; value)</div><div class="line">    &#123;</div><div class="line">        _buffer &lt;&lt; value;</div><div class="line">        return *this;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ~logIt()</div><div class="line">    &#123;</div><div class="line">        _buffer &lt;&lt; std::endl;</div><div class="line">        // This is atomic according to the POSIX standard</div><div class="line">        // http://www.gnu.org/s/libc/manual/html_node/Streams-and-Threads.html</div><div class="line">        std::cerr &lt;&lt; _buffer.str();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">private:</div><div class="line">    std::ostringstream _buffer;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">extern loglevel_e loglevel;</div><div class="line"></div><div class="line">#define log(level) \</div><div class="line">if (level &gt; loglevel) ; \</div><div class="line">else logIt(level)</div><div class="line"></div><div class="line">#endif</div></pre></td></tr></table></figure></p>
+<p>用法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">// define and turn off for the rest of the test suite</div><div class="line">loglevel_e loglevel = logERROR;</div><div class="line"></div><div class="line">void logTest(void) &#123;</div><div class="line">    loglevel_e loglevel_save = loglevel;</div><div class="line"></div><div class="line">    loglevel = logDEBUG4;</div><div class="line"></div><div class="line">    log(logINFO) &lt;&lt; &quot;foo &quot; &lt;&lt; &quot;bar &quot; &lt;&lt; &quot;baz&quot;;</div><div class="line"></div><div class="line">    int count = 3;</div><div class="line">    log(logDEBUG) &lt;&lt; &quot;A loop with &quot;    &lt;&lt; count &lt;&lt; &quot; iterations&quot;;</div><div class="line">    for (int i = 0; i != count; ++i)</div><div class="line">    &#123;</div><div class="line">        log(logDEBUG1) &lt;&lt; &quot;the counter i = &quot; &lt;&lt; i;</div><div class="line">        log(logDEBUG2) &lt;&lt; &quot;the counter i = &quot; &lt;&lt; i;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    loglevel = loglevel_save;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在研究师兄的代码，编译一遍挺久，所以趁此机会了解一下相关debug的技巧和方法，有助于提高自己的开发效率。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="学习记录" scheme="http://hengyishu.cn/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="VisualC++" scheme="http://hengyishu.cn/tags/VisualC/"/>
+    
+      <category term="Debug" scheme="http://hengyishu.cn/tags/Debug/"/>
+    
+      <category term="VisualStudio" scheme="http://hengyishu.cn/tags/VisualStudio/"/>
+    
+  </entry>
+  
+  <entry>
     <title>迭代最近点方法ICP</title>
     <link href="http://hengyishu.cn/2017/02/16/%E8%BF%AD%E4%BB%A3%E6%9C%80%E8%BF%91%E7%82%B9%E6%96%B9%E6%B3%95ICP/"/>
     <id>http://hengyishu.cn/2017/02/16/迭代最近点方法ICP/</id>
     <published>2017-02-16T08:57:57.000Z</published>
-    <updated>2017-02-16T10:42:12.607Z</updated>
+    <updated>2017-02-18T02:29:57.446Z</updated>
     
     <content type="html"><![CDATA[<p>ICP迭代最近点方法，是三维建模中将点云模型对齐的一种常用方法。</p>
 <a id="more"></a>
@@ -50,8 +177,10 @@
     
     </summary>
     
+      <category term="学习记录" scheme="http://hengyishu.cn/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
     
-      <category term="学习记录" scheme="http://hengyishu.cn/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    
+      <category term="ICP, 点云对齐" scheme="http://hengyishu.cn/tags/ICP-%E7%82%B9%E4%BA%91%E5%AF%B9%E9%BD%90/"/>
     
   </entry>
   
@@ -191,48 +320,6 @@
       <category term="2016" scheme="http://hengyishu.cn/tags/2016/"/>
     
       <category term="总结" scheme="http://hengyishu.cn/tags/%E6%80%BB%E7%BB%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>windows健康高效大法</title>
-    <link href="http://hengyishu.cn/2016/05/29/%E6%8F%90%E9%AB%98windows%E4%BD%BF%E7%94%A8%E4%BD%93%E6%A3%80%E7%9A%84%E8%BD%AF%E4%BB%B6/"/>
-    <id>http://hengyishu.cn/2016/05/29/提高windows使用体检的软件/</id>
-    <published>2016-05-29T14:34:45.000Z</published>
-    <updated>2017-02-14T03:14:55.007Z</updated>
-    
-    <content type="html"><![CDATA[<p>好久没写博客了，上次写的东西还是3月多的，自己真是越来越懒了。<br>之前在知乎看到很多关于“如何优雅地windows”的讨论，自己看了试了一些，这里结合自己的经历分享一下体验。<br><a id="more"></a><br>首先，自己桌面镇一下~<br><img src="http://7xrsid.com1.z0.glb.clouddn.com/5-29%2Fdesktop.png" alt="桌面" title="桌面"><br>桌面简单为主，应用程序都放在了开始菜单。我关闭了小娜的按钮，左上角放了一个下拉关机，上面中间是经常用到的程序，右边有一些需要用到但是频率不那么高的快捷方式（文件夹）。需要干活的时候，桌面上放一些需要用到的东西的快捷方式，完事之后就删掉，方便！</p>
-<h2 id="Clover"><a href="#Clover" class="headerlink" title="Clover"></a>Clover</h2><p>国产软件，不过很久没更新了，官方最高支持到win8，但是我win10一直在用，偶尔会崩溃，win7据说没问题。<br>文件夹的收藏是我一直很重要的一个需求，因为经常需要在很多文件夹里面来回翻找，没用这个软件之前都是一个个去点，clover添加收藏之后简直爽爆。另外，标签页也很漂亮，比起其他同样功能的软件QtTabbar要好很多。<br>官网：<br><a href="http://cn.ejie.me/" title="易捷科技" target="_blank" rel="external">Clover2</a></p>
-<h2 id="Listary"><a href="#Listary" class="headerlink" title="Listary"></a>Listary</h2><p>这是个好看版的everything，也是款效率提升神器。虽然win10的整合了小娜，也可以进行全局搜索，但是感觉没有那么顺畅，就用了listary。listary可以设置全局快捷键（我是win + F）进行搜索，而且搜索速度相当快。</p>
-<p><img src="http://7xrsid.com1.z0.glb.clouddn.com/5-29%2Flistary1.png" alt="Listary全局搜索" title="Listary全局搜索"><br><img src="http://7xrsid.com1.z0.glb.clouddn.com/5-29%2Flistary2.png" alt="Listary2" title="Listary"></p>
-<p>官网地址:<br><a href="http://www.listary.com/" title="Listary" target="_blank" rel="external">Listary: File Search &amp; App Launcher</a></p>
-<h2 id="网易云"><a href="#网易云" class="headerlink" title="网易云"></a>网易云</h2><p>不多说，确实好用，情怀加分。</p>
-<p><a href="http://music.163.com/#/download" title="Netease Music" target="_blank" rel="external">网易云音乐</a></p>
-<h2 id="QQ轻聊版"><a href="#QQ轻聊版" class="headerlink" title="QQ轻聊版"></a>QQ轻聊版</h2><p>去掉烦人的广告和QQ秀，也没有QQ空间评论提醒，空间依赖症慎用。</p>
-<p><a href="http://im.qq.com/lightqq/" title="QQ light" target="_blank" rel="external">QQ轻聊版</a></p>
-<h2 id="电脑管家"><a href="#电脑管家" class="headerlink" title="电脑管家"></a>电脑管家</h2><p>好像杀毒能力不怎么样？可以用来升级软件用。</p>
-<p><a href="http://guanjia.qq.com/" target="_blank" rel="external">腾讯电脑管家</a></p>
-<h2 id="potplayer"><a href="#potplayer" class="headerlink" title="potplayer"></a>potplayer</h2><p>绿色全能播放器(手动笑脸)</p>
-<p><a href="http://www.potplayer.org/" target="_blank" rel="external">PotPlayer</a></p>
-<h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><p>谷歌大法好！</p>
-<h2 id="Latern"><a href="#Latern" class="headerlink" title="Latern"></a>Latern</h2><p>免费的fan qiang神器<br><a href="https://getlantern.org/" target="_blank" rel="external">Get Lantern</a></p>
-<h2 id="f-lux"><a href="#f-lux" class="headerlink" title="f.lux"></a>f.lux</h2><p>调节屏幕色温，长时间对着屏幕也不会很难受。</p>
-<p><a href="https://justgetflux.com/" target="_blank" rel="external">f.lux下载</a></p>
-<h2 id="notepad"><a href="#notepad" class="headerlink" title="notepad++"></a>notepad++</h2><p>多功能小巧的编辑器。<br><a href="https://notepad-plus-plus.org/" target="_blank" rel="external">notepad++</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;好久没写博客了，上次写的东西还是3月多的，自己真是越来越懒了。&lt;br&gt;之前在知乎看到很多关于“如何优雅地windows”的讨论，自己看了试了一些，这里结合自己的经历分享一下体验。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="日常" scheme="http://hengyishu.cn/categories/%E6%97%A5%E5%B8%B8/"/>
-    
-    
-      <category term="效率" scheme="http://hengyishu.cn/tags/%E6%95%88%E7%8E%87/"/>
-    
-      <category term="神器" scheme="http://hengyishu.cn/tags/%E7%A5%9E%E5%99%A8/"/>
     
   </entry>
   
@@ -401,9 +488,9 @@
       <category term="学习记录" scheme="http://hengyishu.cn/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
     
     
-      <category term="Qt" scheme="http://hengyishu.cn/tags/Qt/"/>
-    
       <category term="VisualStudio" scheme="http://hengyishu.cn/tags/VisualStudio/"/>
+    
+      <category term="Qt" scheme="http://hengyishu.cn/tags/Qt/"/>
     
       <category term="学习记录" scheme="http://hengyishu.cn/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
     
