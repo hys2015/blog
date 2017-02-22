@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://hengyishu.cn/blog/2017/02/22/Cuda-8-0-in-Qt-5-8-with-VS2015-32bit/</loc>
+    
+    <lastmod>2017-02-22T07:26:13.070Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://hengyishu.cn/blog/2016/03/09/GitHub-Pages-Hexo-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AE%B0%E5%BD%95/</loc>
     
     <lastmod>2017-02-18T02:57:03.021Z</lastmod>
@@ -44,14 +51,14 @@
   </url>
   
   <url>
-    <loc>http://hengyishu.cn/tags/index.html</loc>
+    <loc>http://hengyishu.cn/js/duoshuo.js</loc>
     
     <lastmod>2017-02-14T03:14:55.018Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://hengyishu.cn/js/duoshuo.js</loc>
+    <loc>http://hengyishu.cn/tags/index.html</loc>
     
     <lastmod>2017-02-14T03:14:55.018Z</lastmod>
     
