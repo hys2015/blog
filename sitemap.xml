@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://hengyishu.cn/blog/2017/03/08/Bundle-Adjustment%E5%85%89%E6%9D%9F%E5%B9%B3%E5%B7%AE%E6%B3%95/</loc>
+    
+    <lastmod>2017-03-08T13:55:08.699Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://hengyishu.cn/blog/2017/02/16/k-d%E6%A0%91/</loc>
     
     <lastmod>2017-03-08T08:45:49.607Z</lastmod>
@@ -58,13 +65,6 @@
   </url>
   
   <url>
-    <loc>http://hengyishu.cn/js/duoshuo.js</loc>
-    
-    <lastmod>2017-02-14T03:14:55.018Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://hengyishu.cn/tags/index.html</loc>
     
     <lastmod>2017-02-14T03:14:55.018Z</lastmod>
@@ -72,14 +72,21 @@
   </url>
   
   <url>
-    <loc>http://hengyishu.cn/css/markcss.css</loc>
+    <loc>http://hengyishu.cn/js/duoshuo.js</loc>
+    
+    <lastmod>2017-02-14T03:14:55.018Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://hengyishu.cn/categories/index.html</loc>
     
     <lastmod>2017-02-14T03:14:55.008Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://hengyishu.cn/categories/index.html</loc>
+    <loc>http://hengyishu.cn/css/markcss.css</loc>
     
     <lastmod>2017-02-14T03:14:55.008Z</lastmod>
     

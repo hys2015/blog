@@ -42,7 +42,7 @@
 <link href="/blog/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="VisualC++,Debug,VisualStudio," />
+  <meta name="keywords" content="Bundle Adjustment,SLAM," />
 
 
 
@@ -60,16 +60,16 @@
 
 
 
-<meta name="description" content="最近在研究师兄的代码，编译一遍挺久，所以趁此机会了解一下相关debug的技巧和方法，有助于提高自己的开发效率。">
+<meta name="description" content="bundle adjustment（一般翻译为光束平差法，下称光束平差法）定义为一个问题，这个问题需要同时精细化描述场景几何3D坐标、相对运动参数、和相机用来获取图像的光学特性。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Debug in visual c++">
-<meta property="og:url" content="http://hengyishu.cn/2017/02/18/Debug-in-visual-c/index.html">
+<meta property="og:title" content="Bundle Adjustment光束平差法">
+<meta property="og:url" content="http://hengyishu.cn/2017/03/08/Bundle-Adjustment光束平差法/index.html">
 <meta property="og:site_name" content="持之以恒">
-<meta property="og:description" content="最近在研究师兄的代码，编译一遍挺久，所以趁此机会了解一下相关debug的技巧和方法，有助于提高自己的开发效率。">
-<meta property="og:updated_time" content="2017-02-18T02:15:05.095Z">
+<meta property="og:description" content="bundle adjustment（一般翻译为光束平差法，下称光束平差法）定义为一个问题，这个问题需要同时精细化描述场景几何3D坐标、相对运动参数、和相机用来获取图像的光学特性。">
+<meta property="og:updated_time" content="2017-03-08T13:55:08.699Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Debug in visual c++">
-<meta name="twitter:description" content="最近在研究师兄的代码，编译一遍挺久，所以趁此机会了解一下相关debug的技巧和方法，有助于提高自己的开发效率。">
+<meta name="twitter:title" content="Bundle Adjustment光束平差法">
+<meta name="twitter:description" content="bundle adjustment（一般翻译为光束平差法，下称光束平差法）定义为一个问题，这个问题需要同时精细化描述场景几何3D坐标、相对运动参数、和相机用来获取图像的光学特性。">
 
 
 
@@ -91,7 +91,7 @@
 
 <link href="/blog/css/markcss.css" rel="stylesheet" type="text/css" />
 
-  <title> Debug in visual c++ | 持之以恒 </title>
+  <title> Bundle Adjustment光束平差法 | 持之以恒 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -254,7 +254,7 @@
             
             
               
-                Debug in visual c++
+                Bundle Adjustment光束平差法
               
             
           </h1>
@@ -266,8 +266,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-18T10:12:00+08:00" content="2017-02-18">
-              2017-02-18
+            <time itemprop="dateCreated" datetime="2017-03-08T21:52:34+08:00" content="2017-03-08">
+              2017-03-08
             </time>
           </span>
 		  
@@ -300,8 +300,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/blog/2017/02/18/Debug-in-visual-c/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/18/Debug-in-visual-c/" itemprop="commentsCount"></span>
+                <a href="/blog/2017/03/08/Bundle-Adjustment光束平差法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/08/Bundle-Adjustment光束平差法/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -323,31 +323,16 @@
       
 
       
-        <p>最近在研究师兄的代码，编译一遍挺久，所以趁此机会了解一下相关debug的技巧和方法，有助于提高自己的开发效率。</p>
-<a id="more"></a>
-<h2 id="VS调试器调试技巧"><a href="#VS调试器调试技巧" class="headerlink" title="VS调试器调试技巧"></a>VS调试器调试技巧</h2><p><a href="http://blog.jobbole.com/33865/" target="_blank" rel="external">http://blog.jobbole.com/33865/</a><br><a href="http://hovertree.com/h/bjaf/pbqy1f1k.htm" target="_blank" rel="external">http://hovertree.com/h/bjaf/pbqy1f1k.htm</a><br><a href="http://blog.jobbole.com/45249/" target="_blank" rel="external">http://blog.jobbole.com/45249/</a></p>
-<ul>
-<li>调用堆栈</li>
-<li>鼠标悬停查看变量信息</li>
-<li>调试过程中直接给变量赋值</li>
-<li>拖动黄色箭头改变程序运行流程</li>
-<li>通过<code>ptr+offset,count</code>添加变量监视(watch)</li>
-</ul>
-<h2 id="断点和追踪点"><a href="#断点和追踪点" class="headerlink" title="断点和追踪点"></a>断点和追踪点</h2><p><a href="https://msdn.microsoft.com/zh-cn/library/232dxah7(v=vs.90).aspx" target="_blank" rel="external">https://msdn.microsoft.com/zh-cn/library/232dxah7(v=vs.90).aspx</a></p>
-<h2 id="MACRO-ASSERT、TRACE、VERIFY"><a href="#MACRO-ASSERT、TRACE、VERIFY" class="headerlink" title="MACRO - ASSERT、TRACE、VERIFY"></a>MACRO - ASSERT、TRACE、VERIFY</h2><p><a href="http://blog.csdn.net/chocolateconanlan/article/details/4061545" target="_blank" rel="external">http://blog.csdn.net/chocolateconanlan/article/details/4061545</a><br>博客最后部分<br>以及MSDN<br><a href="https://msdn.microsoft.com/en-us/library/9sb57dw4.aspx" target="_blank" rel="external">https://msdn.microsoft.com/en-us/library/9sb57dw4.aspx</a></p>
-<blockquote>
-<p><strong>Syntax语法</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">assert(   </div><div class="line">   expression   </div><div class="line">);  </div><div class="line">void _assert(  </div><div class="line">   char const* message,  </div><div class="line">   char const* filename,  </div><div class="line">   unsigned line  </div><div class="line">);  </div><div class="line">void _wassert(  </div><div class="line">   wchar_t const* message,  </div><div class="line">   wchar_t const* filename,  </div><div class="line">   unsigned line  </div><div class="line">);</div></pre></td></tr></table></figure></p>
-<p><strong>Parameters参数</strong><br>expression<br>: A scalar expression (including pointer expressions) that evaluates to nonzero (true) or 0 (false).</p>
-</blockquote>
-<p>message<br>: The message to display.</p>
-<p>filename<br>: The name of the source file the assertion failed in.</p>
-<p>line<br>: The line number in the source file of the failed assertion.</p>
-<h2 id="MACRO-OutputDebugString"><a href="#MACRO-OutputDebugString" class="headerlink" title="MACRO - OutputDebugString"></a>MACRO - OutputDebugString</h2><blockquote>
-<p>You can use OutputDebugString. OutputDebugString is a macro that depending on your build options either maps to <code>OutputDebugStringA(char const*)</code>or <code>OutputDebugStringW(wchar_t const*)</code>. In the later case you will have to supply a wide character string to the function. To create a wide character literal you can use the L prefix:<br><code>OutputDebugStringW(L&quot;My output string.&quot;);</code><br>Normally you will use the macro version together with the _T macro like this:<br><code>OutputDebugString(_T(&quot;My output string.&quot;));</code><br>If you project is configured to build for UNICODE it will expand into:<br><code>OutputDebugStringW(L&quot;My output string.&quot;);</code><br>If you are not building for UNICODE it will expand into:<br><code>OutputDebugStringA(&quot;My output string.&quot;);</code></p>
-</blockquote>
-<h2 id="Logging-Class"><a href="#Logging-Class" class="headerlink" title="Logging Class"></a>Logging Class</h2><p>Logging Framework from Dr.p<br><a href="http://www.drdobbs.com/cpp/logging-in-c/201804215" target="_blank" rel="external">http://www.drdobbs.com/cpp/logging-in-c/201804215</a></p>
-<p>简单的stderr debug类，来自<br><a href="http://stackoverflow.com/questions/6168107/how-to-implement-a-good-debug-logging-feature-in-a-project" target="_blank" rel="external">http://stackoverflow.com/questions/6168107/how-to-implement-a-good-debug-logging-feature-in-a-project</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">#ifndef _LOGGER_HPP_</div><div class="line">#define _LOGGER_HPP_</div><div class="line"></div><div class="line">#include &lt;iostream&gt;</div><div class="line">#include &lt;sstream&gt;</div><div class="line"></div><div class="line">/* consider adding boost thread id since we&apos;ll want to know whose writting and</div><div class="line"> * won&apos;t want to repeat it for every single call */</div><div class="line"></div><div class="line">/* consider adding policy class to allow users to redirect logging to specific</div><div class="line"> * files via the command line</div><div class="line"> */</div><div class="line"></div><div class="line">enum loglevel_e</div><div class="line">    &#123;logERROR, logWARNING, logINFO, logDEBUG, logDEBUG1, logDEBUG2, logDEBUG3, logDEBUG4&#125;;</div><div class="line"></div><div class="line">class logIt</div><div class="line">&#123;</div><div class="line">public:</div><div class="line">    logIt(loglevel_e _loglevel = logERROR) &#123;</div><div class="line">        _buffer &lt;&lt; _loglevel &lt;&lt; &quot; :&quot; </div><div class="line">            &lt;&lt; std::string(</div><div class="line">                _loglevel &gt; logDEBUG </div><div class="line">                ? (_loglevel - logDEBUG) * 4 </div><div class="line">                : 1</div><div class="line">                , &apos; &apos;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    template &lt;typename T&gt;</div><div class="line">    logIt &amp; operator&lt;&lt;(T const &amp; value)</div><div class="line">    &#123;</div><div class="line">        _buffer &lt;&lt; value;</div><div class="line">        return *this;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ~logIt()</div><div class="line">    &#123;</div><div class="line">        _buffer &lt;&lt; std::endl;</div><div class="line">        // This is atomic according to the POSIX standard</div><div class="line">        // http://www.gnu.org/s/libc/manual/html_node/Streams-and-Threads.html</div><div class="line">        std::cerr &lt;&lt; _buffer.str();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">private:</div><div class="line">    std::ostringstream _buffer;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">extern loglevel_e loglevel;</div><div class="line"></div><div class="line">#define log(level) \</div><div class="line">if (level &gt; loglevel) ; \</div><div class="line">else logIt(level)</div><div class="line"></div><div class="line">#endif</div></pre></td></tr></table></figure></p>
-<p>用法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">// define and turn off for the rest of the test suite</div><div class="line">loglevel_e loglevel = logERROR;</div><div class="line"></div><div class="line">void logTest(void) &#123;</div><div class="line">    loglevel_e loglevel_save = loglevel;</div><div class="line"></div><div class="line">    loglevel = logDEBUG4;</div><div class="line"></div><div class="line">    log(logINFO) &lt;&lt; &quot;foo &quot; &lt;&lt; &quot;bar &quot; &lt;&lt; &quot;baz&quot;;</div><div class="line"></div><div class="line">    int count = 3;</div><div class="line">    log(logDEBUG) &lt;&lt; &quot;A loop with &quot;    &lt;&lt; count &lt;&lt; &quot; iterations&quot;;</div><div class="line">    for (int i = 0; i != count; ++i)</div><div class="line">    &#123;</div><div class="line">        log(logDEBUG1) &lt;&lt; &quot;the counter i = &quot; &lt;&lt; i;</div><div class="line">        log(logDEBUG2) &lt;&lt; &quot;the counter i = &quot; &lt;&lt; i;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    loglevel = loglevel_save;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>bundle adjustment（一般翻译为光束平差法，下称光束平差法）定义为一个问题，这个问题需要同时精细化描述场景几何3D坐标、相对运动参数、和相机用来获取图像的光学特性。<br><a id="more"></a></p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>给定一个从不同视角刻画一系列3D点的图像，bundle adjustment（一般翻译为光束平差法，下称光束平差法）定义为一个问题，这个问题需要同时精细化描述场景几何3D坐标、相对运动参数、和相机用来获取图像的光学特性。解决这个问题需要参照所有点对应图像的投影的最优性表准来完成。</p>
+<p>###用途</p>
+<p>光束平差法几乎是所有基于特征的3D重建算法的最有一步。它相当于一个3D结构和观察参数（比如相机位置、内参矩阵、和径向畸变）的最优化问题，这个问题可以得到对某些观察中固定的噪声的假设下，最好的重建效果。如果图像偏差是<strong>零均值高斯</strong>的（zero-mean Gaussian），那么平差约束就是<strong>最大似然估计</strong>（Maximum Likelihood Estimator）。它的名字表示从3D特征点发出的集束光线，通过最优化调整对应的结构和观察参数，收敛到各个相机的光学中心。</p>
+<p>###通常解法<br>光束平差归结起来就是观察的图片位置和预测的图片点之间的最小化问题，这个问题通常由大量的非线性实值函数的平方和来表示。最小化问题通常使用非线性的最小二乘算法求解。[Levenberg-Marquardt（莱文贝格马奎特）]方法是最成功的方法之一，它易实现而且可以在大范围的初始参数下都可以成功快速收敛。通过在当前估计的邻近区域对函数的线性化迭代，Levenberg-Marquardt算法涉及称为正规方程的线性系统的解法。当求解在束调整的框架中出现的最小化问题时，由于缺乏针对不同3D点和相机的参数之间的交互，正规方程具有稀疏块结构。 这可以被利用以通过使用Levenberg-Marquardt算法的稀疏变体获得巨大的计算益处，其明确地利用正常方程零点模式，避免存储和操作零元素。</p>
+<h3 id="数学定义"><a href="#数学定义" class="headerlink" title="数学定义"></a>数学定义</h3><p>光束平差法相当于联合地精确化初始的相机和结构参数估计集合以找到可以最大精确度预测观察到的图片中的点的位置的参数集合。更正式化一点，假设有$n$个3D点在$m$个视角被观察到，令$x_{ij}$为第$j$幅图片中第$i$个点的投影。令$v_{ij}$为二元值：当点$i$在$j$中可以被看到时，$v_{ij} = 1$，否则为0。同时假设每一个相机$j$使用向量$a_j$进行初始化，每个3D点$i$使用向量$b_i$进行初始化。光束平差法通过调整所有3D点和相机参数来最小化总的重投影(reprojection)的误差，特别地，<br>$$<br>\substack{min\\a_j,b_i}\sum^n_{i=1}\sum^m_{j=1} v_{ij} d(\mathbf Q(\mathbf a_j, \mathbf b_i), \mathbf x_{ij})^2<br>$$<br>其中$Q(\mathbf a_j, \mathbf b_i)$表示图像$j$上的点$i$预测的投影位置，$d(\mathbf x, \mathbf y)$代表了向量$x$和向量$y$之间的欧式距离。明显的看到，光束平差法通过定义，可以容忍丢失图像投影和最小化物理方面的规范。</p>
+<hr>
+<p>参考:<br><strong>Bundle Adjustment到底是什么？</strong><br><a href="https://www.zhihu.com/question/29082659" target="_blank" rel="external">https://www.zhihu.com/question/29082659</a></p>
+<p><strong>Bundle adjustment wiki</strong><br><a href="https://en.wikipedia.org/wiki/Bundle_adjustment" target="_blank" rel="external">https://en.wikipedia.org/wiki/Bundle_adjustment</a></p>
+<p><strong>A Generic Sparse Bundle Adjustment C/C++ Package Based on the Levenberg-Marquardt Algorithm</strong><br><a href="http://users.ics.forth.gr/~lourakis/sba/" target="_blank" rel="external">http://users.ics.forth.gr/~lourakis/sba/</a></p>
 
       
     </div>
@@ -383,11 +368,9 @@
       
         <div class="post-tags">
           
-            <a href="/blog/tags/VisualC/" rel="tag">#VisualC++</a>
+            <a href="/blog/tags/Bundle-Adjustment/" rel="tag">#Bundle Adjustment</a>
           
-            <a href="/blog/tags/Debug/" rel="tag">#Debug</a>
-          
-            <a href="/blog/tags/VisualStudio/" rel="tag">#VisualStudio</a>
+            <a href="/blog/tags/SLAM/" rel="tag">#SLAM</a>
           
         </div>
       
@@ -396,17 +379,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2017/02/16/迭代最近点方法ICP/" rel="next" title="迭代最近点方法ICP">
-                <i class="fa fa-chevron-left"></i>上一篇: 迭代最近点方法ICP
+              <a href="/blog/2017/03/08/FAST角点检测-FAST-Corner-Detection/" rel="next" title="FAST角点检测 FAST Corner Detection ">
+                <i class="fa fa-chevron-left"></i>上一篇: FAST角点检测 FAST Corner Detection 
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/2017/02/18/CUDA-入门/" rel="prev" title="CUDA 入门">
-               下一篇: CUDA 入门 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -468,8 +447,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/18/Debug-in-visual-c/"
-           data-title="Debug in visual c++" data-url="http://hengyishu.cn/blog/2017/02/18/Debug-in-visual-c/">
+      <div class="ds-thread" data-thread-key="2017/03/08/Bundle-Adjustment光束平差法/"
+           data-title="Bundle Adjustment光束平差法" data-url="http://hengyishu.cn/blog/2017/03/08/Bundle-Adjustment光束平差法/">
       </div>
     
   </div>
@@ -632,7 +611,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#VS调试器调试技巧"><span class="nav-number">1.</span> <span class="nav-text">VS调试器调试技巧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#断点和追踪点"><span class="nav-number">2.</span> <span class="nav-text">断点和追踪点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MACRO-ASSERT、TRACE、VERIFY"><span class="nav-number">3.</span> <span class="nav-text">MACRO - ASSERT、TRACE、VERIFY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MACRO-OutputDebugString"><span class="nav-number">4.</span> <span class="nav-text">MACRO - OutputDebugString</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Logging-Class"><span class="nav-number">5.</span> <span class="nav-text">Logging Class</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数学定义"><span class="nav-number">2.</span> <span class="nav-text">数学定义</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
