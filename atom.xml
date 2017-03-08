@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://hengyishu.cn/"/>
-  <updated>2017-03-08T13:55:08.699Z</updated>
+  <updated>2017-03-08T13:59:03.297Z</updated>
   <id>http://hengyishu.cn/</id>
   
   <author>
@@ -20,13 +20,12 @@
     <link href="http://hengyishu.cn/2017/03/08/Bundle-Adjustment%E5%85%89%E6%9D%9F%E5%B9%B3%E5%B7%AE%E6%B3%95/"/>
     <id>http://hengyishu.cn/2017/03/08/Bundle-Adjustment光束平差法/</id>
     <published>2017-03-08T13:52:34.000Z</published>
-    <updated>2017-03-08T13:55:08.699Z</updated>
+    <updated>2017-03-08T13:59:03.297Z</updated>
     
     <content type="html"><![CDATA[<p>bundle adjustment（一般翻译为光束平差法，下称光束平差法）定义为一个问题，这个问题需要同时精细化描述场景几何3D坐标、相对运动参数、和相机用来获取图像的光学特性。<br><a id="more"></a></p>
 <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>给定一个从不同视角刻画一系列3D点的图像，bundle adjustment（一般翻译为光束平差法，下称光束平差法）定义为一个问题，这个问题需要同时精细化描述场景几何3D坐标、相对运动参数、和相机用来获取图像的光学特性。解决这个问题需要参照所有点对应图像的投影的最优性表准来完成。</p>
-<p>###用途</p>
-<p>光束平差法几乎是所有基于特征的3D重建算法的最有一步。它相当于一个3D结构和观察参数（比如相机位置、内参矩阵、和径向畸变）的最优化问题，这个问题可以得到对某些观察中固定的噪声的假设下，最好的重建效果。如果图像偏差是<strong>零均值高斯</strong>的（zero-mean Gaussian），那么平差约束就是<strong>最大似然估计</strong>（Maximum Likelihood Estimator）。它的名字表示从3D特征点发出的集束光线，通过最优化调整对应的结构和观察参数，收敛到各个相机的光学中心。</p>
-<p>###通常解法<br>光束平差归结起来就是观察的图片位置和预测的图片点之间的最小化问题，这个问题通常由大量的非线性实值函数的平方和来表示。最小化问题通常使用非线性的最小二乘算法求解。[Levenberg-Marquardt（莱文贝格马奎特）]方法是最成功的方法之一，它易实现而且可以在大范围的初始参数下都可以成功快速收敛。通过在当前估计的邻近区域对函数的线性化迭代，Levenberg-Marquardt算法涉及称为正规方程的线性系统的解法。当求解在束调整的框架中出现的最小化问题时，由于缺乏针对不同3D点和相机的参数之间的交互，正规方程具有稀疏块结构。 这可以被利用以通过使用Levenberg-Marquardt算法的稀疏变体获得巨大的计算益处，其明确地利用正常方程零点模式，避免存储和操作零元素。</p>
+<h3 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h3><p>光束平差法几乎是所有基于特征的3D重建算法的最有一步。它相当于一个3D结构和观察参数（比如相机位置、内参矩阵、和径向畸变）的最优化问题，这个问题可以得到对某些观察中固定的噪声的假设下，最好的重建效果。如果图像偏差是<strong>零均值高斯</strong>的（zero-mean Gaussian），那么平差约束就是<strong>最大似然估计</strong>（Maximum Likelihood Estimator）。它的名字表示从3D特征点发出的集束光线，通过最优化调整对应的结构和观察参数，收敛到各个相机的光学中心。</p>
+<h3 id="通常解法-步骤"><a href="#通常解法-步骤" class="headerlink" title="通常解法(步骤)"></a>通常解法(步骤)</h3><p>光束平差归结起来就是观察的图片位置和预测的图片点之间的最小化问题，这个问题通常由大量的非线性实值函数的平方和来表示。最小化问题通常使用非线性的最小二乘算法求解。[Levenberg-Marquardt（莱文贝格马奎特）]方法是最成功的方法之一，它易实现而且可以在大范围的初始参数下都可以成功快速收敛。通过在当前估计的邻近区域对函数的线性化迭代，Levenberg-Marquardt算法涉及称为正规方程的线性系统的解法。当求解在束调整的框架中出现的最小化问题时，由于缺乏针对不同3D点和相机的参数之间的交互，正规方程具有稀疏块结构。 这可以被利用以通过使用Levenberg-Marquardt算法的稀疏变体获得巨大的计算益处，其明确地利用正常方程零点模式，避免存储和操作零元素。</p>
 <h3 id="数学定义"><a href="#数学定义" class="headerlink" title="数学定义"></a>数学定义</h3><p>光束平差法相当于联合地精确化初始的相机和结构参数估计集合以找到可以最大精确度预测观察到的图片中的点的位置的参数集合。更正式化一点，假设有$n$个3D点在$m$个视角被观察到，令$x_{ij}$为第$j$幅图片中第$i$个点的投影。令$v_{ij}$为二元值：当点$i$在$j$中可以被看到时，$v_{ij} = 1$，否则为0。同时假设每一个相机$j$使用向量$a_j$进行初始化，每个3D点$i$使用向量$b_i$进行初始化。光束平差法通过调整所有3D点和相机参数来最小化总的重投影(reprojection)的误差，特别地，<br>$$<br>\substack{min\\a_j,b_i}\sum^n_{i=1}\sum^m_{j=1} v_{ij} d(\mathbf Q(\mathbf a_j, \mathbf b_i), \mathbf x_{ij})^2<br>$$<br>其中$Q(\mathbf a_j, \mathbf b_i)$表示图像$j$上的点$i$预测的投影位置，$d(\mathbf x, \mathbf y)$代表了向量$x$和向量$y$之间的欧式距离。明显的看到，光束平差法通过定义，可以容忍丢失图像投影和最小化物理方面的规范。</p>
 <hr>
 <p>参考:<br><strong>Bundle Adjustment到底是什么？</strong><br><a href="https://www.zhihu.com/question/29082659" target="_blank" rel="external">https://www.zhihu.com/question/29082659</a></p>
