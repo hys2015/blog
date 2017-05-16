@@ -66,7 +66,7 @@
 <meta property="og:url" content="http://hengyishu.cn/2017/05/16/DynamicFusion-论文阅读/index.html">
 <meta property="og:site_name" content="持之以恒">
 <meta property="og:description" content="newcombe大神2015的论文，叼的不行。。。论文地址">
-<meta property="og:updated_time" content="2017-05-16T08:20:24.341Z">
+<meta property="og:updated_time" content="2017-05-16T08:30:11.893Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DynamicFusion - 论文阅读">
 <meta name="twitter:description" content="newcombe大神2015的论文，叼的不行。。。论文地址">
@@ -358,7 +358,7 @@
 <h4 id="3-3-3-Efficient-Optimization"><a href="#3-3-3-Efficient-Optimization" class="headerlink" title="3.3.3 Efficient Optimization"></a>3.3.3 Efficient Optimization</h4><p>将总能量$E$最小化，可以估计出所有的变换参数$T_{lw}, dg_{se3}, r_{se3}$.<br>用<a href="http://www.voidcn.com/blog/jinshengtao/article/p-6004352.html" target="_blank" rel="external">高斯牛顿法</a>求解最小化</p>
 <p>最小化能量公式中的复杂度集中在近似化海因公式：$J^\top J = J^\top_d J_d + \lambda J_r^\top J_r$.</p>
 <h3 id="3-4-Extending-the-Warp-field"><a href="#3-4-Extending-the-Warp-field" class="headerlink" title="3.4 Extending the Warp-field"></a>3.4 Extending the Warp-field</h3><p>这里扩展了变形场的参数，确保所有的变形都被表示出来，不管是新加入场景的平面还是即将被观察到的空间。包括，增量更新图节点$\mathcal N_{warp}$，然后重新计算层次边拓扑图$\mathcal E$以扩展规格化数据，来容纳新的结点。</p>
-<p><strong>Inserting New Deformation Nodes into $\mathcal N_{warp}$</strong><br>在完成非刚体的TSDF的融合之后，可以提取出标准空间中的估计平面为线模型$\mathcal V_c$，给定当前结点们$\mathcal N_{warp}$，可以计算出每个形变函数可以覆盖到提取平面的程度。这需要计算每个顶点到它们的支持结点的向量距离。当距离满足以下条件时，即为不得到支持的顶点：$min_{k\in N(x_c)}(\frac{||dg_v^k-v_c||}{dg_w^k}) \ge 1$. 所有不受支持的点，都会被用半径搜索平均（radius search averaging）的方法进行稀疏降采样，收缩这顶点到新的位置$\tilde{dg_v}$的集合中，这些位置之间至少相隔$\epsilon$的距离。$\epsilon$定义了运动场(motion field)的有效分辨率。每个新的结点中心$dg^__v \in \tilde{dg_v}$需要当前变换的初始值，通过当前变形的<strong>DQB</strong>直接得到$dg_{se3}^_ \leftarrow \mathcal W_t(dg_v^*)$.最后，更新当前变形结点的集合，对应当前的时间$\mathcal N^t_{warp} = \mathcal N_{warp}^{t-1}\cup\{\tilde{dg_v}, \tilde{dg_{se3}}， \tilde{dg_w}\}$. 每次结点更新，也会更新预先计算的$k$临近点域$\mathcal I$.</p>
+<p><strong>Inserting New Deformation Nodes into $\mathcal N_{warp}$</strong><br>在完成非刚体的TSDF的融合之后，可以提取出标准空间中的估计平面为线模型$\mathcal V_c$，给定当前结点们$\mathcal N_{warp}$，可以计算出每个形变函数可以覆盖到提取平面的程度。这需要计算每个顶点到它们的支持结点的向量距离。当距离满足以下条件时，即为不得到支持的顶点：$min_{k\in N(x_c)}(\frac{||dg_v^k-v_c||}{dg_w^k}) \ge 1$. 所有不受支持的点，都会被用半径搜索平均（radius search averaging）的方法进行稀疏降采样，收缩这顶点到新的位置$\tilde{dg_v}$的集合中，这些位置之间至少相隔$\epsilon$的距离。$\epsilon$定义了运动场(motion field)的有效分辨率。每个新的结点中心 $dg ^\star _v {\in} \tilde{dg_v}$ 需要当前变换的初始值，通过当前变形的<strong>DQB</strong>直接得到 $dg_{se3} ^\star \leftarrow \mathcal W_t(dg_v^\star)$ .最后，更新当前变形结点的集合，对应当前的时间$\mathcal N^t_{warp} = \mathcal N_{warp}^{t-1}\cup\{\tilde{dg_v}, \tilde{dg_{se3}}， \tilde{dg_w}\}$. 每次结点更新，也会更新预先计算的$k$临近点域$\mathcal I$.</p>
 <p><strong>Updating the regularisation Graph $\mathcal E$</strong><br>给定新跟新的变形结点的集合，构建一个$L \ge 1$层级的规格化图结点层次结构，$l = 0$层是$\mathcal N_{warp}$。计算$l = 1$层是通过在变形场结点$dg_v$上半径搜索再采样到增长抽取的半径$\epsilon \beta ^l, \beta gt 1$，然后通过在当前更新过的$\mathcal W_t$使用<strong>DQB</strong>计算初始结点变换。</p>
 <p>接着构建全新的规格化边集$\mathcal E$，从$l = 0$的边开始，到$l = 1$层中的$\mathcal N_{reg}$. 细粒度层($l = 0$)的每个结点都要添加一条到它在粗粒度层$k$临近对应结点的边。</p>
 
