@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://hengyishu.cn/"/>
-  <updated>2017-05-16T08:30:11.893Z</updated>
+  <updated>2017-05-16T13:59:07.521Z</updated>
   <id>http://hengyishu.cn/</id>
   
   <author>
@@ -16,11 +16,49 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Skinning with Dual Quaternions - 对偶四元数蒙皮</title>
+    <link href="http://hengyishu.cn/2017/05/16/Skinning-with-Dual-Quaternions-%E5%AF%B9%E5%81%B6%E5%9B%9B%E5%85%83%E6%95%B0%E8%92%99%E7%9A%AE/"/>
+    <id>http://hengyishu.cn/2017/05/16/Skinning-with-Dual-Quaternions-对偶四元数蒙皮/</id>
+    <published>2017-05-16T13:57:36.000Z</published>
+    <updated>2017-05-16T13:59:07.521Z</updated>
+    
+    <content type="html"><![CDATA[<p>蒙皮，就是根据控制单元的变化，控制相应的顶点的变化，线性蒙皮采用线性插值的方法计算变形前后的顶点的位置。</p>
+<p>蒙皮的算法主要分为两步：</p>
+<a id="more"></a>
+<p>一，定义一系列的控制单元，计算几何模型受这些控制单元的影响权重；<br>二，控制单元改变，几何模型发生响应的形变。</p>
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><p><strong>Linear Blending Skinning 线性蒙皮</strong></p>
+<p>计算权重是一个很重要的步骤，有一种方法是有解双调和权重。定义控制单元为$H_j \in \Omega, j = 1, …, m$,每个控制单元$H_j$发生的仿射变换为$T_j$，对于顶点$p \in \Omega$，线性混合蒙皮算法给出变形后的$p’$的位置为控制单元仿射变换$T_j$的加权线性组合：<br>$$<br>\mathbf p’ = \sum_{j=1}^m w_j(\mathbf p)T_j\mathbf p<br>$$<br>$w_j(p)$为顶点$p$受控制单元$H_j$的权重影响。</p>
+<p>有界双调和权重$w_j$的计算方法，参考<a href="http://delivery.acm.org/10.1145/2580000/2578850/414ChinaRH.pdf?ip=60.207.237.106&amp;id=2578850&amp;acc=ACTIVE%20SERVICE&amp;key=BF85BBA5741FDC6E%2E478E8F2EC4A762F8%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;CFID=763502609&amp;CFTOKEN=18159657&amp;__acm__=1494940210_1b518aa5c6721c094dd286d0a7feeef7" target="_blank" rel="external">论文</a>第3节“有界双调和权重”。</p>
+<p>对权重的$w_j$定义为高阶形状感知平滑度泛函（即拉普拉斯能量）的极小化变量，并服从控制点插值和多个其它理想属性的约束：<br>$$<br>argmin_{\substack{w_j, \ j = 1,\dots,m}}\sum^m_{j=1}\frac{1}{2}\int_{\Omega}(\Delta w_j)^2 dV<br>$$<br>服从：<br>$$<br>\begin{align}<br>&amp;w_j | _{Hk} = \delta_{jk}, &amp; \tag{1} \\<br>&amp;w_j | _F为线性, &amp; \forall F \in \mathcal F_c  \tag{2} \\<br>&amp;\sum_{j=1}^m w_j(p) = 1 &amp; \forall p \in \Omega \tag{3} \\<br>&amp;0 \le w_j(p) \le 1, j = 1, \dots, m, &amp; \forall p \in \Omega \tag{4}<br>\end{align}<br>$$<br>其中，$\mathcal F_c$是所有控制面的合集，$\delta_{jk}$是<a href="http://baike.baidu.com/item/Kronecker%20delta" target="_blank" rel="external">克罗内克函数</a>。<br><strong>LBS的塌陷问题</strong><br>LBS插值，在控制点旋转导致原本的顶点连接线相交时，插值会导致蒙皮塌陷问题。<br><img src="http://7xrsid.com1.z0.glb.clouddn.com/5-16/lbs.gif" alt="LBS" title="LBS塌陷"></p>
+<p><strong>DQB</strong><br>DQB可以解决上述问题。<br>论文：<a href="https://www.cs.utah.edu/~ladislav/kavan07skinning/kavan07skinning.pdf" target="_blank" rel="external">https://www.cs.utah.edu/~ladislav/kavan07skinning/kavan07skinning.pdf</a><br><img src="http://7xrsid.com1.z0.glb.clouddn.com/5-16/qdb.gif" alt="DQB" title="DQB"></p>
+<p>内容待更新…</p>
+<p>参考：<br><a href="https://www.zhihu.com/question/32007883" target="_blank" rel="external">https://www.zhihu.com/question/32007883</a><br><a href="http://www.cnblogs.com/shushen/p/5987280.html" target="_blank" rel="external">http://www.cnblogs.com/shushen/p/5987280.html</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;蒙皮，就是根据控制单元的变化，控制相应的顶点的变化，线性蒙皮采用线性插值的方法计算变形前后的顶点的位置。&lt;/p&gt;
+&lt;p&gt;蒙皮的算法主要分为两步：&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="学习记录" scheme="http://hengyishu.cn/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="fusion" scheme="http://hengyishu.cn/tags/fusion/"/>
+    
+      <category term="rgbd" scheme="http://hengyishu.cn/tags/rgbd/"/>
+    
+      <category term="算法" scheme="http://hengyishu.cn/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>DynamicFusion - 论文阅读</title>
     <link href="http://hengyishu.cn/2017/05/16/DynamicFusion-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
     <id>http://hengyishu.cn/2017/05/16/DynamicFusion-论文阅读/</id>
     <published>2017-05-16T08:16:33.000Z</published>
-    <updated>2017-05-16T08:30:11.893Z</updated>
+    <updated>2017-05-16T14:01:38.215Z</updated>
     
     <content type="html"><![CDATA[<p>newcombe大神2015的论文，叼的不行。。。<br><a href="https://rse-lab.cs.washington.edu/papers/dynamic-fusion-cvpr-2015.pdf" target="_blank" rel="external">论文地址</a><br><a id="more"></a></p>
 <h2 id="2-Overview"><a href="#2-Overview" class="headerlink" title="2. Overview"></a>2. Overview</h2><p>DF将非刚性形变场景分解到隐性几何表面，重建到刚性规范空间中。还有每帧的形变场，将上述表面转换到当前帧中。<br>每新的一幅深度帧，以下三种算法依次执行：</p>
@@ -32,7 +70,7 @@
 <h2 id="3-Technical-Details"><a href="#3-Technical-Details" class="headerlink" title="3. Technical Details"></a>3. Technical Details</h2><p>DNWF方便对场景中的每帧形变进行建模。变形场是所有其他功能的基础。</p>
 <h3 id="3-1-Dense-Non-rigid-Warp-Field"><a href="#3-1-Dense-Non-rigid-Warp-Field" class="headerlink" title="3.1 Dense Non-rigid Warp Field"></a>3.1 Dense Non-rigid Warp Field</h3><p>变形场，提供一个针对每个点的6自由度变换$\mathcal{W}: S \rightarrow SE(3)$<br>对规范mesh中的每个点$v_c \in S$, 变换$T_{lc} = \mathcal W (v_c)$把规范空间中的点转换到当前空间。</p>
 <p>每一帧深度图像，都需要建立变形公式，$\mathcal W_t$，它的表示必须要有效的优化。一种方法是对体素进行密集的取样，但是这样运算量太大，不适用。<br><strong>实际上，用一个变换的稀疏集合作为基，用插值的方法就可以定义稠密的体素变形方程。</strong></p>
-<p>使用如下方式，定义变形函数：<br><strong><a href="https://www.cs.utah.edu/~ladislav/kavan06dual/kavan06dual.pdf" target="_blank" rel="external">DQB</a>: dual-quaternion blending双四元数混合</strong><br>$$<br>\mathcal W_t(x_c) = SE3(\mathbf{DQB}(x_c)).<br>$$<br>其中<br>$$<br>\mathbf{DQB}(x_c) = \frac{\sum_{k \in N(x_c)}\mathbf w_k(x_c) \mathbf {\hat q_{kc}}}{||\sum_{k \in N(x_c)} \mathbf w_k(x_c) \hat q_{kc}||}<br>$$<br>每个单位的双四元数$\mathbf{\hat q_{kc} \in \Bbb R ^8}$。<br>$N(x)$是点$x$的$k$最近邻的变换结点，$\mathbf w_k$定义了权重来调整每个结点的影响半径。<br>$\mathbf{SE3}(·)$将四元数转变回$\mathbf{SE(3)}$变换矩阵。</p>
+<p>使用如下方式，定义变形函数：<br><strong>DQB<a href="https://www.cs.utah.edu/~ladislav/kavan06dual/kavan06dual.pdf" target="_blank" rel="external">paper</a><a href="http://hengyishu.cn/blog/2017/05/16/Skinning-with-Dual-Quaternions-对偶四元数蒙皮/#more">我的博文</a>: dual-quaternion blending双四元数混合</strong><br>$$<br>\mathcal W_t(x_c) = SE3(\mathbf{DQB}(x_c)).<br>$$<br>其中<br>$$<br>\mathbf{DQB}(x_c) = \frac{\sum_{k \in N(x_c)}\mathbf w_k(x_c) \mathbf {\hat q_{kc}}}{||\sum_{k \in N(x_c)} \mathbf w_k(x_c) \hat q_{kc}||}<br>$$<br>每个单位的双四元数$\mathbf{\hat q_{kc} \in \Bbb R ^8}$。<br>$N(x)$是点$x$的$k$最近邻的变换结点，$\mathbf w_k$定义了权重来调整每个结点的影响半径。<br>$\mathbf{SE3}(·)$将四元数转变回$\mathbf{SE(3)}$变换矩阵。</p>
 <p>$t$时刻的变形场的状态为$\mathcal W_t$，定义为$n$个变换结点集合的值$\mathcal N^t_{\mathbf{warp}} = \{dg_v, dg_w, dg_{se3}\}_t$。对结点$i = 1 \dots n$，都在标准空间中有个位置$dg_v^i \in \Bbb R^3 $，相关的变换$T_{ic} = dg^i_{se3}$，径向基权重$dg_w$控制变换的程度 $w_i(x_c) = \mathrm{exp}(-||\mathbf{dg}_v^i - x_c||^2 / (2(\mathbf{dg}_w^i)^2))$.</p>
 <p>每个半径参数$dg^i_w$设定为保证结点的影响能够覆盖到相邻的若干结点，取决于结点取样的系数程度，$ \S 3.4 $详细介绍。</p>
 <p>变形场对所有支持的空间都有效，所以可以对位置和朝向（方向向量）都有效。而且，空间的尺度变化也能够通过相邻点的收敛和发散来表示空间的收缩和扩大。最后，可以用因子表示对体素中所有的点都有效的变换。引入将模型变换至当前帧的变换，$T_{lw}$，并写入体素变形函数，得到:<br>$$<br>\mathcal W_t(x_c) = T_{lw} SE3(\mathbf{DQB}(x_c)).<br>$$</p>
@@ -764,9 +802,9 @@ else {
       <category term="学习记录" scheme="http://hengyishu.cn/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
     
     
-      <category term="VisualStudio" scheme="http://hengyishu.cn/tags/VisualStudio/"/>
-    
       <category term="学习记录" scheme="http://hengyishu.cn/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    
+      <category term="VisualStudio" scheme="http://hengyishu.cn/tags/VisualStudio/"/>
     
       <category term="Qt" scheme="http://hengyishu.cn/tags/Qt/"/>
     

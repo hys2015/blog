@@ -66,7 +66,7 @@
 <meta property="og:url" content="http://hengyishu.cn/2017/05/16/DynamicFusion-论文阅读/index.html">
 <meta property="og:site_name" content="持之以恒">
 <meta property="og:description" content="newcombe大神2015的论文，叼的不行。。。论文地址">
-<meta property="og:updated_time" content="2017-05-16T08:30:11.893Z">
+<meta property="og:updated_time" content="2017-05-16T14:01:38.215Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DynamicFusion - 论文阅读">
 <meta name="twitter:description" content="newcombe大神2015的论文，叼的不行。。。论文地址">
@@ -333,7 +333,7 @@
 <h2 id="3-Technical-Details"><a href="#3-Technical-Details" class="headerlink" title="3. Technical Details"></a>3. Technical Details</h2><p>DNWF方便对场景中的每帧形变进行建模。变形场是所有其他功能的基础。</p>
 <h3 id="3-1-Dense-Non-rigid-Warp-Field"><a href="#3-1-Dense-Non-rigid-Warp-Field" class="headerlink" title="3.1 Dense Non-rigid Warp Field"></a>3.1 Dense Non-rigid Warp Field</h3><p>变形场，提供一个针对每个点的6自由度变换$\mathcal{W}: S \rightarrow SE(3)$<br>对规范mesh中的每个点$v_c \in S$, 变换$T_{lc} = \mathcal W (v_c)$把规范空间中的点转换到当前空间。</p>
 <p>每一帧深度图像，都需要建立变形公式，$\mathcal W_t$，它的表示必须要有效的优化。一种方法是对体素进行密集的取样，但是这样运算量太大，不适用。<br><strong>实际上，用一个变换的稀疏集合作为基，用插值的方法就可以定义稠密的体素变形方程。</strong></p>
-<p>使用如下方式，定义变形函数：<br><strong><a href="https://www.cs.utah.edu/~ladislav/kavan06dual/kavan06dual.pdf" target="_blank" rel="external">DQB</a>: dual-quaternion blending双四元数混合</strong><br>$$<br>\mathcal W_t(x_c) = SE3(\mathbf{DQB}(x_c)).<br>$$<br>其中<br>$$<br>\mathbf{DQB}(x_c) = \frac{\sum_{k \in N(x_c)}\mathbf w_k(x_c) \mathbf {\hat q_{kc}}}{||\sum_{k \in N(x_c)} \mathbf w_k(x_c) \hat q_{kc}||}<br>$$<br>每个单位的双四元数$\mathbf{\hat q_{kc} \in \Bbb R ^8}$。<br>$N(x)$是点$x$的$k$最近邻的变换结点，$\mathbf w_k$定义了权重来调整每个结点的影响半径。<br>$\mathbf{SE3}(·)$将四元数转变回$\mathbf{SE(3)}$变换矩阵。</p>
+<p>使用如下方式，定义变形函数：<br><strong>DQB<a href="https://www.cs.utah.edu/~ladislav/kavan06dual/kavan06dual.pdf" target="_blank" rel="external">paper</a><a href="http://hengyishu.cn/blog/2017/05/16/Skinning-with-Dual-Quaternions-对偶四元数蒙皮/#more">我的博文</a>: dual-quaternion blending双四元数混合</strong><br>$$<br>\mathcal W_t(x_c) = SE3(\mathbf{DQB}(x_c)).<br>$$<br>其中<br>$$<br>\mathbf{DQB}(x_c) = \frac{\sum_{k \in N(x_c)}\mathbf w_k(x_c) \mathbf {\hat q_{kc}}}{||\sum_{k \in N(x_c)} \mathbf w_k(x_c) \hat q_{kc}||}<br>$$<br>每个单位的双四元数$\mathbf{\hat q_{kc} \in \Bbb R ^8}$。<br>$N(x)$是点$x$的$k$最近邻的变换结点，$\mathbf w_k$定义了权重来调整每个结点的影响半径。<br>$\mathbf{SE3}(·)$将四元数转变回$\mathbf{SE(3)}$变换矩阵。</p>
 <p>$t$时刻的变形场的状态为$\mathcal W_t$，定义为$n$个变换结点集合的值$\mathcal N^t_{\mathbf{warp}} = \{dg_v, dg_w, dg_{se3}\}_t$。对结点$i = 1 \dots n$，都在标准空间中有个位置$dg_v^i \in \Bbb R^3 $，相关的变换$T_{ic} = dg^i_{se3}$，径向基权重$dg_w$控制变换的程度 $w_i(x_c) = \mathrm{exp}(-||\mathbf{dg}_v^i - x_c||^2 / (2(\mathbf{dg}_w^i)^2))$.</p>
 <p>每个半径参数$dg^i_w$设定为保证结点的影响能够覆盖到相邻的若干结点，取决于结点取样的系数程度，$ \S 3.4 $详细介绍。</p>
 <p>变形场对所有支持的空间都有效，所以可以对位置和朝向（方向向量）都有效。而且，空间的尺度变化也能够通过相邻点的收敛和发散来表示空间的收缩和扩大。最后，可以用因子表示对体素中所有的点都有效的变换。引入将模型变换至当前帧的变换，$T_{lw}$，并写入体素变形函数，得到:<br>$$<br>\mathcal W_t(x_c) = T_{lw} SE3(\mathbf{DQB}(x_c)).<br>$$</p>
@@ -416,6 +416,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2017/05/16/Skinning-with-Dual-Quaternions-对偶四元数蒙皮/" rel="prev" title="Skinning with Dual Quaternions - 对偶四元数蒙皮">
+               下一篇: Skinning with Dual Quaternions - 对偶四元数蒙皮 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -523,7 +527,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/blog/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -540,7 +544,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/blog/tags">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
