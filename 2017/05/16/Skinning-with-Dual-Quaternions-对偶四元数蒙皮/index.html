@@ -42,7 +42,7 @@
 <link href="/blog/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="fusion,rgbd,算法," />
+  <meta name="keywords" content="fusion,rgbd,算法,四元数,对偶四元数," />
 
 
 
@@ -70,7 +70,7 @@
 蒙皮的算法主要分为两步：">
 <meta property="og:image" content="http://7xrsid.com1.z0.glb.clouddn.com/5-16/lbs.gif">
 <meta property="og:image" content="http://7xrsid.com1.z0.glb.clouddn.com/5-16/qdb.gif">
-<meta property="og:updated_time" content="2017-05-16T13:59:07.521Z">
+<meta property="og:updated_time" content="2017-05-17T10:10:34.366Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Skinning with Dual Quaternions - 对偶四元数蒙皮">
 <meta name="twitter:description" content="蒙皮，就是根据控制单元的变化，控制相应的顶点的变化，线性蒙皮采用线性插值的方法计算变形前后的顶点的位置。
@@ -337,8 +337,31 @@
 <p>计算权重是一个很重要的步骤，有一种方法是有解双调和权重。定义控制单元为$H_j \in \Omega, j = 1, …, m$,每个控制单元$H_j$发生的仿射变换为$T_j$，对于顶点$p \in \Omega$，线性混合蒙皮算法给出变形后的$p’$的位置为控制单元仿射变换$T_j$的加权线性组合：<br>$$<br>\mathbf p’ = \sum_{j=1}^m w_j(\mathbf p)T_j\mathbf p<br>$$<br>$w_j(p)$为顶点$p$受控制单元$H_j$的权重影响。</p>
 <p>有界双调和权重$w_j$的计算方法，参考<a href="http://delivery.acm.org/10.1145/2580000/2578850/414ChinaRH.pdf?ip=60.207.237.106&amp;id=2578850&amp;acc=ACTIVE%20SERVICE&amp;key=BF85BBA5741FDC6E%2E478E8F2EC4A762F8%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;CFID=763502609&amp;CFTOKEN=18159657&amp;__acm__=1494940210_1b518aa5c6721c094dd286d0a7feeef7" target="_blank" rel="external">论文</a>第3节“有界双调和权重”。</p>
 <p>对权重的$w_j$定义为高阶形状感知平滑度泛函（即拉普拉斯能量）的极小化变量，并服从控制点插值和多个其它理想属性的约束：<br>$$<br>argmin_{\substack{w_j, \ j = 1,\dots,m}}\sum^m_{j=1}\frac{1}{2}\int_{\Omega}(\Delta w_j)^2 dV<br>$$<br>服从：<br>$$<br>\begin{align}<br>&amp;w_j | _{Hk} = \delta_{jk}, &amp; \tag{1} \\<br>&amp;w_j | _F为线性, &amp; \forall F \in \mathcal F_c  \tag{2} \\<br>&amp;\sum_{j=1}^m w_j(p) = 1 &amp; \forall p \in \Omega \tag{3} \\<br>&amp;0 \le w_j(p) \le 1, j = 1, \dots, m, &amp; \forall p \in \Omega \tag{4}<br>\end{align}<br>$$<br>其中，$\mathcal F_c$是所有控制面的合集，$\delta_{jk}$是<a href="http://baike.baidu.com/item/Kronecker%20delta" target="_blank" rel="external">克罗内克函数</a>。<br><strong>LBS的塌陷问题</strong><br>LBS插值，在控制点旋转导致原本的顶点连接线相交时，插值会导致蒙皮塌陷问题。<br><img src="http://7xrsid.com1.z0.glb.clouddn.com/5-16/lbs.gif" alt="LBS" title="LBS塌陷"></p>
-<p><strong>DQB</strong><br>DQB可以解决上述问题。<br>论文：<a href="https://www.cs.utah.edu/~ladislav/kavan07skinning/kavan07skinning.pdf" target="_blank" rel="external">https://www.cs.utah.edu/~ladislav/kavan07skinning/kavan07skinning.pdf</a><br><img src="http://7xrsid.com1.z0.glb.clouddn.com/5-16/qdb.gif" alt="DQB" title="DQB"></p>
-<p>内容待更新…</p>
+<p><strong>DQB</strong><br><a href="https://www.cs.utah.edu/~ladislav/kavan07skinning/kavan07skinning.pdf" target="_blank" rel="external"><strong>Dual Quaternions Linearing Skinning</strong></a><br>DQB可以解决上述问题。<br>DQB中使用的是<strong>对偶四元数</strong>。<br><strong>常规四元数</strong>的理解见下面链接：<br><a href="https://www.zhihu.com/question/23005815" target="_blank" rel="external">四元数</a><br><a href="http://www.qiujiawei.com/understanding-quaternions/" target="_blank" rel="external">Understanding quaternions</a><br><img src="http://7xrsid.com1.z0.glb.clouddn.com/5-16/qdb.gif" alt="DQB" title="DQB"></p>
+<p>常规四元数只能表示空间的旋转变换，数学形式为$q = [cos(\theta / 2), n_x sin(\theta/2), n_y sin(\theta/2) , n_z sin(\theta/2)]$，其中$(n_x, n_y, n_z)$表示通过原点的旋转轴，$\theta$为旋转角度。</p>
+<p>对偶数类似于复数，定义为 $\hat z = a_0 + \varepsilon a_{\varepsilon}, a_0 \in \Bbb R, a_{\varepsilon} \in \Bbb R$，满足$\varepsilon ^2 = 0$，称$a_0$为实部，$a_\varepsilon$为对偶部，$\varepsilon$为对偶算子，类似于复数中的$i$。<strong>对偶四元数</strong>是实部和对偶部都为四元数的对偶数，又可称为八元数。常规四元数只能表示空间旋转，而对偶四元数可以表示空间任意旋转和平移的组合。</p>
+<p>对偶四元数定义为：<br>$$<br>\hat{\mathbf q} = \hat w + i\hat x + j \hat y + k \hat z<br>$$<br>其中，$w$是标量部分（对偶数），$(\hat x, \hat y, \hat z)$是向量部分，$i,j,k$是普通四元数算子。对偶算子$\varepsilon$和四元数算子是可交换的(commute)，比如$\varepsilon i = i \varepsilon$.<br>所以对偶四元数可以写成两个普通四元数的和的形式：<br>$$<br>\hat{\mathbf q} = \mathbf q_0 + \varepsilon \mathbf q_\varepsilon<br>$$<br>其中，$\mathbf q_0, \mathbf  q_\varepsilon$均为普通四元数。</p>
+<p><strong>共轭</strong><br>对偶四元数的共轭：<br>$$<br>\hat{\mathbf q}^\star = \mathbf q_0^\star + \varepsilon \mathbf q_\varepsilon ^\star<br>$$</p>
+<p><strong>单位对偶四元数</strong><br>$\hat{\mathbf q}$是单位化的，当且仅当$||\mathbf q_0|| = 1, \langle \mathbf q_0, \mathbf q_\varepsilon \rangle = 0$, $||\cdot||$表示模长，$\langle \cdot, \cdot \rangle$表示内积。</p>
+<p><strong>对偶四元数表示3D旋转变换</strong></p>
+<p>当对偶四元数的对偶部$\mathbf q_\varepsilon = \mathbf 0$时，该对偶四元数即表示3D旋转。</p>
+<p>对偶四元数可写为<br>$$<br>\hat{\mathbf q_r }= [cos(\theta/2), n_xcos(\theta/2), n_ycos(\theta/2), n_zcos(\theta/2)][0 \ 0 \ 0 \ 0]<br>$$<br>其中，对偶部为$\mathbf 0$.</p>
+<p>给定向量$\hat v = (v_0, v_1, v_2)$，$q$表示旋转的对偶四元数，那么向量$v$的旋转结果可以写为：<br>$$<br>\hat q \hat v \overline{\hat q ^\star}<br>$$<br>$\overline{\hat q ^\star}$ 表示共轭对偶四元数。</p>
+<p><strong>对偶四元数表示3D平移变换</strong><br>定义一个单位对偶四元数$\hat {\mathbf t} = 1 + \frac{\varepsilon}{2} (t_0 i + t_1 j + t_2 k)$对应为向量$(t_0, t_1, t_2)$表示的平移变换（取变换向量的一半，跟普通四元数表示旋转变换取角度的一半类似）</p>
+<p>写成对偶四元数形式：<br>$$<br>\hat{\mathbf q_t} = [1 \ 0 \ 0 \ 0 ][0 \ \frac{t_x}{2} \ \frac{t_y}{2} \ \frac{t_z}{2}]<br>$$</p>
+<p><strong>旋转和平移结合起来</strong><br>将上述两种情况结合起来，仍然用$\mathbf q_0$表示旋转对偶四元数，平移变换仍然表示为$1 + \frac{\varepsilon}{2} (t_0 i + t_1 j + t_2 k)$，那么结合起来就得到:<br>$$<br>\hat{\mathbf q_t} \hat{\mathbf q_r} = (1 + \frac{\varepsilon}{2} (t_0 i + t_1 j + t_2 k))\mathbf q_0 = \mathbf q_0 + \frac{\varepsilon}{2} (t_0 i + t_1 j + t_2 k)\mathbf q_0<br>$$</p>
+<h2 id="Dual-quaternion-Linear-Blending"><a href="#Dual-quaternion-Linear-Blending" class="headerlink" title="Dual-quaternion Linear Blending"></a>Dual-quaternion Linear Blending</h2><p>首先将蒙皮的顶点变换转换称为对偶四元数$\hat{\mathbf q_1},\dots, \hat{\mathbf q_n}$。然后按照权重，计算每个变换对顶点的影响，通过线性组合的方式，写为：<br>$$<br>DLB(\mathbf w; \hat{\mathbf q_1, \dots, \hat{\mathbf q_n}}) = \frac{w_1 \hat{\mathbf q_1} + \dots + w_n \hat{\mathbf q_n}}{||w_1 \hat{\mathbf q_1} + \dots + w_n \hat{\mathbf q_n} ||}<br>$$</p>
+<h2 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h2><blockquote>
+<p><strong>输入</strong>： </p>
+<ul>
+<li>对偶四元数$\hat{\mathbf q_1}, \dots, \hat{\mathbf q_n}$(全局变量)</li>
+<li>顶点位置$v$ 和 法向量$v_n$</li>
+<li>关节索引 $j_1, \dots, j_n$ 和权重$w_1, \dots, w_n$</li>
+</ul>
+<p><strong>输出</strong>：变换后的顶点坐标$v’$和法向量$v_n’$</p>
+<p>$\hat{ \mathbf b }= w_1 \hat{\mathbf q_1} + \dots + w_n \hat{\mathbf q_n}$<br>//记$\hat{\mathbf b}$中的实部为$\mathbf b_0$，对偶部为$\mathbf b_\varepsilon$<br>$\mathbf c_0 = \mathbf b_0 / ||\mathbf b_0||$<br>$\mathbf c_\varepsilon = \mathbf b_\epsilon / ||\mathbf b_0||$<br>//记$\mathbf c_0$为 $w_0, x_0, y_0, z_0$<br>//记$\mathbf c_\varepsilon$为 $w_\varepsilon, x_\varepsilon, y_\varepsilon, z_\varepsilon$<br>$t_0 = 2(-w_\varepsilon x_0 + x_\varepsilon w_0 - y_\varepsilon z_0 + z_\varepsilon y_0)$<br>$t_1 = 2(-w_\varepsilon x_0 + x_\varepsilon z_0 + y_\varepsilon w_0 - z_\varepsilon x_0)$<br>$t_2 = 2(-w_\varepsilon z_0 - x_\varepsilon y_0 + y_\varepsilon x_0 + z_\varepsilon w_0)$<br>$$<br>M =<br>\begin{pmatrix}<br>1 - 2y_0^2 - 2z_0^2 &amp; 2x_0y_0 - 2w_0z_0 &amp; 2x_0z_0 + 2w_0y_0 &amp; t_0 \\<br>2x_0y_0 + 2w_0z_0 &amp; 1 - 2x_0^2 - 2z_0^2 &amp; 2y_0z_0 - 2w_0x_0 &amp; t_1 \\<br>2x_0z_0 - 2w_0y_0 &amp; 2y_0z_0 + 2w_0x_0 &amp; 1 - 2x_0^2 - 2y_0^2 &amp; t_2<br>\end{pmatrix}<br>$$<br>$v’ = M v$     // $v$的结构为$(v_0, v_1, v_2, 1)$<br>$v_n’ = M v_n$ // $v_n$的结构为$(v_{n, 0}, v_{n, 1}, v_{n,2}, 0)$</p>
+</blockquote>
+<p>有些细节没有说明，可以参考<a href="https://www.cs.utah.edu/~ladislav/kavan07skinning/kavan07skinning.pdf" target="_blank" rel="external">论文</a>。</p>
 <p>参考：<br><a href="https://www.zhihu.com/question/32007883" target="_blank" rel="external">https://www.zhihu.com/question/32007883</a><br><a href="http://www.cnblogs.com/shushen/p/5987280.html" target="_blank" rel="external">http://www.cnblogs.com/shushen/p/5987280.html</a></p>
 
       
@@ -380,6 +403,10 @@
             <a href="/blog/tags/rgbd/" rel="tag">#rgbd</a>
           
             <a href="/blog/tags/算法/" rel="tag">#算法</a>
+          
+            <a href="/blog/tags/四元数/" rel="tag">#四元数</a>
+          
+            <a href="/blog/tags/对偶四元数/" rel="tag">#对偶四元数</a>
           
         </div>
       
@@ -519,7 +546,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/blog/tags">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -620,7 +647,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础知识"><span class="nav-number">1.</span> <span class="nav-text">基础知识</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础知识"><span class="nav-number">1.</span> <span class="nav-text">基础知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dual-quaternion-Linear-Blending"><span class="nav-number">2.</span> <span class="nav-text">Dual-quaternion Linear Blending</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm"><span class="nav-number">3.</span> <span class="nav-text">Algorithm</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://hengyishu.cn/blog/2017/05/16/DynamicFusion-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</loc>
+    <loc>http://hengyishu.cn/blog/2017/05/16/Skinning-with-Dual-Quaternions-%E5%AF%B9%E5%81%B6%E5%9B%9B%E5%85%83%E6%95%B0%E8%92%99%E7%9A%AE/</loc>
     
-    <lastmod>2017-05-16T14:04:01.533Z</lastmod>
+    <lastmod>2017-05-17T10:10:34.366Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://hengyishu.cn/blog/2017/05/16/Skinning-with-Dual-Quaternions-%E5%AF%B9%E5%81%B6%E5%9B%9B%E5%85%83%E6%95%B0%E8%92%99%E7%9A%AE/</loc>
+    <loc>http://hengyishu.cn/blog/2017/05/16/DynamicFusion-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</loc>
     
-    <lastmod>2017-05-16T13:59:07.521Z</lastmod>
+    <lastmod>2017-05-16T14:04:01.533Z</lastmod>
     
   </url>
   
@@ -79,13 +79,6 @@
   </url>
   
   <url>
-    <loc>http://hengyishu.cn/tags/index.html</loc>
-    
-    <lastmod>2017-02-14T03:14:55.018Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://hengyishu.cn/js/duoshuo.js</loc>
     
     <lastmod>2017-02-14T03:14:55.018Z</lastmod>
@@ -93,14 +86,21 @@
   </url>
   
   <url>
-    <loc>http://hengyishu.cn/categories/index.html</loc>
+    <loc>http://hengyishu.cn/tags/index.html</loc>
+    
+    <lastmod>2017-02-14T03:14:55.018Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://hengyishu.cn/css/markcss.css</loc>
     
     <lastmod>2017-02-14T03:14:55.008Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://hengyishu.cn/css/markcss.css</loc>
+    <loc>http://hengyishu.cn/categories/index.html</loc>
     
     <lastmod>2017-02-14T03:14:55.008Z</lastmod>
     
