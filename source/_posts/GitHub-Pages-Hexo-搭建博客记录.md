@@ -148,6 +148,26 @@ sitemap: sitemap.xml
 然后再执行 `hexo g` 之后，访问 yoururl/sitemap.xml 就能看到生成的sitemap文件了。
 然后把sitemap文件url添加到[百度站长][13]或者[Google Analytics][14]上，就能够被搜索引擎收录了。
 
+## 消除hexo转义符对mathjax公式的影响
+参考问题中修改marked.js的回答，目前还没有发现什么问题。
+https://segmentfault.com/q/1010000003987383/a-1020000003987577
+
+## github和coding.net(原gitcafe)同时部署
+github的pages服务用百度没办法检索到，只好双备份，github和gitcafe都有。
+在coding.net上使用pages服务跟github上类似。
+**需要绑定域名时，一定要先在运营商那边添加CNAME条目再在coding.net上绑定相应的域名，否则会不起作用（绑定的时候coding.net也会提醒）**
+想要同时部署，在hexo的blog配置文件中deploy部分改成如下片段就好：
+```
+deploy: 
+- type: git
+  repo: git@github.com:hys2015/blog.git
+  branch: gh-pages
+- type: git
+  repo: git@git.coding.net:markheng/blog.git
+  branch: coding-pages
+```
+**需要注意branch要对应到pages服务需要的分支才有用。**
+
 
   [1]: http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000 "廖雪峰的Git教程"
   [2]: https://pages.github.com/ "GitHub Pages 官方网站"
