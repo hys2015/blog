@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://hengyishu.cn/"/>
-  <updated>2017-05-17T10:10:34.366Z</updated>
+  <updated>2018-08-02T03:01:41.386Z</updated>
   <id>http://hengyishu.cn/</id>
   
   <author>
@@ -16,11 +16,46 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>作业部落博客目录</title>
+    <link href="http://hengyishu.cn/2018/08/02/%E4%BD%9C%E4%B8%9A%E9%83%A8%E8%90%BD%E5%8D%9A%E5%AE%A2%E7%9B%AE%E5%BD%95/"/>
+    <id>http://hengyishu.cn/2018/08/02/作业部落博客目录/</id>
+    <published>2018-08-02T02:41:29.000Z</published>
+    <updated>2018-08-02T03:01:41.386Z</updated>
+    
+    <content type="html"><![CDATA[<p>blog写md不能直接预览，自己也犯懒，就写到了在线编辑器里，这里留个目录。<br><a id="more"></a></p>
+<ul>
+<li><a href="https://zybuluo.com/markheng/note/1187219" target="_blank" rel="external">C++后台开发 2019秋招知识准备</a></li>
+<li><a href="https://zybuluo.com/markheng/note/1074568" target="_blank" rel="external">设计模式 一览</a></li>
+<li><a href="https://zybuluo.com/markheng/note/1201624" target="_blank" rel="external">iOS OpenGL对法向量进行插值</a></li>
+<li><a href="https://zybuluo.com/markheng/note/1070646" target="_blank" rel="external">swift指针 - UnsafeWorld of Swift 3.0</a></li>
+<li><a href="https://zybuluo.com/markheng/note/1070794" target="_blank" rel="external">Closure in Swift 3.0</a></li>
+<li><a href="https://zybuluo.com/markheng/note/1109437" target="_blank" rel="external">BinarySearch - 二叉搜索</a></li>
+<li><a href="https://zybuluo.com/markheng/note/1107236" target="_blank" rel="external">Binary Search Tree Iterator - LeetCode</a></li>
+<li><a href="https://zybuluo.com/markheng/note/1107180" target="_blank" rel="external">验证二叉搜索树 Validate Binary Search Tree LeetCode</a></li>
+<li><a href="https://zybuluo.com/markheng/note/665940" target="_blank" rel="external">Cholesky分解</a></li>
+<li><a href="https://zybuluo.com/markheng/note/1128300" target="_blank" rel="external">人体重建论文两则 笔记</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;blog写md不能直接预览，自己也犯懒，就写到了在线编辑器里，这里留个目录。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="日常" scheme="http://hengyishu.cn/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+      <category term="学习" scheme="http://hengyishu.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Skinning with Dual Quaternions - 对偶四元数蒙皮</title>
     <link href="http://hengyishu.cn/2017/05/16/Skinning-with-Dual-Quaternions-%E5%AF%B9%E5%81%B6%E5%9B%9B%E5%85%83%E6%95%B0%E8%92%99%E7%9A%AE/"/>
     <id>http://hengyishu.cn/2017/05/16/Skinning-with-Dual-Quaternions-对偶四元数蒙皮/</id>
     <published>2017-05-16T13:57:36.000Z</published>
-    <updated>2017-05-17T10:10:34.366Z</updated>
+    <updated>2017-05-17T10:10:36.000Z</updated>
     
     <content type="html"><![CDATA[<p>蒙皮，就是根据控制单元的变化，控制相应的顶点的变化，线性蒙皮采用线性插值的方法计算变形前后的顶点的位置。</p>
 <p>蒙皮的算法主要分为两步：</p>
@@ -68,11 +103,11 @@
       <category term="学习记录" scheme="http://hengyishu.cn/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
     
     
+      <category term="算法" scheme="http://hengyishu.cn/tags/%E7%AE%97%E6%B3%95/"/>
+    
       <category term="fusion" scheme="http://hengyishu.cn/tags/fusion/"/>
     
       <category term="rgbd" scheme="http://hengyishu.cn/tags/rgbd/"/>
-    
-      <category term="算法" scheme="http://hengyishu.cn/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="四元数" scheme="http://hengyishu.cn/tags/%E5%9B%9B%E5%85%83%E6%95%B0/"/>
     
@@ -85,7 +120,7 @@
     <link href="http://hengyishu.cn/2017/05/16/DynamicFusion-%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
     <id>http://hengyishu.cn/2017/05/16/DynamicFusion-论文阅读/</id>
     <published>2017-05-16T08:16:33.000Z</published>
-    <updated>2017-05-16T14:04:01.533Z</updated>
+    <updated>2017-05-16T14:04:02.000Z</updated>
     
     <content type="html"><![CDATA[<p>newcombe大神2015的论文，叼的不行。。。<br><a href="https://rse-lab.cs.washington.edu/papers/dynamic-fusion-cvpr-2015.pdf" target="_blank" rel="external">论文地址</a><br><a id="more"></a></p>
 <h2 id="2-Overview"><a href="#2-Overview" class="headerlink" title="2. Overview"></a>2. Overview</h2><p>DF将非刚性形变场景分解到隐性几何表面，重建到刚性规范空间中。还有每帧的形变场，将上述表面转换到当前帧中。<br>每新的一幅深度帧，以下三种算法依次执行：</p>
@@ -136,11 +171,11 @@
       <category term="学习记录" scheme="http://hengyishu.cn/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
     
     
-      <category term="论文阅读" scheme="http://hengyishu.cn/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
-    
       <category term="fusion" scheme="http://hengyishu.cn/tags/fusion/"/>
     
       <category term="rgbd" scheme="http://hengyishu.cn/tags/rgbd/"/>
+    
+      <category term="论文阅读" scheme="http://hengyishu.cn/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
     
   </entry>
   
@@ -149,7 +184,7 @@
     <link href="http://hengyishu.cn/2017/03/08/Bundle-Adjustment%E5%85%89%E6%9D%9F%E5%B9%B3%E5%B7%AE%E6%B3%95/"/>
     <id>http://hengyishu.cn/2017/03/08/Bundle-Adjustment光束平差法/</id>
     <published>2017-03-08T13:52:34.000Z</published>
-    <updated>2017-03-08T13:59:03.297Z</updated>
+    <updated>2017-03-08T13:59:04.000Z</updated>
     
     <content type="html"><![CDATA[<p>bundle adjustment（一般翻译为光束平差法，下称光束平差法）定义为一个问题，这个问题需要同时精细化描述场景几何3D坐标、相对运动参数、和相机用来获取图像的光学特性。<br><a id="more"></a></p>
 <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>给定一个从不同视角刻画一系列3D点的图像，bundle adjustment（一般翻译为光束平差法，下称光束平差法）定义为一个问题，这个问题需要同时精细化描述场景几何3D坐标、相对运动参数、和相机用来获取图像的光学特性。解决这个问题需要参照所有点对应图像的投影的最优性表准来完成。</p>
@@ -182,7 +217,7 @@
     <link href="http://hengyishu.cn/2017/03/08/FAST%E8%A7%92%E7%82%B9%E6%A3%80%E6%B5%8B-FAST-Corner-Detection/"/>
     <id>http://hengyishu.cn/2017/03/08/FAST角点检测-FAST-Corner-Detection/</id>
     <published>2017-03-08T08:29:23.000Z</published>
-    <updated>2017-03-08T08:31:01.915Z</updated>
+    <updated>2017-03-08T08:31:02.000Z</updated>
     
     <content type="html"><![CDATA[<p>FAST是一种角点检测方法，用于图像的特征点的提取，然后用在追踪和映射物体等计算机视觉任务中。<br><a id="more"></a></p>
 <h3 id="FAST-Features-from-accelerated-segment-test"><a href="#FAST-Features-from-accelerated-segment-test" class="headerlink" title="FAST - Features from accelerated segment test"></a>FAST - Features from accelerated segment test</h3><p>FAST是一种角点检测方法，用于图像的特征点的提取，然后用在追踪和映射物体等计算机视觉任务中。FAST最明显的优势是它的效率。就像它的名字——FAST，它很快并且比其它著名的特征点提取方法，比如SIFT，SUSAN和Harris检测中的DoG(difference of Gaussians)方法。另外，结合机器学习的应用，算法在计算时间和资源上的性能还能够继续提高。</p>
@@ -224,7 +259,7 @@
     <link href="http://hengyishu.cn/2017/02/22/Cuda-8-0-in-Qt-5-8-with-VS2015-32bit/"/>
     <id>http://hengyishu.cn/2017/02/22/Cuda-8-0-in-Qt-5-8-with-VS2015-32bit/</id>
     <published>2017-02-22T07:25:11.000Z</published>
-    <updated>2017-03-08T08:33:59.573Z</updated>
+    <updated>2017-03-08T08:34:00.000Z</updated>
     
     <content type="html"><![CDATA[<p>把cuda应用到Qt中没有官方插件也没有完整的教程，网上找到的都是cuda4.0左右版本的教程，我用的是cuda8.0，Qt5.8。自己摸索了一下配置过程。<br><a id="more"></a></p>
 <h2 id="来自stackoverflow的-pro文件"><a href="#来自stackoverflow的-pro文件" class="headerlink" title="来自stackoverflow的.pro文件"></a>来自stackoverflow的.pro文件</h2><p>我的Qt工程结构如下：</p>
@@ -361,7 +396,7 @@ else {
     <link href="http://hengyishu.cn/2017/02/18/%E6%8F%90%E9%AB%98windows%E4%BD%BF%E7%94%A8%E4%BD%93%E6%A3%80%E7%9A%84%E8%BD%AF%E4%BB%B6/"/>
     <id>http://hengyishu.cn/2017/02/18/提高windows使用体检的软件/</id>
     <published>2017-02-18T02:35:13.000Z</published>
-    <updated>2017-02-18T02:45:40.483Z</updated>
+    <updated>2017-02-18T02:45:42.000Z</updated>
     
     <content type="html"><![CDATA[<p>更新一下，这半年来有一些新的软件可以推荐。<br><a id="more"></a></p>
 <h2 id="cmd-markdown"><a href="#cmd-markdown" class="headerlink" title="cmd markdown"></a>cmd markdown</h2><p>支持标准md语法，支持mathjax公式，写博客，写学习笔记都很实用。<br>有web版，pc版，pc版支持离线写作。自带同步，到哪都能用，相当方便。<br>唯一有缺憾的就是移动端编辑界面支持不太好，不过没有太大影响。</p>
@@ -409,7 +444,7 @@ else {
     <link href="http://hengyishu.cn/2017/02/18/CUDA-%E5%85%A5%E9%97%A8/"/>
     <id>http://hengyishu.cn/2017/02/18/CUDA-入门/</id>
     <published>2017-02-18T02:19:48.000Z</published>
-    <updated>2017-02-18T02:21:40.595Z</updated>
+    <updated>2017-02-18T02:21:42.000Z</updated>
     
     <content type="html"><![CDATA[<p>三维重建离不开大规模的矩阵运算，合理编程利用GPU可以加速这些运算的效率。</p>
 <a id="more"></a>
@@ -437,7 +472,7 @@ else {
     <link href="http://hengyishu.cn/2017/02/18/Debug-in-visual-c/"/>
     <id>http://hengyishu.cn/2017/02/18/Debug-in-visual-c/</id>
     <published>2017-02-18T02:12:00.000Z</published>
-    <updated>2017-02-18T02:15:05.095Z</updated>
+    <updated>2017-02-18T02:15:06.000Z</updated>
     
     <content type="html"><![CDATA[<p>最近在研究师兄的代码，编译一遍挺久，所以趁此机会了解一下相关debug的技巧和方法，有助于提高自己的开发效率。</p>
 <a id="more"></a>
@@ -488,7 +523,7 @@ else {
     <link href="http://hengyishu.cn/2017/02/16/%E8%BF%AD%E4%BB%A3%E6%9C%80%E8%BF%91%E7%82%B9%E6%96%B9%E6%B3%95ICP/"/>
     <id>http://hengyishu.cn/2017/02/16/迭代最近点方法ICP/</id>
     <published>2017-02-16T08:57:57.000Z</published>
-    <updated>2017-02-18T02:29:57.446Z</updated>
+    <updated>2017-02-18T02:29:58.000Z</updated>
     
     <content type="html"><![CDATA[<p>ICP迭代最近点方法，是三维建模中将点云模型对齐的一种常用方法。</p>
 <a id="more"></a>
@@ -530,7 +565,7 @@ else {
     <link href="http://hengyishu.cn/2017/02/16/k-d%E6%A0%91/"/>
     <id>http://hengyishu.cn/2017/02/16/k-d树/</id>
     <published>2017-02-16T08:44:43.000Z</published>
-    <updated>2017-03-08T08:45:49.607Z</updated>
+    <updated>2017-03-08T08:45:50.000Z</updated>
     
     <content type="html"><![CDATA[<p>k-d树是查找相邻点很重要的一种数据结构。<br><a id="more"></a></p>
 <blockquote>
@@ -608,7 +643,7 @@ else {
     <link href="http://hengyishu.cn/2017/01/31/%E6%88%91%E7%9A%84%E4%BA%8C%E3%80%87%E4%B8%80%E5%85%AD/"/>
     <id>http://hengyishu.cn/2017/01/31/我的二〇一六/</id>
     <published>2017-01-31T11:02:03.000Z</published>
-    <updated>2017-02-14T03:14:55.007Z</updated>
+    <updated>2017-02-14T03:14:56.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="零"><a href="#零" class="headerlink" title="零"></a>零</h2><p>写下这些文字的时候，2017已经过去了将近一个月。好久没有写过东西，以前觉得有些想法就让他烂在心里的好，然而现在觉得生活中零零碎碎的东西如果都烂掉了，岂不是太过可惜，不如记下，偶尔翻看，回味一番。</p>
 <a id="more"></a>
@@ -669,7 +704,7 @@ else {
     <link href="http://hengyishu.cn/2016/03/22/Qt-OpenGL%E4%B8%8EQt%E7%BB%93%E5%90%88-OpenGL-under-QML/"/>
     <id>http://hengyishu.cn/2016/03/22/Qt-OpenGL与Qt结合-OpenGL-under-QML/</id>
     <published>2016-03-22T06:24:50.000Z</published>
-    <updated>2017-02-14T03:14:55.004Z</updated>
+    <updated>2017-02-14T03:14:56.000Z</updated>
     
     <content type="html"><![CDATA[<p>写个demo感受一下OpenGL如何在Qt上应用。<br><a id="more"></a></p>
 <h1 id="OpenGL"><a href="#OpenGL" class="headerlink" title="OpenGL"></a>OpenGL</h1><blockquote>
@@ -742,7 +777,7 @@ else {
     <link href="http://hengyishu.cn/2016/03/18/Qt%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E4%BD%BF%E7%94%A8C-%E7%BC%96%E5%86%99QML%E7%BB%84%E4%BB%B6/"/>
     <id>http://hengyishu.cn/2016/03/18/Qt学习记录-使用C-编写QML组件/</id>
     <published>2016-03-18T13:58:00.000Z</published>
-    <updated>2017-02-14T03:14:55.006Z</updated>
+    <updated>2017-02-14T03:14:56.000Z</updated>
     
     <content type="html"><![CDATA[<p>初学Qt，官网文档看的有点乱乱的，经常找不到自己需要的东西。于是决定跟着官网的一篇文章写一个Demo–一个简单的文本编辑器，参考教程在<a href="http://doc.qt.io/qt-5/gettingstartedqml.html" title="Getting Started Programming with Qt Quick" target="_blank" rel="external">这里</a><br><a id="more"></a></p>
 <h1 id="QML-amp-QML-modules"><a href="#QML-amp-QML-modules" class="headerlink" title="QML &amp; QML modules"></a>QML &amp; QML modules</h1><p>QML (Qt Markup Language<a href="https://zh.wikipedia.org/wiki/QML" title="QML wikipedia" target="_blank" rel="external">2</a> 或 Qt Meta Language 或 Qt Modeling Language<a href="http://doc.qt.io/qt-5/gettingstartedqml.html" title="Getting Started Programming with Qt Quick" target="_blank" rel="external">3</a>) 是基于JavaScript、宣告式编程的编程语言，用于设计用户界面为主的应用程序。它是Qt Quick，诺基亚开发的用户界面创建包的一部分。QML 主要用于移动应用程序，注重于触控输入、流畅的动画（60张/秒）和用户体验。QML documents 描述元素的对象树。</p>
@@ -803,7 +838,7 @@ else {
     <link href="http://hengyishu.cn/2016/03/12/Qt5-5-Visual-Studio2013-%E7%BB%93%E5%90%88/"/>
     <id>http://hengyishu.cn/2016/03/12/Qt5-5-Visual-Studio2013-结合/</id>
     <published>2016-03-12T06:50:18.000Z</published>
-    <updated>2017-02-14T03:14:55.005Z</updated>
+    <updated>2017-02-14T03:14:56.000Z</updated>
     
     <content type="html"><![CDATA[<p>Qt Creater 编写代码不够舒服，而vs拥有强大的开发调试环境，在vs上进行qt开发，两全其美。<br><a id="more"></a></p>
 <h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ul>
@@ -842,7 +877,7 @@ else {
     <link href="http://hengyishu.cn/2016/03/09/GitHub-Pages-Hexo-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AE%B0%E5%BD%95/"/>
     <id>http://hengyishu.cn/2016/03/09/GitHub-Pages-Hexo-搭建博客记录/</id>
     <published>2016-03-09T08:12:01.000Z</published>
-    <updated>2017-02-18T02:57:03.021Z</updated>
+    <updated>2017-02-18T02:57:04.000Z</updated>
     
     <content type="html"><![CDATA[<p>曾经想用阿里云ecs自己搭一个博客，平常可以写点东西放上去，结果过于麻烦并且不必要。Github Pages + Hexo是在windows上很友好的一个组合。<br><a id="more"></a><br>好多教程里用的是 jekyll 来生成静态网页，但是在windows上使用并不是官方推荐的，所以我使用了hexo作为生成工具。</p>
 <h1 id="需要安装的软件"><a href="#需要安装的软件" class="headerlink" title="需要安装的软件"></a>需要安装的软件</h1><ul>
