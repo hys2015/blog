@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://hengyishu.cn/"/>
-  <updated>2018-08-02T03:01:41.386Z</updated>
+  <updated>2018-08-04T03:02:21.714Z</updated>
   <id>http://hengyishu.cn/</id>
   
   <author>
@@ -17,13 +17,15 @@
   
   <entry>
     <title>作业部落博客目录</title>
-    <link href="http://hengyishu.cn/2018/08/02/%E4%BD%9C%E4%B8%9A%E9%83%A8%E8%90%BD%E5%8D%9A%E5%AE%A2%E7%9B%AE%E5%BD%95/"/>
-    <id>http://hengyishu.cn/2018/08/02/作业部落博客目录/</id>
-    <published>2018-08-02T02:41:29.000Z</published>
-    <updated>2018-08-02T03:01:41.386Z</updated>
+    <link href="http://hengyishu.cn/2018/08/04/%E4%BD%9C%E4%B8%9A%E9%83%A8%E8%90%BD%E5%8D%9A%E5%AE%A2%E7%9B%AE%E5%BD%95/"/>
+    <id>http://hengyishu.cn/2018/08/04/作业部落博客目录/</id>
+    <published>2018-08-04T03:02:17.000Z</published>
+    <updated>2018-08-04T03:02:21.714Z</updated>
     
     <content type="html"><![CDATA[<p>blog写md不能直接预览，自己也犯懒，就写到了在线编辑器里，这里留个目录。<br><a id="more"></a></p>
 <ul>
+<li><a href="https://zybuluo.com/markheng/note/1237983" target="_blank" rel="external">STL源码剖析笔记 - traits编程技法</a></li>
+<li><a href="https://zybuluo.com/markheng/note/1236510" target="_blank" rel="external">STL源码剖析笔记 - STL的Allocator</a></li>
 <li><a href="https://zybuluo.com/markheng/note/1187219" target="_blank" rel="external">C++后台开发 2019秋招知识准备</a></li>
 <li><a href="https://zybuluo.com/markheng/note/1074568" target="_blank" rel="external">设计模式 一览</a></li>
 <li><a href="https://zybuluo.com/markheng/note/1201624" target="_blank" rel="external">iOS OpenGL对法向量进行插值</a></li>

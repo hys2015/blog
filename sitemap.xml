@@ -2,9 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://hengyishu.cn/blog/2018/08/02/%E4%BD%9C%E4%B8%9A%E9%83%A8%E8%90%BD%E5%8D%9A%E5%AE%A2%E7%9B%AE%E5%BD%95/</loc>
+    <loc>http://hengyishu.cn/blog/2018/08/04/%E4%BD%9C%E4%B8%9A%E9%83%A8%E8%90%BD%E5%8D%9A%E5%AE%A2%E7%9B%AE%E5%BD%95/</loc>
     
-    <lastmod>2018-08-02T03:01:41.386Z</lastmod>
+    <lastmod>2018-08-04T03:02:21.714Z</lastmod>
     
   </url>
   
@@ -86,20 +86,6 @@
   </url>
   
   <url>
-    <loc>http://hengyishu.cn/blog/2016/03/12/Qt5-5-Visual-Studio2013-%E7%BB%93%E5%90%88/</loc>
-    
-    <lastmod>2017-02-14T03:14:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://hengyishu.cn/blog/2016/03/18/Qt%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E4%BD%BF%E7%94%A8C-%E7%BC%96%E5%86%99QML%E7%BB%84%E4%BB%B6/</loc>
-    
-    <lastmod>2017-02-14T03:14:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://hengyishu.cn/blog/2016/03/22/Qt-OpenGL%E4%B8%8EQt%E7%BB%93%E5%90%88-OpenGL-under-QML/</loc>
     
     <lastmod>2017-02-14T03:14:56.000Z</lastmod>
@@ -107,7 +93,21 @@
   </url>
   
   <url>
-    <loc>http://hengyishu.cn/blog/2017/01/31/%E6%88%91%E7%9A%84%E4%BA%8C%E3%80%87%E4%B8%80%E5%85%AD/</loc>
+    <loc>http://hengyishu.cn/blog/2016/03/12/Qt5-5-Visual-Studio2013-%E7%BB%93%E5%90%88/</loc>
+    
+    <lastmod>2017-02-14T03:14:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://hengyishu.cn/js/duoshuo.js</loc>
+    
+    <lastmod>2017-02-14T03:14:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://hengyishu.cn/blog/2016/03/18/Qt%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E4%BD%BF%E7%94%A8C-%E7%BC%96%E5%86%99QML%E7%BB%84%E4%BB%B6/</loc>
     
     <lastmod>2017-02-14T03:14:56.000Z</lastmod>
     
@@ -142,7 +142,7 @@
   </url>
   
   <url>
-    <loc>http://hengyishu.cn/js/duoshuo.js</loc>
+    <loc>http://hengyishu.cn/blog/2017/01/31/%E6%88%91%E7%9A%84%E4%BA%8C%E3%80%87%E4%B8%80%E5%85%AD/</loc>
     
     <lastmod>2017-02-14T03:14:56.000Z</lastmod>
     
